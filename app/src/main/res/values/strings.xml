@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CovidWatch</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+</resources>
