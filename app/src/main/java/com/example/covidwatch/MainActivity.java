@@ -9,20 +9,25 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Method for admin dashboard
+        button = (Button)findViewById(R.id.cancel_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDashboardAct();
+            }
+        });
     }
 
-
-//    Button btn = (Button)findViewById(R.id.cancel_button);
-//    btn.setOnc(new View.OnClickListener() {
-//        public void onClick(View v) {
-//            startActivity(new Intent(this, AdminDashboard.class));
-//        }
-//    });
+    public void openDashboardAct(){
+        Intent intent = new Intent(this, AdminDashboard.class);
+        startActivity(intent);
+    }
 }
