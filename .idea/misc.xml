@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/circle_yellow.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_test.xml" value="0.45" />
       </map>
     </option>
   </component>
