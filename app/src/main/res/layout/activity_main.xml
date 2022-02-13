@@ -37,15 +37,17 @@
         android:id="@+id/txtUsername"
         android:layout_below="@+id/image"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Username">
+        android:layout_margin="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edtUsername"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:hint="Username"
+            android:layout_below="@+id/image"
+            android:layout_margin="4dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,18 +55,21 @@
         android:layout_width="match_parent"
         android:layout_below="@+id/txtUsername"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Password">
+        android:layout_margin="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:layout_below="@+id/txtUsername"
+            android:layout_margin="4dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
-        android:id="@+id/cancel_button"
+        android:id="@+id/btnLogin"
         android:backgroundTint="@color/primary_color"
         android:layout_width="wrap_content"
         android:layout_below="@+id/txtPassword"
