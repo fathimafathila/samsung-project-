@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Method for admin dashboard
-        button = (Button)findViewById(R.id.cancel_button);
+        button = (Button)findViewById(R.id.btnLogin);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
