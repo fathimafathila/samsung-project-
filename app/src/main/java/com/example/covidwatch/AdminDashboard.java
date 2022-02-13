@@ -31,7 +31,7 @@ public class AdminDashboard extends AppCompatActivity {
         }
 
         public void openDashboardAct(){
-            Intent intent = new Intent(this, TestActivity.class);
+            Intent intent = new Intent(this, AddRecordActivity.class);
             startActivity(intent);
         }
 }
