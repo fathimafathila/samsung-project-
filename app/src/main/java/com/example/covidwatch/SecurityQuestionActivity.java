@@ -7,27 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
-public class MainActivity extends AppCompatActivity {
+public class SecurityQuestionActivity extends AppCompatActivity {
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_security_question);
 
-        // Method for security question
-        button = (Button)findViewById(R.id.btnLogin);
+        // Method for admin dashboard
+        button = (Button)findViewById(R.id.btnProceed);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDashboardAct();
+                openSecurityPage();
             }
         });
     }
 
-    public void openDashboardAct(){
-        Intent intent = new Intent(this, SecurityQuestionActivity.class);
+    public void openSecurityPage(){
+        Intent intent = new Intent(this, AdminDashboard.class);
         startActivity(intent);
     }
 }

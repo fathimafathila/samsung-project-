@@ -16,10 +16,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Covid Watch"
+        android:text="COVID WATCH"
         android:textAlignment="center"
         android:textColor="@color/primary_color"
-        android:textSize="32sp"
+        android:textSize="34sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -70,13 +70,38 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:backgroundTint="@color/primary_color"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/txtPassword"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Login" />
+        android:backgroundTint="@color/primary_color"
+        android:text="LOGIN"
+        android:padding="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/background_color"
+        android:outlineSpotShadowColor="@color/background_color"
+        android:text="Forgot Password"
+        android:textColor="@color/primary_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnForgot"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/primary_color"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:text="Your initial password will be your date of birth (MMDDYY format)"
+        />
 
 
 
