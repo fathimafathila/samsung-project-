@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch">
         <activity
+            android:name=".ResourceRequestCaseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewRecordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EscalatedCaseActivity"
+            android:exported="true" />
+        <activity
             android:name=".SecurityQuestionActivity"
             android:exported="false" />
         <activity

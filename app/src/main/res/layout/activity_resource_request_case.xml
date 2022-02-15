@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ResourceRequestCaseActivity">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Resolved Case"
+        android:textAlignment="center"
+        android:textColor="@color/primary_color"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <TableRow
+            android:background="@color/background_color">
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/id1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1225"
+
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joe Smith"
+
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/status1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Panding"
+
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/address1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mohawk Rd"
+
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

@@ -35,13 +35,13 @@
                     android:background="@drawable/circle_yellow"
                     android:src="@drawable/ic_newrecord"
                     android:padding="10dp" />
-                
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/lightgrey"
                     android:layout_marginTop="10dp" />
-                
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,21 +54,14 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="5dp">
-
         <com.google.android.material.card.MaterialCardView
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_margin="10dp"
             app:cardElevation="15dp"
-            android:id="@+id/updateRecord">
+            android:onClick="btn_viewRecord"
+            android:id="@+id/viewRecord"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,57 +72,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circle_purple"
-                    android:src="@drawable/ic_update"
-                    android:padding="10dp"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/lightgrey"
-                    android:layout_marginTop="10dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Update Record"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/textColor" />
-
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="5dp">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            app:cardElevation="15dp"
-            android:id="@+id/deleteRecord">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_red"
-                    android:src="@drawable/ic_recorddelete"
+                    android:background="@drawable/circle_grayn"
+                    android:src="@drawable/ic_viewrecord"
                     android:padding="10dp" />
 
                 <View
@@ -141,7 +85,58 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Delete Record"
+                    android:text="View Record"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/textColor" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="5dp">
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            app:cardElevation="15dp"
+            android:id="@+id/escalatedCase"
+            android:onClick="btn_escalatedCase">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_blue"
+                    android:src="@drawable/ic_escalatedcase"
+                    android:padding="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgrey"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Escalated Record"
                     android:textStyle="bold"
                     android:padding="5dp"
                     android:layout_marginTop="10dp"
@@ -151,6 +146,55 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="5dp">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            app:cardElevation="15dp"
+            android:id="@+id/resolvedCases"
+            android:onClick="btn_resolvedCase">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_golden"
+                    android:src="@drawable/ic_resolvedcase"
+                    android:padding="10dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgrey"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resolved Cases"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/textColor" />
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 

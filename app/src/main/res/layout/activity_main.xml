@@ -109,6 +109,7 @@
         android:backgroundTint="@color/background_color"
         android:outlineSpotShadowColor="@color/background_color"
         android:text="Forgot Password"
+        android:onClick="resetPsw"
         android:textColor="@color/primary_color"
         android:textStyle="bold" />
 

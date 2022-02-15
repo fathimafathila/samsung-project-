@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -58,5 +60,10 @@ public class MainActivity extends AppCompatActivity {
 
         // after all validation return true.
         return true;
+    }
+    public void resetPsw(View v){
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(R.layout.forgetpassword);
+        bottomSheetDialog.show();
     }
 }
