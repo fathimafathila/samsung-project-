@@ -1,10 +1,11 @@
-package com.example.covidwatch.AdminView;
+package com.example.covidwatch.AdminView.CreateUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,30 +14,40 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AddRecordActivity extends AppCompatActivity {
-    EditText edtFName,edtLName, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
+    EditText edtFName,edtLName, edtEmail, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
     boolean isAllFieldsChecked = false;
-    private DatePicker datePicker;
     private Calendar calendar;
-    private EditText dateView1;
-    private EditText dateView2;
-    private EditText dateView3;
+    private EditText dateView1, dateView2, dateView3;
     private int year, month, day;
+
+    String password ;
+
+    //Firebase Object Create
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_record);
 
+        // Instance of Firebase
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         //defining reference objects for the UI controls
         edtFName = findViewById(R.id.FirstName);
         edtLName = findViewById(R.id.LastName);
+        edtEmail = findViewById(R.id.Email);
         edtDob = findViewById(R.id.edtDob);
         edtAge = findViewById(R.id.edtAge);
         edtGender = findViewById(R.id.edtGender);
@@ -149,6 +160,14 @@ public class AddRecordActivity extends AppCompatActivity {
     private void showDate1(int year, int month, int day) {
         dateView1.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
+
+        int number = month*10000 + day*100 + year%100 ;
+        if(month < 10 ){
+            password = "0" + String.valueOf(number);
+        }else{
+            password = String.valueOf(number);
+        }
+
     }
 
     // Showing specimen date
@@ -178,10 +197,10 @@ public class AddRecordActivity extends AppCompatActivity {
     private ArrayList<String> getGendersList()
     {
         ArrayList<String> genders = new ArrayList<>();
-        genders.add("male");
-        genders.add("female");
-        genders.add("both");
-        genders.add("prefer not to say");
+        genders.add("Male");
+        genders.add("Female");
+        genders.add("Both");
+        genders.add("Prefer not to say");
         return genders;
     }
 
@@ -190,9 +209,41 @@ public class AddRecordActivity extends AppCompatActivity {
         isAllFieldsChecked = validateInputFields();
 
         if (isAllFieldsChecked) {
-            Intent intent = new Intent(this, AddRecord2Activity.class);
+            String firstName = edtFName.getText().toString();
+            String lastName = edtLName.getText().toString();
+            String email = edtEmail.getText().toString();
+            String dob = edtDob.getText().toString();
+            String age = edtAge.getText().toString();
+            String gender = edtGender.getText().toString();
+            String phone = edtPhoneNumber.getText().toString();
+            String priority = edtPriority.getText().toString();
+            String minor = edtMinor.getText().toString();
+            String specimenDate = edtSpecimenDate.getText().toString();
+            String testReportDate = edtTestReportDate.getText().toString();
 
+            // Shared preference to store data
+
+            SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+            SharedPreferences.Editor myEdit = sharedPreferences.edit();
+            myEdit.putString("FirstName", firstName);
+            myEdit.putString("LastName", lastName);
+            myEdit.putString("Email", email);
+            myEdit.putString("DOB", dob);
+            myEdit.putString("Gender", gender);
+            myEdit.putString("Age", age);
+            myEdit.putString("PhoneNumber", phone);
+            myEdit.putString("Priority", priority);
+            myEdit.putString("Minor", minor);
+            myEdit.putString("SpecimenDate", specimenDate);
+            myEdit.putString("TestReportDate", testReportDate);
+            myEdit.putString("password", password);
+
+            myEdit.commit();
+
+
+            Intent intent = new Intent(this, AddRecord2Activity.class);
             startActivity(intent);
+
         }
     }
     // Validation check

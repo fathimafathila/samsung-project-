@@ -21,7 +21,8 @@
             android:exported="true" />
         <activity
             android:name=".AdminView.ViewRecordActivity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".AdminView.EscalatedCaseActivity"
             android:exported="true" />
@@ -30,14 +31,17 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".AdminView.AddRecord2Activity"
-            android:exported="true" />
+            android:name=".AdminView.CreateUser.AddRecord2Activity"
+            android:exported="true"
+            android:label="Cash Information"/>
         <activity
-            android:name=".AdminView.AddRecordActivity"
-            android:exported="true" />
+            android:name=".AdminView.CreateUser.AddRecordActivity"
+            android:exported="true"
+            android:label="Case Information"/>
         <activity
             android:name=".AdminView.AdminDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Admin DashBoard"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

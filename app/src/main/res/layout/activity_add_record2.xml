@@ -1,176 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".AdminView.AddRecord2Activity">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="Case Information"
-        android:textAlignment="center"
-        android:textColor="@color/primary_color"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-
-    <ScrollView android:layout_marginTop="50dp"
-        android:layout_width="fill_parent"
-        android:layout_height="1500dp"
-
-        android:id="@+id/scrollView">
-
-
+    android:id="@+id/scrollView"
+    tools:context=".AdminView.CreateUser.AddRecord2Activity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:id="@+id/txtAddressType"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Address Type">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:id="@+id/txtAddressType"
             android:layout_height="wrap_content"
-            android:id="@+id/edtAddressType"
-            android:inputType="text"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="4dp"
+            android:hint="Address Type">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edtAddressType"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Addressst1"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtAddressType"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Address Street 1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtAddressst1"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Addressst1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:id="@+id/Addressst2"
-        android:layout_below="@+id/Addressst1"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Address street 2">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+            android:layout_below="@+id/txtAddressType"
             android:layout_height="wrap_content"
-            android:id="@+id/edtAddressst2"
-            android:inputType="text"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="4dp"
+            android:hint="Street 1 ">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtAddressCity"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/Addressst1"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Address City">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtCity"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtAddressStreet1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtState"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtAddressCity"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="State">
+            android:id="@+id/Addressst2"
+            android:layout_below="@+id/Addressst1"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Street 2">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtState"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtZipcode"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtState"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Zipcode">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edtAddressStreet2"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtZipcode"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtAddressCity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtCountry"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtZipcode"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Country">
+            android:layout_below="@+id/Addressst2"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="City">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtCountry"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtState"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtStatus"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtCountry"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Case Status">
+            android:layout_below="@+id/txtAddressCity"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="State">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtStatus"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtZipcode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInvesStatus"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtStatus"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Investigation Status">
+            android:layout_below="@+id/txtState"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Zipcode">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtInvesStatus"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtZipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtCountry"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtOpenDate"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/txtInvesStatus"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:hint="Open Date">
+            android:layout_below="@+id/txtZipcode"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Country">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtOpenDate"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtStatus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/txtCountry"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Case Status">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInvesStatus"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtStatus"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Investigation Status">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtInvestStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtOpenDate"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtInvesStatus"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Open Date">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtOpenDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
             android:layout_below="@+id/txtInvesStatus"
@@ -193,28 +169,27 @@
             android:layout_below ="@+id/txtOpenDate">
 
 
-        <Button
-        android:id="@+id/savebutton"
-        android:backgroundTint="@color/primary_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:text="Save" />
+            <Button
+                android:id="@+id/savebutton"
+                android:backgroundTint="@color/primary_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:text="Save" />
 
-    <Button
-        android:id="@+id/submitbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/savebutton"
-        android:backgroundTint="@color/primary_color"
-        android:text="Submit" />
+            <Button
+                android:id="@+id/submitbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/savebutton"
+                android:backgroundTint="@color/primary_color"
+                android:text="Submit" />
         </RelativeLayout>
     </RelativeLayout>
-    </ScrollView>
+</ScrollView>
 
 
 
-</RelativeLayout>
