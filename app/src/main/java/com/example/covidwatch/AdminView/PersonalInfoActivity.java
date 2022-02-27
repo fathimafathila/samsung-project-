@@ -1,34 +1,56 @@
 package com.example.covidwatch.AdminView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.covidwatch.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PersonalInfoActivity extends AppCompatActivity {
-    private DatePicker datePicker;
+
     private Calendar calendar;
-    private EditText dateView1;
-    private EditText dateView2;
+    private EditText dateView1,dateView2;
     private int year, month, day;
 
+    Button saveButton;
+
+    EditText edtFirstName, edtLastName, edtDOB, edtDateOfJoining, edtNumber, edtStreet1, edtStreet2, edtCity, edtState, edtCountry, edtZipCode, edtEmail, edtQuestion, edtAns ;
+    FirebaseAuth fAuth;
+    FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info);
+
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String adminId = sh.getString("AdminId","");
+
         initUI();
 
         dateView1 = (EditText) findViewById(R.id.edtDob);
@@ -40,6 +62,85 @@ public class PersonalInfoActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate1(year, month+1, day);
         showDate2(year, month+1, day);
+
+        edtFirstName = findViewById(R.id.edtFirstName);
+        edtLastName = findViewById(R.id.edtLastName);
+        edtDOB = findViewById(R.id.edtDob);
+        edtDateOfJoining = findViewById(R.id.edtDoj);
+        edtNumber = findViewById(R.id.edtCN);
+        edtStreet1 = findViewById(R.id.edtAddressst1);
+        edtStreet2 = findViewById(R.id.edtAddressst2);
+        edtState = findViewById(R.id.edtState);
+        edtCity = findViewById(R.id.edtCity);
+        edtZipCode = findViewById(R.id.edtZipcode);
+        edtCountry = findViewById(R.id.edtCountry);
+        edtEmail = findViewById(R.id.edtemailId);
+        edtQuestion = findViewById(R.id.edtSQ);
+        edtAns = findViewById(R.id.edtSA);
+
+        saveButton = findViewById(R.id.Savebutton);
+
+        DocumentReference documentReference =  db.collection("users").document(adminId);
+        documentReference.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        edtFirstName.setText(documentSnapshot.getString("First Name"));
+                        edtLastName.setText(documentSnapshot.getString("Last Name"));
+                        edtDOB.setText(documentSnapshot.getString("DOB"));
+                        edtDateOfJoining.setText(documentSnapshot.getString("Joining Date"));
+                        edtNumber.setText(documentSnapshot.getString("Phone Number"));
+                        edtStreet1.setText(documentSnapshot.getString("Street1"));
+                        edtStreet2.setText(documentSnapshot.getString("Street2"));
+                        edtCity.setText(documentSnapshot.getString("City"));
+                        edtState.setText(documentSnapshot.getString("State"));
+                        edtZipCode.setText(documentSnapshot.getString("PostalCode"));
+                        edtCountry.setText(documentSnapshot.getString("Country"));
+                        edtEmail.setText(documentSnapshot.getString("email"));
+                        edtQuestion.setText(documentSnapshot.getString("Security Question"));
+                        edtAns.setText(documentSnapshot.getString("Security Answer"));
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(PersonalInfoActivity.this,"Not Working",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Map<String, Object> user = new HashMap<>();
+                user.put("First Name",edtFirstName.getText().toString());
+                user.put("Last Name",edtLastName.getText().toString());
+                user.put("DOB",edtDOB.getText().toString());
+                user.put("Joining Date",edtDateOfJoining.getText().toString());
+                user.put("Contact Number",edtNumber.getText().toString());
+                user.put("Street1",edtStreet1.getText().toString());
+                user.put("Street2",edtStreet2.getText().toString());
+                user.put("City",edtCity.getText().toString());
+                user.put("State",edtState.getText().toString());
+                user.put("PostalCode",edtZipCode.getText().toString());
+                user.put("Country",edtCountry.getText().toString());
+                user.put("email",edtEmail.getText().toString());
+                user.put("Security Question",edtQuestion.getText().toString());
+                user.put("Security Answer",edtAns.getText().toString().toLowerCase());
+
+                db.collection("users").document(adminId).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(PersonalInfoActivity.this,"Working",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(PersonalInfoActivity.this,"Not Working",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
     }
 
     @SuppressWarnings("deprecation")
