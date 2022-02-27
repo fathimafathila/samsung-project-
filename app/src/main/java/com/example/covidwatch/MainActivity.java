@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covidwatch.AdminView.SecurityQuestionActivity;
 import com.example.covidwatch.UsersView.UsersActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -133,6 +132,33 @@ public class MainActivity extends AppCompatActivity {
     public void resetPsw(View v){
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(R.layout.forgetpassword);
+        Button btn_reset = bottomSheetDialog.findViewById(R.id.button3);
+
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText email = bottomSheetDialog.findViewById(R.id.editTextForgetEmail);
+                TextView error = bottomSheetDialog.findViewById(R.id.errormsg);
+
+                if(email.length() != 0 ) {
+                    fAuth.sendPasswordResetEmail(email.getText().toString())
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    bottomSheetDialog.hide();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    error.setVisibility(View.VISIBLE);
+                                }
+                            });
+                }else{
+                    email.setError("Enter Email Id");
+                }
+            }
+        });
         bottomSheetDialog.show();
     }
 }

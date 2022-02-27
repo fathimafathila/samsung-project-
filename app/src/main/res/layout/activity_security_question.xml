@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_color"
     android:padding="20dp"
-    tools:context=".SecurityQuestionActivity">
+    tools:context=".AdminView.SecurityQuestionActivity">
 
 
     <androidx.cardview.widget.CardView

@@ -13,16 +13,10 @@
         <entry key="app/src/main/res/drawable/circle_purple.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/circle_red.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/circle_yellow.xml" value="0.21145833333333333" />
-        <entry key="app/src/main/res/layout/activity_add_record.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_add_record2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1953125" />
-        <entry key="app/src/main/res/layout/activity_escalated_case.xml" value="0.13451086956521738" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_personal_info.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_resource_request_case.xml" value="0.12817028985507245" />
         <entry key="app/src/main/res/layout/activity_security_question.xml" value="0.1403985507246377" />
-        <entry key="app/src/main/res/layout/activity_view_record.xml" value="0.13451086956521738" />
-        <entry key="app/src/main/res/layout/forgetpassword.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/forgetpassword.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

@@ -26,7 +26,7 @@
             android:name=".AdminView.EscalatedCaseActivity"
             android:exported="true" />
         <activity
-            android:name=".SecurityQuestionActivity"
+            android:name=".AdminView.SecurityQuestionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
