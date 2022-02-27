@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtUsername, edtPassword;
     boolean isAllFieldsChecked = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

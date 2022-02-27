@@ -2,10 +2,14 @@
     <string name="app_name"></string>
     <string name="admin_dashboard">Admin Dashboard</string>
 
+    ------------------Main Screen ----------------
+    <string name="errorAccount">Invalid Account Information </string>
+
     ------------------Forget password--------------
     <string name="title">Forgot your password?</string>
     <string name="msg">We will send you a code to reset your password</string>
     <string name="mobile">Enter E-mail Id</string>
     <string name="resetBtn">RESET PASSWORD</string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="errorMsg"> ! Email Id account does not exits</string>
 </resources>
