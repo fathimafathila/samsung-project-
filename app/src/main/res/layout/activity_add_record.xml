@@ -76,21 +76,26 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtLastname"
                 android:layout_margin="4dp"
+                android:text=""
                 android:hint="Date of Birth">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtDob"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text=""/>
             </com.google.android.material.textfield.TextInputLayout>
 
         <ImageButton
             android:layout_below="@id/txtLastname"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginStart="335dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
+
+            android:layout_marginStart="335dp"
+
+            android:layout_marginLeft="100dp"
             android:background="@color/lightgrey"
             android:onClick="setDate"
             android:scaleType="fitCenter"
@@ -118,6 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtAccountAge"
+                android:background="@color/lightgrey"
+
                 android:layout_margin="4dp"
                 android:hint="Gender">
 
