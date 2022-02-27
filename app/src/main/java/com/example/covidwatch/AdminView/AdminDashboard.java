@@ -10,35 +10,36 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
 import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Calendar;
 
 
 public class AdminDashboard extends AppCompatActivity {
     private MaterialCardView tv;
     TextView edttitle;
 
+    FirebaseFirestore db ;
+    FirebaseAuth fAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+
         tv = (MaterialCardView) this.findViewById(R.id.newRecord);
-        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_APPEND);
-
-        String s1 = sh.getString("name", "");
-
-// We can then use the data
-        edttitle = findViewById(R.id.title);
-
-        edttitle.setText(s1);
-
-
-
-
         // Method for admin dashboard
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,39 @@ public class AdminDashboard extends AppCompatActivity {
                 openDashboardAct();
             }
         });
+
+        // Greeting Message
+        TextView greetings =findViewById(R.id.title);
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String fName = documentSnapshot.getString("First Name");
+                String lname = documentSnapshot.getString("Last Name");
+
+                // Greeting Message
+                Calendar calendar = Calendar.getInstance();
+                long hour = Long.parseLong(String.valueOf(calendar.get(Calendar.HOUR)));
+
+                Toast.makeText(AdminDashboard.this,String.valueOf(hour),Toast.LENGTH_SHORT).show();
+                String greetingMsg ;
+                if( hour >= 5 && hour < 12) {
+                    greetingMsg   = "Good Morning";
+                }else if (hour >=12 && hour < 17) {
+                    greetingMsg = "Good Afternoon";
+                }else{
+                    greetingMsg = "Good Evening";
+                }
+
+
+                greetings.setText( greetingMsg + " "  +fName + " " + lname );
+
+            }
+        });
+
+
+
+
+
 
 
     }
@@ -68,6 +102,7 @@ public class AdminDashboard extends AppCompatActivity {
 
                 return true;
             case R.id.logOut:
+
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
