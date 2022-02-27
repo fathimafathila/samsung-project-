@@ -1,4 +1,4 @@
-package com.example.covidwatch;
+package com.example.covidwatch.AdminView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.covidwatch.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,14 +1,16 @@
-package com.example.covidwatch;
+package com.example.covidwatch.UsersView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ResourceRequestCaseActivity extends AppCompatActivity {
+import com.example.covidwatch.R;
+
+public class UsersActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resource_request_case);
+        setContentView(R.layout.activity_users);
     }
 }

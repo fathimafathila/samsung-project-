@@ -1,4 +1,4 @@
-package com.example.covidwatch;
+package com.example.covidwatch.AdminView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.covidwatch.MainActivity;
+import com.example.covidwatch.R;
 import com.google.android.material.card.MaterialCardView;
 
 

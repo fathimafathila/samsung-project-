@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.covidwatch">
+    package="com.example.covidwatch" >
 
     <application
         android:allowBackup="true"
@@ -8,37 +8,40 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CovidWatch">
+        android:theme="@style/Theme.CovidWatch" >
         <activity
-            android:name=".PersonalInfoActivity"
-            android:label = "Personal Information"
+            android:name=".UsersView.UsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminView.PersonalInfoActivity"
+            android:exported="true"
+            android:label="Personal Information" />
+        <activity
+            android:name=".AdminView.ResourceRequestCaseActivity"
             android:exported="true" />
         <activity
-            android:name=".ResourceRequestCaseActivity"
+            android:name=".AdminView.ViewRecordActivity"
             android:exported="true" />
         <activity
-            android:name=".ViewRecordActivity"
-            android:exported="true" />
-        <activity
-            android:name=".EscalatedCaseActivity"
+            android:name=".AdminView.EscalatedCaseActivity"
             android:exported="true" />
         <activity
             android:name=".SecurityQuestionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".AddRecord2Activity"
+            android:name=".AdminView.AddRecord2Activity"
             android:exported="true" />
         <activity
-            android:name=".AddRecordActivity"
+            android:name=".AdminView.AddRecordActivity"
             android:exported="true" />
         <activity
-            android:name=".AdminDashboard"
+            android:name=".AdminView.AdminDashboard"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

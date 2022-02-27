@@ -1,8 +1,10 @@
-package com.example.covidwatch;
+package com.example.covidwatch.AdminView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.covidwatch.R;
 
 public class EscalatedCaseActivity extends AppCompatActivity {
 

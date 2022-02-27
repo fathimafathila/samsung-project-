@@ -1,5 +1,6 @@
 package com.example.covidwatch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,9 +11,18 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covidwatch.UsersView.UsersActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     EditText edtUsername, edtPassword;
     boolean isAllFieldsChecked = false;
 
+    FirebaseAuth fAuth ;
+    FirebaseFirestore db ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(edtUsername.getText().toString());
         myEdit.commit();
 
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Method for opening security question page
 
@@ -46,14 +60,57 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 isAllFieldsChecked = CheckAllFields();
+                String txt_userName = edtUsername.getText().toString();
+                String txt_password = edtPassword.getText().toString();
 
                 if (isAllFieldsChecked) {
-                    Intent i = new Intent(MainActivity.this, SecurityQuestionActivity.class);
-                    startActivity(i);
+                    fAuth.signInWithEmailAndPassword(txt_userName,txt_password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+
+                            String id = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = db.collection("users").document(id);
+                            documentReference
+                                    .get()
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                            String name = documentSnapshot.getString("admin").toString();
+                                            System.out.println("");
+                                            if( name.equals("0")){
+                                                Intent i = new Intent(MainActivity.this, SecurityQuestionActivity.class);
+                                                startActivity(i);
+
+                                                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                                myEdit.putString("AdminId", fAuth.getCurrentUser().getUid());
+                                                myEdit.commit();
+
+                                            }else{
+                                                Intent i = new Intent(MainActivity.this, UsersActivity.class);
+                                                startActivity(i);
+                                            }
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(MainActivity.this,"About Page",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(MainActivity.this,"Incorrect email id or password",Toast.LENGTH_SHORT).show();
+                            TextView credentialError = findViewById(R.id.errormsg);
+                            credentialError.setVisibility(View.VISIBLE);
+                        }
+                    });
                 }
             }
-
-            });
+        });
     }
 
     private boolean CheckAllFields() {
