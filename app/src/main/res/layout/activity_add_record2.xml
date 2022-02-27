@@ -20,6 +20,7 @@
         android:textColor="@color/primary_color"
         android:textSize="32sp"
         android:textStyle="bold" />
+
     <ScrollView android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:layout_height="1500dp"
@@ -99,7 +100,7 @@
         android:layout_below="@+id/txtAddressCity"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:hint="Address State">
+        android:hint="State">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtState"
@@ -112,7 +113,7 @@
         android:layout_below="@+id/txtState"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:hint="Address Zipcode">
+        android:hint="Zipcode">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtZipcode"
@@ -125,7 +126,7 @@
         android:layout_below="@+id/txtZipcode"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:hint="Address Country">
+        android:hint="Country">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtCountry"

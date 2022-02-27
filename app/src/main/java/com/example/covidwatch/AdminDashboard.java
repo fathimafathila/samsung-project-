@@ -3,17 +3,20 @@ package com.example.covidwatch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 
 
 public class AdminDashboard extends AppCompatActivity {
     private MaterialCardView tv;
+    TextView edttitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,15 @@ public class AdminDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_admin_dashboard);
 
         tv = (MaterialCardView) this.findViewById(R.id.newRecord);
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_APPEND);
+
+        String s1 = sh.getString("name", "");
+
+// We can then use the data
+        edttitle = findViewById(R.id.title);
+
+        edttitle.setText(s1);
+
 
 
 
@@ -48,6 +60,8 @@ public class AdminDashboard extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.personalInfo:
+                Intent intent1 = new Intent(this, PersonalInfoActivity.class);
+                startActivity(intent1);
 
                 return true;
             case R.id.logOut:

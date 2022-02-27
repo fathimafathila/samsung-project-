@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class AddRecordActivity extends AppCompatActivity {
-    EditText edtAccName, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
+    EditText edtFName,edtLName, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
     boolean isAllFieldsChecked = false;
 
     @Override
@@ -25,7 +25,9 @@ public class AddRecordActivity extends AppCompatActivity {
 
 
         //defining reference objects for the UI controls
-        edtAccName = findViewById(R.id.edtAccountname);
+        edtFName = findViewById(R.id.FirstName);
+        edtLName = findViewById(R.id.LastName);
+
         edtDob = findViewById(R.id.edtDob);
         edtAge = findViewById(R.id.edtAge);
         edtGender = findViewById(R.id.edtGender);
@@ -74,8 +76,8 @@ public class AddRecordActivity extends AppCompatActivity {
         }
 // Valodation check
     private boolean validateInputFields() {
-        if (edtAccName.length() == 0) {
-            edtAccName.setError("account Name should not be empty");
+        if (edtFName.length() == 0) {
+            edtFName.setError("account Name should not be empty");
             return false;
         }
 
@@ -83,12 +85,8 @@ public class AddRecordActivity extends AppCompatActivity {
             edtDob.setError("DOB should not be empty");
             return false;
         }
-        if (edtAge.length() != 6) {
+        if (edtAge.length() == 0) {
             edtAge.setError("Age should not be empty");
-            return false;
-        }
-        if (edtGender.length() == 0) {
-            edtGender.setError(" Gender should not be empty");
             return false;
         }
 
@@ -96,7 +94,7 @@ public class AddRecordActivity extends AppCompatActivity {
             edtPhoneNumber.setError("Phone NUmber should not be empty");
             return false;
         }
-        if (edtPriority.length() != 6) {
+        if (edtPriority.length() == 6) {
             edtPriority.setError("Priority should not be empty");
             return false;
         }
@@ -109,7 +107,7 @@ public class AddRecordActivity extends AppCompatActivity {
             edtSpecimenDate.setError("Specimen Date should not be empty");
             return false;
         }
-        if (edtTestReportDate.length() != 6) {
+        if (edtTestReportDate.length() == 0) {
             edtTestReportDate.setError("Test Report Date should not be empty");
             return false;
         }
