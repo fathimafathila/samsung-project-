@@ -76,27 +76,18 @@ public class AddRecordActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(997);
-        Toast.makeText(getApplicationContext(), "ca",
-                Toast.LENGTH_SHORT)
-                .show();
     }
 
     // setting specimen date
     @SuppressWarnings("deprecation")
     public void setSpecimenDate(View view) {
         showDialog(998);
-        Toast.makeText(getApplicationContext(), "ca",
-                Toast.LENGTH_SHORT)
-                .show();
     }
 
     // Setting test report date
     @SuppressWarnings("deprecation")
     public void setReportDate(View view) {
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca",
-                Toast.LENGTH_SHORT)
-                .show();
     }
 
     @Override

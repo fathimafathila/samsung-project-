@@ -146,9 +146,6 @@ public class PersonalInfoActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDob(View view) {
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca",
-                Toast.LENGTH_SHORT)
-                .show();
     }
 
     @SuppressWarnings("deprecation")

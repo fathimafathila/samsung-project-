@@ -71,7 +71,7 @@ public class AdminDashboard extends AppCompatActivity {
                 }
 
 
-                greetings.setText( greetingMsg + " "  +fName + " " + lname );
+                greetings.setText( greetingMsg + " "  +fName + " " + lname + "!");
 
             }
         });
