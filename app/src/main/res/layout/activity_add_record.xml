@@ -33,8 +33,8 @@
         android:id="@+id/scrollView">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
@@ -84,6 +84,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/primary_color"
+            android:onClick="setDate"
+            android:text="SET DATE" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtAccountAge"
