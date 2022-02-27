@@ -24,7 +24,9 @@ public class AddRecordActivity extends AppCompatActivity {
     boolean isAllFieldsChecked = false;
     private DatePicker datePicker;
     private Calendar calendar;
-    private EditText dateView;
+    private EditText dateView1;
+    private EditText dateView2;
+    private EditText dateView3;
     private int year, month, day;
 
     @Override
@@ -46,13 +48,17 @@ public class AddRecordActivity extends AppCompatActivity {
         edtTestReportDate = findViewById(R.id.edttestreportdate);
         initUI();
 
-        dateView = (EditText) findViewById(R.id.edtDob);
+        dateView1 = (EditText) findViewById(R.id.edtDob);
+        dateView2 = (EditText) findViewById(R.id.edtspecimendate);
+        dateView3 = (EditText) findViewById(R.id.edttestreportdate);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate(year, month+1, day);
+        showDate1(year, month+1, day);
+        showDate2(year, month+1, day);
+        showDate3(year, month+1, day);
 
 
 
@@ -60,6 +66,22 @@ public class AddRecordActivity extends AppCompatActivity {
 
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @SuppressWarnings("deprecation")
+    public void setSpecimenDate(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @SuppressWarnings("deprecation")
+    public void setReportDate(View view) {
         showDialog(999);
         Toast.makeText(getApplicationContext(), "ca",
                 Toast.LENGTH_SHORT)
@@ -85,12 +107,24 @@ public class AddRecordActivity extends AppCompatActivity {
                     // arg1 = year
                     // arg2 = month
                     // arg3 = day
-                    showDate(arg1, arg2+1, arg3);
+                    showDate1(arg1, arg2+1, arg3);
+                    showDate2(arg1, arg2+1, arg3);
+                    showDate3(arg1, arg2+1, arg3);
                 }
             };
 
-    private void showDate(int year, int month, int day) {
-        dateView.setText(new StringBuilder().append(day).append("/")
+    private void showDate1(int year, int month, int day) {
+        dateView1.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
+    private void showDate2(int year, int month, int day) {
+        dateView2.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
+    private void showDate3(int year, int month, int day) {
+        dateView3.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
 
@@ -142,7 +176,7 @@ public class AddRecordActivity extends AppCompatActivity {
             edtDob.setError("DOB should not be empty");
             return false;
         }
-        if (edtAge.length() != 6) {
+        if (edtAge.length() == 0) {
             edtAge.setError("Age should not be empty");
             return false;
         }

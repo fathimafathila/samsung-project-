@@ -2,22 +2,95 @@ package com.example.covidwatch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class PersonalInfoActivity extends AppCompatActivity {
+    private DatePicker datePicker;
+    private Calendar calendar;
+    private EditText dateView1;
+    private EditText dateView2;
+    private int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_info);
         initUI();
+
+        dateView1 = (EditText) findViewById(R.id.edtDob);
+        dateView2 = (EditText) findViewById(R.id.edtDoj);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        showDate1(year, month+1, day);
+        showDate2(year, month+1, day);
     }
+
+    @SuppressWarnings("deprecation")
+    public void setDob(View view) {
+        showDialog(999);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @SuppressWarnings("deprecation")
+    public void setDoj(View view) {
+        showDialog(998);
+        Toast.makeText(getApplicationContext(), "ca",
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
+        if (id == 999 || id == 998) {
+            return new DatePickerDialog(this,
+                    myDateListener, year, month, day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener myDateListener = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    showDate1(arg1, arg2+1, arg3);
+                    showDate2(arg1, arg2+1, arg3);
+                }
+            };
+
+    private void showDate1(int year, int month, int day) {
+        dateView1.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
+    private void showDate2(int year, int month, int day) {
+        dateView2.setText(new StringBuilder().append(day).append("/")
+                .append(month).append("/").append(year));
+    }
+
     private void initUI()
     {
         //UI reference of textView

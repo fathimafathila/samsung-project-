@@ -33,7 +33,7 @@
         android:id="@+id/scrollView">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
@@ -44,7 +44,6 @@
                 android:id="@+id/txtFirstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
                 android:layout_margin="4dp"
                 android:hint="First Name">
 
@@ -73,7 +72,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtDob"
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtLastname"
                 android:layout_margin="4dp"
@@ -88,7 +87,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_below="@id/txtLastname"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/txtDob"
             android:backgroundTint="@color/primary_color"
             android:onClick="setDate"
             android:text="SET DATE" />
@@ -171,7 +175,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtspecimendate"
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtMinor"
                 android:layout_margin="4dp"
@@ -183,9 +187,22 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtMinor"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/txtDob"
+            android:backgroundTint="@color/primary_color"
+            android:onClick="setSpecimenDate"
+            android:text="SET DATE" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txttestReportDate"
-                android:layout_width="match_parent"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtspecimendate"
                 android:layout_margin="4dp"
@@ -196,6 +213,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtspecimendate"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/txtDob"
+            android:backgroundTint="@color/primary_color"
+            android:onClick="setReportDate"
+            android:text="SET DATE" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -223,7 +254,7 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
    </ScrollView>
     </RelativeLayout>
