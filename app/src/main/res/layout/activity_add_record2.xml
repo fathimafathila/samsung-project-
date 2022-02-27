@@ -160,7 +160,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtOpenDate"
-        android:layout_width="220dp"
+        android:layout_width="match_parent"
         android:layout_below="@+id/txtInvesStatus"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -172,18 +172,17 @@
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
             android:layout_below="@+id/txtInvesStatus"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="335dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/txtOpenDate"
-            android:backgroundTint="@color/primary_color"
+            android:scaleType="fitCenter"
+            android:background="@color/lightgrey"
+            android:src="@drawable/cal1"
             android:onClick="setDate"
-            android:text="SET DATE"
             />
 
 

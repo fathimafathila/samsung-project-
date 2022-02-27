@@ -60,26 +60,27 @@ public class AddRecordActivity extends AppCompatActivity {
         showDate2(year, month+1, day);
         showDate3(year, month+1, day);
 
-
-
     }
 
+    // Setting date of birth
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
-        showDialog(999);
+        showDialog(997);
         Toast.makeText(getApplicationContext(), "ca",
                 Toast.LENGTH_SHORT)
                 .show();
     }
 
+    // setting specimen date
     @SuppressWarnings("deprecation")
     public void setSpecimenDate(View view) {
-        showDialog(999);
+        showDialog(998);
         Toast.makeText(getApplicationContext(), "ca",
                 Toast.LENGTH_SHORT)
                 .show();
     }
 
+    // Setting test report date
     @SuppressWarnings("deprecation")
     public void setReportDate(View view) {
         showDialog(999);
@@ -91,14 +92,22 @@ public class AddRecordActivity extends AppCompatActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
         // TODO Auto-generated method stub
+        if (id == 997) {
+            return new DatePickerDialog(this,
+                    myDateListener1, year, month, day);
+        }
+        if (id == 998) {
+            return new DatePickerDialog(this,
+                    myDateListener2, year, month, day);
+        }
         if (id == 999) {
             return new DatePickerDialog(this,
-                    myDateListener, year, month, day);
+                    myDateListener3, year, month, day);
         }
         return null;
     }
 
-    private DatePickerDialog.OnDateSetListener myDateListener = new
+    private DatePickerDialog.OnDateSetListener myDateListener1 = new
             DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker arg0,
@@ -108,21 +117,48 @@ public class AddRecordActivity extends AppCompatActivity {
                     // arg2 = month
                     // arg3 = day
                     showDate1(arg1, arg2+1, arg3);
+                }
+            };
+
+    private DatePickerDialog.OnDateSetListener myDateListener2 = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
                     showDate2(arg1, arg2+1, arg3);
+                }
+            };
+
+    private DatePickerDialog.OnDateSetListener myDateListener3 = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
                     showDate3(arg1, arg2+1, arg3);
                 }
             };
 
+    // Showing date of birth
     private void showDate1(int year, int month, int day) {
         dateView1.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
 
+    // Showing specimen date
     private void showDate2(int year, int month, int day) {
         dateView2.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
 
+    // Showing test report date
     private void showDate3(int year, int month, int day) {
         dateView3.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
@@ -160,7 +196,7 @@ public class AddRecordActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-    // Valodation check
+    // Validation check
     private boolean validateInputFields() {
         if (edtFName.length() == 0) {
             edtFName.setError("First Name should not be empty");
@@ -189,7 +225,7 @@ public class AddRecordActivity extends AppCompatActivity {
             edtPhoneNumber.setError("Phone NUmber should not be empty");
             return false;
         }
-        if (edtPriority.length() != 6) {
+        if (edtPriority.length() == 0) {
             edtPriority.setError("Priority should not be empty");
             return false;
         }
@@ -202,7 +238,7 @@ public class AddRecordActivity extends AppCompatActivity {
             edtSpecimenDate.setError("Specimen Date should not be empty");
             return false;
         }
-        if (edtTestReportDate.length() != 6) {
+        if (edtTestReportDate.length() == 0) {
             edtTestReportDate.setError("Test Report Date should not be empty");
             return false;
         }

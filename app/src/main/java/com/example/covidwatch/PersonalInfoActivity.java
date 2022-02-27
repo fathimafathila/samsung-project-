@@ -60,14 +60,18 @@ public class PersonalInfoActivity extends AppCompatActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
         // TODO Auto-generated method stub
-        if (id == 999 || id == 998) {
+        if (id == 999) {
             return new DatePickerDialog(this,
-                    myDateListener, year, month, day);
+                    myDateListener1, year, month, day);
+        }
+        if (id == 998) {
+            return new DatePickerDialog(this,
+                    myDateListener2, year, month, day);
         }
         return null;
     }
 
-    private DatePickerDialog.OnDateSetListener myDateListener = new
+    private DatePickerDialog.OnDateSetListener myDateListener1 = new
             DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker arg0,
@@ -77,6 +81,18 @@ public class PersonalInfoActivity extends AppCompatActivity {
                     // arg2 = month
                     // arg3 = day
                     showDate1(arg1, arg2+1, arg3);
+                }
+            };
+
+    private DatePickerDialog.OnDateSetListener myDateListener2 = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
                     showDate2(arg1, arg2+1, arg3);
                 }
             };
