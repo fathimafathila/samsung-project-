@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="123456"
+                    android:textColor="#000"
+                    android:textSize="25dp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold" />
+                <TableLayout
+                    android:layout_marginStart="30dp">
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/t2"
+                            android:textSize="25dp"
+                            android:text="This is header text"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#000"
+                            android:id="@+id/t3"
+                            android:textSize="18dp"
+                            android:text="This is header text"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+
+            </TableRow>
+            <TableRow>
+
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+
