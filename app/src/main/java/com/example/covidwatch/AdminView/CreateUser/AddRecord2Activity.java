@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -72,6 +74,8 @@ public class AddRecord2Activity extends AppCompatActivity {
         edtCaseStatus = findViewById(R.id.edtStatus);
         edtOpenDate = findViewById(R.id.edtOpenDate);
 
+        // Method for Spinners
+        initUI();
 
         SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         String email = sh.getString("Email","");
@@ -211,5 +215,47 @@ public class AddRecord2Activity extends AppCompatActivity {
     private void showDate(int year, int month, int day) {
         dateView.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
+    }
+
+    // Implementing Spinners
+    private void initUI()
+    {
+        //UI reference of textView
+        final AutoCompleteTextView customerAutoTV1 = findViewById(R.id.edtStatus);
+        final AutoCompleteTextView customerAutoTV2 = findViewById(R.id.edtInvestStatus);
+
+        // create list of customer
+        ArrayList<String> customerList1 = getCaseType();
+        ArrayList<String> customerList2 = getInvestigationStatus();
+
+        //Create adapter
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(AddRecord2Activity.this, android.R.layout.simple_spinner_item, customerList1);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(AddRecord2Activity.this, android.R.layout.simple_spinner_item, customerList2);
+
+        //Set adapter
+        customerAutoTV1.setAdapter(adapter1);
+        customerAutoTV2.setAdapter(adapter2);
+
+    }
+
+    private ArrayList<String> getCaseType()
+    {
+        ArrayList<String> caseType = new ArrayList<>();
+        caseType.add("Confirmed");
+        caseType.add("Close Contact");
+        caseType.add("Probable");
+        caseType.add("None");
+        return caseType;
+    }
+
+    private ArrayList<String> getInvestigationStatus()
+    {
+        ArrayList<String> investigationStatus = new ArrayList<>();
+        investigationStatus.add("New");
+        investigationStatus.add("Initial Engagement");
+        investigationStatus.add("Isolation");
+        investigationStatus.add("Closed");
+        investigationStatus.add("None");
+        return investigationStatus;
     }
 }

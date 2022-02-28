@@ -110,29 +110,37 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtStatus"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_below="@+id/txtCountry"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="Case Status">
+            android:hint="Case Type">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edtStatus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtInvesStatus"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_below="@+id/txtStatus"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Investigation Status">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edtInvestStatus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtOpenDate"

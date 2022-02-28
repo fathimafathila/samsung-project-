@@ -176,13 +176,21 @@ public class AddRecordActivity extends AppCompatActivity {
     private void initUI()
     {
         //UI reference of textView
-        final AutoCompleteTextView customerAutoTV = findViewById(R.id.edtGender);
+        final AutoCompleteTextView customerAutoTV1 = findViewById(R.id.edtGender);
+        final AutoCompleteTextView customerAutoTV2 = findViewById(R.id.edtPriority);
+        final AutoCompleteTextView customerAutoTV3 = findViewById(R.id.edtMinor);
         // create list of customer
-        ArrayList<String> customerList = getGendersList();
+        ArrayList<String> customerList1 = getGendersList();
+        ArrayList<String> customerList2 = getPriorityList();
+        ArrayList<String> customerList3 = getMinorList();
         //Create adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(AddRecordActivity.this, android.R.layout.simple_spinner_item, customerList);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(AddRecordActivity.this, android.R.layout.simple_spinner_item, customerList1);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(AddRecordActivity.this, android.R.layout.simple_spinner_item, customerList2);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(AddRecordActivity.this, android.R.layout.simple_spinner_item, customerList3);
         //Set adapter
-        customerAutoTV.setAdapter(adapter);
+        customerAutoTV1.setAdapter(adapter1);
+        customerAutoTV2.setAdapter(adapter2);
+        customerAutoTV3.setAdapter(adapter3);
     }
 
     private ArrayList<String> getGendersList()
@@ -193,6 +201,23 @@ public class AddRecordActivity extends AppCompatActivity {
         genders.add("Both");
         genders.add("Prefer not to say");
         return genders;
+    }
+
+    private ArrayList<String> getPriorityList()
+    {
+        ArrayList<String> priority = new ArrayList<>();
+        priority.add("High");
+        priority.add("Low");
+        priority.add("Medium");
+        return priority;
+    }
+
+    private ArrayList<String> getMinorList()
+    {
+        ArrayList<String> minor = new ArrayList<>();
+        minor.add("Yes");
+        minor.add("No");
+        return minor;
     }
 
     // On pressing Next Button

@@ -111,7 +111,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtAccountAge"
             android:background="@color/lightgrey"
-
             android:layout_margin="4dp"
             android:hint="Gender">
 
@@ -139,30 +138,38 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtPriority"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtPhonenumber"
             android:layout_margin="4dp"
             android:hint="Priority">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edtPriority"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtMinor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtPriority"
             android:layout_margin="4dp"
             android:hint="Minor">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edtMinor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
