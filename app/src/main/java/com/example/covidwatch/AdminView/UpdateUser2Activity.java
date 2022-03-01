@@ -1,11 +1,10 @@
-package com.example.covidwatch.AdminView.CreateUser;
+package com.example.covidwatch.AdminView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.covidwatch.AdminView.AdminDashboard;
-import com.example.covidwatch.AdminView.EscalatedCaseActivity;
+import com.example.covidwatch.AdminView.CreateUser.AddRecord2Activity;
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +32,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class AddRecord2Activity extends AppCompatActivity {
+public class UpdateUser2Activity extends AppCompatActivity {
+
 
     private Calendar calendar;
     private EditText dateView;
@@ -49,7 +48,7 @@ public class AddRecord2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_record2);
+        setContentView(R.layout.activity_update_user2);
 
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -161,14 +160,14 @@ public class AddRecord2Activity extends AppCompatActivity {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
-                                                        Toast.makeText(AddRecord2Activity.this, "Account Has been Created", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(UpdateUser2Activity.this, "Account Has been Created", Toast.LENGTH_SHORT).show();
 
                                                     }
                                                 })
                                                 .addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
-                                                        Toast.makeText(AddRecord2Activity.this, "Account Failed Created", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(UpdateUser2Activity.this, "Account Failed Created", Toast.LENGTH_SHORT).show();
                                                     }
                                                 });
                                         isUnique = false ;
@@ -229,8 +228,8 @@ public class AddRecord2Activity extends AppCompatActivity {
         ArrayList<String> customerList2 = getInvestigationStatus();
 
         //Create adapter
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(AddRecord2Activity.this, android.R.layout.simple_spinner_item, customerList1);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(AddRecord2Activity.this, android.R.layout.simple_spinner_item, customerList2);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(UpdateUser2Activity.this, android.R.layout.simple_spinner_item, customerList1);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(UpdateUser2Activity.this, android.R.layout.simple_spinner_item, customerList2);
 
         //Set adapter
         customerAutoTV1.setAdapter(adapter1);

@@ -66,9 +66,9 @@ public class AddRecordActivity extends AppCompatActivity {
 
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
-        showDate1(year, month+1, day);
-        showDate2(year, month+1, day);
-        showDate3(year, month+1, day);
+        //showDate1(year, month+1, day);
+       // showDate2(year, month+1, day);
+       // showDate3(year, month+1, day);
 
     }
 

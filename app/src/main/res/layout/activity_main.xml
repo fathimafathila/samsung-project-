@@ -66,6 +66,8 @@
                     android:inputType="text"
                     android:maxLines="1"
                     android:hint="Username"
+                    android:textColor="@color/primary_color"
+
                     android:layout_below="@+id/image"
                     android:layout_margin="4dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -83,6 +85,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:hint="Password"
+                    android:textColor="@color/primary_color"
+
                     android:layout_below="@+id/txtUsername"
                     android:layout_margin="4dp"/>
             </com.google.android.material.textfield.TextInputLayout>

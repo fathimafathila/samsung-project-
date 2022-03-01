@@ -10,8 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch">
         <activity
+            android:name=".AdminView.UpdateUser2Activity"
+            android:label="Case Information"
+
+        android:exported="true" />
+        <activity
             android:name=".AdminView.UpdateUserActivity"
-            android:exported="false" />
+            android:label="Case Information"
+
+        android:exported="false" />
         <activity
             android:name=".UsersView.UsersActivity"
             android:exported="false" />
