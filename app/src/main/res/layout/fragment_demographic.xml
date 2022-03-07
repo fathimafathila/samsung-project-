@@ -5,14 +5,239 @@
     android:layout_height="match_parent"
     tools:context=".UsersView.DemographicFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textColor="#000"
-        android:text="Demographic Fragment" />
+        android:padding="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:hint="Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtName"
+                android:layout_margin="4dp"
+                android:text=""
+                android:hint="Date of Birth">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:layout_below="@id/txtName"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="335dp"
+                android:layout_marginLeft="100dp"
+                android:background="@color/lightgrey"
+                android:onClick="setDate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cal1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtGuardianName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDob"
+                android:layout_margin="4dp"
+                android:hint="Guurdian's Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtGuardianName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtMinor"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:background="@color/lightgrey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtGuardianName"
+                android:layout_margin="4dp"
+                android:hint="Minor">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/edtMinor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtConsent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:background="@color/lightgrey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMinor"
+                android:layout_margin="4dp"
+                android:hint="Guardian's Consent">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/edtConsent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:id="@+id/txtGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtConsent"
+                android:background="@color/lightgrey"
+                android:layout_margin="4dp"
+                android:hint="Gender">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+
+                    android:id="@+id/edtGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtRace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtGender"
+                android:layout_margin="4dp"
+                android:hint="Race">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDeceased"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:background="@color/lightgrey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRace"
+                android:layout_margin="4dp"
+                android:hint="Deceased">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/edtDeceased"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDeceasedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDeceased"
+                android:layout_margin="4dp"
+                android:hint="Deceased Date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDeceasedDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/txtDeceased"
+                android:layout_marginStart="335dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/lightgrey"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cal1"
+                android:onClick="setSpecimenDate" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDeathReported"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDeceasedDate"
+                android:layout_margin="4dp"
+                android:hint="Death First Reported">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDeathReported"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below ="@+id/txtDeathReported">
+                <Button
+                    android:id="@+id/savebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:text="Save" />
+
+
+                <Button
+                    android:id="@+id/nextbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/savebutton"
+                    android:backgroundTint="@color/primary_color"
+                    android:onClick="btn_next"
+                    android:text="Next" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </FrameLayout>

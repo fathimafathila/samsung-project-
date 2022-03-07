@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covidwatch.AdminView.AdminDashboard;
 import com.example.covidwatch.AdminView.SecurityQuestionActivity;
 import com.example.covidwatch.UsersView.UserDashboardActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                                 myEdit.commit();
 
                                             }else{
-                                                Intent i = new Intent(MainActivity.this, UsersActivity.class);
+                                                Intent i = new Intent(MainActivity.this, AdminDashboard.class);
                                                 startActivity(i);
                                             }
                                         }

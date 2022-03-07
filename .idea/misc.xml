@@ -19,16 +19,20 @@
         <entry key="app/src/main/res/drawable/circle_purple.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/circle_red.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/drawable/circle_yellow.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout/activity_add_record.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_add_record2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/activity_daily_health.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/layout/activity_initial_interview.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_personal_info.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_security_question.xml" value="0.1403985507246377" />
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.13949275362318841" />
+        <entry key="app/src/main/res/layout/activity_update_user2.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/layout/activity_user_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_users.xml" value="0.1272644927536232" />
-        <entry key="app/src/main/res/layout/fragment_demographic.xml" value="0.1272644927536232" />
+        <entry key="app/src/main/res/layout/fragment_demographic.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_vaccination.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/menu/layouts.xml" value="0.23125" />
         <entry key="app/src/main/res/menu/usermenu.xml" value="0.23125" />
