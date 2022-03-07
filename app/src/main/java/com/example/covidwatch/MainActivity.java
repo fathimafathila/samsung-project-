@@ -13,9 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.covidwatch.AdminView.SecurityQuestionActivity;
-import com.example.covidwatch.UsersView.DailyHealthActivity;
 import com.example.covidwatch.UsersView.UserDashboardActivity;
-import com.example.covidwatch.UsersView.UsersActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;

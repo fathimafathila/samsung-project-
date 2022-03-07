@@ -28,9 +28,6 @@
             android:exported="false"
             android:label="Case Information" />
         <activity
-            android:name=".UsersView.UsersActivity"
-            android:exported="false" />
-        <activity
             android:name=".AdminView.PersonalInfoActivity"
             android:exported="true"
             android:label="Personal Information" />
