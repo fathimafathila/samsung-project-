@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_security_question.xml" value="0.1403985507246377" />
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.13949275362318841" />
+        <entry key="app/src/main/res/layout/activity_user_dashboard.xml" value="0.25" />
       </map>
     </option>
   </component>

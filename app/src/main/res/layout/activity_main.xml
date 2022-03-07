@@ -26,13 +26,13 @@
         android:textSize="34sp"
         android:textStyle="bold" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:layout_height="1500dp"
 
         android:id="@+id/scrollView">
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="700dp"
             android:layout_centerHorizontal="true"
@@ -106,23 +106,42 @@
                 android:textColor="@color/red2"
                 android:textSize="14dp"
                 android:visibility="invisible" />
+<RelativeLayout
+    android:id="@+id/relButtons"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/txtPassword">
+
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPassword"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/primary_color"
+                android:padding="10dp"
+                android:text="LOGIN AS ADMIN" />
+
+            <Button
+                android:id="@+id/btnLoginUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:layout_toRightOf="@id/btnLogin"
                 android:backgroundTint="@color/primary_color"
-                android:text="LOGIN"
+                android:onClick="btn_loginUser"
                 android:padding="10dp"
-                />
+                android:text="LOGIN AS USER" />
+
+</RelativeLayout>
 
             <Button
                 android:id="@+id/btnForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnLogin"
+                android:layout_below="@+id/relButtons"
                 android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/background_color"
                 android:outlineSpotShadowColor="@color/background_color"
