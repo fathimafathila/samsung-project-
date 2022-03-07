@@ -53,9 +53,7 @@
                 android:layout_below="@+id/image"
                 android:textColorHint="@color/primary_color"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-
-                >
+                android:layout_margin="4dp" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
