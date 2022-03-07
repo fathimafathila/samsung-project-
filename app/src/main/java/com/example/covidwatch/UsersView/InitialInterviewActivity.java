@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.covidwatch.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class UserMenuActivity extends AppCompatActivity {
+public class InitialInterviewActivity extends AppCompatActivity {
 
 
     NavigationView nv;
@@ -26,7 +26,7 @@ public class UserMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_menu);
+        setContentView(R.layout.activity_initial_interview);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
      //   setSupportActionBar(toolbar);
@@ -46,12 +46,12 @@ public class UserMenuActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.menu_demographic:
-                        Toast.makeText(UserMenuActivity.this, "Demographic Fragment", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InitialInterviewActivity.this, "Demographic Fragment", Toast.LENGTH_SHORT).show();
                         temp = new DemographicFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_vaccination:
-                        Toast.makeText(UserMenuActivity.this, "Vaccination Fragment", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InitialInterviewActivity.this, "Vaccination Fragment", Toast.LENGTH_SHORT).show();
                         temp = new VaccinationFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;

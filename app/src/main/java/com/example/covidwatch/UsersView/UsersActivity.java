@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.covidwatch.AdminView.SecurityQuestionActivity;
-import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
 
 public class UsersActivity extends AppCompatActivity {
@@ -22,7 +20,7 @@ public class UsersActivity extends AppCompatActivity {
         clickbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(UsersActivity.this, UserMenuActivity.class);
+                Intent i = new Intent(UsersActivity.this, InitialInterviewActivity.class);
                 startActivity(i);
             }
         });

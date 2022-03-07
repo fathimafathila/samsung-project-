@@ -18,7 +18,7 @@ public class UserDashboardActivity extends AppCompatActivity {
     }
 
     public void btn_initialInterview(View v){
-        Intent intent = new Intent(this, ViewRecordActivity.class);
+        Intent intent = new Intent(this, InitialInterviewActivity.class);
         startActivity(intent);
     }
 

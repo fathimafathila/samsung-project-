@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch" >
         <activity
-            android:name=".UsersView.UserMenuActivity"
+            android:name=".UsersView.InitialInterviewActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     tools:openDrawer="start"
-    tools:context=".UsersView.UserMenuActivity">
+    tools:context=".UsersView.InitialInterviewActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
