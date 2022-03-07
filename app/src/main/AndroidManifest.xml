@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.covidwatch">
+    package="com.example.covidwatch" >
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,19 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CovidWatch">
+        android:theme="@style/Theme.CovidWatch" >
+        <activity
+            android:name=".UsersView.UserMenuActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".AdminView.UpdateUser2Activity"
-            android:label="Case Information"
-
-        android:exported="true" />
+            android:exported="true"
+            android:label="Case Information" />
         <activity
             android:name=".AdminView.UpdateUserActivity"
-            android:label="Case Information"
-
-        android:exported="false" />
+            android:exported="false"
+            android:label="Case Information" />
         <activity
             android:name=".UsersView.UsersActivity"
             android:exported="false" />
@@ -55,7 +57,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

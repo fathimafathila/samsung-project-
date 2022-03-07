@@ -21,8 +21,15 @@
         <entry key="app/src/main/res/drawable/circle_yellow.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.240625" />
         <entry key="app/src/main/res/layout/activity_security_question.xml" value="0.1403985507246377" />
-        <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.13949275362318841" />
+        <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/activity_users.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/fragment_demographic.xml" value="0.2265625" />
+        <entry key="app/src/main/res/layout/fragment_vaccination.xml" value="0.2265625" />
+        <entry key="app/src/main/res/layout/navheader.xml" value="0.240625" />
+        <entry key="app/src/main/res/menu/iconmenu.xml" value="0.240625" />
       </map>
     </option>
   </component>
