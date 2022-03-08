@@ -33,7 +33,9 @@
         <entry key="app/src/main/res/layout/activity_user_menu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_users.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/layout/fragment_demographic.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_vaccination.xml" value="0.1272644927536232" />
+        <entry key="app/src/main/res/layout/fragment_vaccination.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/navheader.xml" value="0.1272644927536232" />
+        <entry key="app/src/main/res/layout/viewrecord_singlerow.xml" value="0.1272644927536232" />
         <entry key="app/src/main/res/menu/layouts.xml" value="0.23125" />
         <entry key="app/src/main/res/menu/usermenu.xml" value="0.23125" />
       </map>
