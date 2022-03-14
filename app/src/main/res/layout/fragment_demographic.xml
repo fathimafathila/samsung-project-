@@ -56,7 +56,6 @@
                 android:layout_marginStart="335dp"
                 android:layout_marginLeft="100dp"
                 android:background="@color/lightgrey"
-                android:onClick="setDate"
                 android:scaleType="fitCenter"
                 android:src="@drawable/cal1" />
 
@@ -123,7 +122,6 @@
                 android:hint="Gender">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
-
                     android:id="@+id/edtGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,12 +146,28 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPrimaryLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRace"
+                android:layout_margin="4dp"
+                android:hint="Primary Language">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPrimaryLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtDeceased"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:background="@color/lightgrey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtRace"
+                android:layout_below="@+id/txtPrimaryLanguage"
                 android:layout_margin="4dp"
                 android:hint="Deceased">
 
@@ -165,12 +179,28 @@
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDiedDueTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDeceased"
+                android:layout_margin="4dp"
+                android:hint="Died Due To">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtiedDueTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtDeceasedDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtDeceased"
+                android:layout_below="@+id/txtDiedDueTo"
                 android:layout_margin="4dp"
                 android:hint="Deceased Date">
 
@@ -183,25 +213,67 @@
             <ImageButton
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@id/txtDeceased"
+                android:layout_below="@id/txtDiedDueTo"
                 android:layout_marginStart="335dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="10dp"
                 android:background="@color/lightgrey"
                 android:scaleType="fitCenter"
                 android:src="@drawable/cal1"
-                android:onClick="setSpecimenDate" />
+                />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtDeathReported"
+            <TextView
+                android:id="@+id/txtContact"
+                android:layout_below="@+id/txtDeceasedDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtDeceasedDate"
+                android:text="Contact Details:"
+                android:textSize="22sp"
+                android:layout_margin="10dp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtContact"
                 android:layout_margin="4dp"
-                android:hint="Death First Reported">
+                android:hint="Telephone">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtDeathReported"
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPhone"
+                android:layout_margin="4dp"
+                android:hint="Mobile">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMobile"
+                android:layout_margin="4dp"
+                android:hint="Email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -212,7 +284,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_below ="@+id/txtDeathReported">
+                android:layout_below ="@+id/txtEmail">
                 <Button
                     android:id="@+id/savebutton"
                     android:layout_width="wrap_content"

@@ -4,14 +4,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 
 import com.example.covidwatch.AdminView.CreateUser.AddRecord2Activity;
+import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
 import com.example.covidwatch.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,4 +74,47 @@ public class DemographicFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_demographic, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //UI reference of textView
+        final AutoCompleteTextView autoMinor = view.findViewById(R.id.edtMinor);
+        final AutoCompleteTextView autoConsent = view.findViewById(R.id.edtConsent);
+        final AutoCompleteTextView autoGender = view.findViewById(R.id.edtGender);
+        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.edtDeceased);
+
+        //Create lists
+        ArrayList<String> List1 = getYesNoList();
+        ArrayList<String> List2 = getGendersList();
+
+        //Create adapter
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, List1);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, List2);
+
+        //Set adapter
+        autoMinor.setAdapter(adapter1);
+        autoConsent.setAdapter(adapter1);
+        autoGender.setAdapter(adapter2);
+        autoDeceased.setAdapter(adapter1);
+    }
+
+    private ArrayList<String> getGendersList()
+    {
+        ArrayList<String> genders = new ArrayList<>();
+        genders.add("Male");
+        genders.add("Female");
+        genders.add("Both");
+        genders.add("Prefer not to say");
+        return genders;
+    }
+    private ArrayList<String> getYesNoList()
+    {
+        ArrayList<String> minor = new ArrayList<>();
+        minor.add("Yes");
+        minor.add("No");
+        return minor;
+    }
+
 }

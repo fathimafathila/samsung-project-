@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 import com.example.covidwatch.R;
 
@@ -57,10 +59,23 @@ public class VaccinationFragment extends Fragment {
         }
     }
 
+    AutoCompleteTextView autoMinor;
+    ArrayAdapter<String> adapter;
+    String[] minorList;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_vaccination, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_vaccination, container, false);
+
+        // Get a reference to the AutoCompleteTextView in the layout
+        minorList = new String[]{"Yes", "No"};
+        autoMinor = rootView.findViewById(R.id.edtMinor);
+        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, minorList);
+        autoMinor.setThreshold(1);
+        autoMinor.setAdapter(adapter);
+
+        return rootView;
     }
 }

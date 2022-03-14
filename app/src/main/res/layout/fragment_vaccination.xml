@@ -15,6 +15,7 @@
         android:orientation="vertical">
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtFirstname"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -29,6 +30,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtLastname"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtFirstname"
@@ -44,6 +46,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtEmail"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtLastname"
@@ -60,6 +63,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtDob"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtEmail"
@@ -90,6 +94,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtAccountAge"
+            android:background="@color/lightgrey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtDob"
@@ -104,11 +109,29 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <AutoCompleteTextView
+            android:id="@+id/edtMinor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/txtAccountAge"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/lightgrey"
+            android:backgroundTint="@color/lightgrey"
+            android:clickable="true"
+            android:hint=" Minor"
+            android:textColorHint="@color/darkgray"
+            android:textSize="16sp"
+            tools:ignore="KeyboardInaccessibleWidget" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below ="@+id/txtAccountAge">
+            android:layout_below="@+id/edtMinor">
+
             <Button
                 android:id="@+id/savebutton"
                 android:layout_width="wrap_content"
