@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/menu_demographic"
-
-     android:title="Demographic"/>
+        android:title="Demographic"/>
     <item android:id="@+id/menu_vaccination"
-
         android:title="Vaccination"/>
+    <item android:id="@+id/menu_case_information"
+        android:title="Case Information"/>
+    <item android:id="@+id/menu_initial_health_assessment"
+        android:title="Initial Health Assessment"/>
+    <item android:id="@+id/menu_testing_information"
+        android:title="Testing Information"/>
+
+
 </menu>
