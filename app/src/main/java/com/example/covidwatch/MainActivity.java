@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     EditText edtUsername, edtPassword;
+    Switch saveCredential ;
     boolean isAllFieldsChecked = false;
 
     FirebaseAuth fAuth ;
@@ -37,14 +39,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
-
-
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
         button = (Button)findViewById(R.id.btnLogin);
+        saveCredential = findViewById(R.id.switch1);
+
+        boolean s = sharedPreferences.getBoolean("save",false);
+        saveCredential.setChecked(s);
+
+        if(saveCredential.isChecked()){
+             edtUsername.setText(sharedPreferences.getString("username",""));
+             edtPassword.setText(sharedPreferences.getString("password",""));
+        }
 
         myEdit.putString("name", edtUsername.getText().toString());
         System.out.println(edtUsername.getText().toString());
@@ -55,9 +63,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Method for opening security question page
 
+
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(saveCredential.isChecked()){
+                    myEdit.putBoolean("save",true);
+                    myEdit.putString("username",edtUsername.getText().toString());
+                    myEdit.putString("password",edtPassword.getText().toString());
+                }else{
+                    myEdit.putBoolean("save",false);
+                    myEdit.putString("username","");
+                    myEdit.putString("password","");
+                }
+                myEdit.commit();
 
                 isAllFieldsChecked = CheckAllFields();
                 String txt_userName = edtUsername.getText().toString();
@@ -87,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
                                                 myEdit.commit();
 
                                             }else{
-                                                Intent i = new Intent(MainActivity.this, AdminDashboard.class);
-                                                startActivity(i);
+                                                Intent intent = new Intent(MainActivity.this, UserDashboardActivity.class);
+                                                startActivity(intent);
                                             }
                                         }
                                     })
@@ -113,10 +136,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void btn_loginUser(View v){
-        Intent intent = new Intent(this, UserDashboardActivity.class);
-        startActivity(intent);
-    }
 
     private boolean CheckAllFields() {
         if (edtUsername.length() == 0) {

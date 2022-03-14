@@ -29,7 +29,7 @@ public class InitialInterviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_initial_interview);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-     //   setSupportActionBar(toolbar);
+     // setSupportActionBar(toolbar);
 
         nv = (NavigationView) findViewById(R.id.navmenu);
         dl = (DrawerLayout) findViewById(R.id.drawer);

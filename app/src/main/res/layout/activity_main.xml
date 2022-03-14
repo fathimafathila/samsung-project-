@@ -90,6 +90,13 @@
                     android:layout_margin="4dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPassword"
+                android:layout_marginStart="330dp"
+                android:background="@color/background_color" />
             <TextView
                 android:id="@+id/errormsg"
                 android:layout_width="wrap_content"
@@ -105,7 +112,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_below="@+id/txtPassword">
+    android:layout_below="@+id/txtPassword"
+    android:layout_marginTop="5dp">
 
             <Button
                 android:id="@+id/btnLogin"
@@ -115,19 +123,7 @@
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/primary_color"
                 android:padding="10dp"
-                android:text="LOGIN AS ADMIN" />
-
-            <Button
-                android:id="@+id/btnLoginUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/btnLogin"
-                android:backgroundTint="@color/primary_color"
-                android:onClick="btn_loginUser"
-                android:padding="10dp"
-                android:text="LOGIN AS USER" />
+                android:text="LOGIN" />
 
 </RelativeLayout>
 
