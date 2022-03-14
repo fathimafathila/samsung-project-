@@ -55,6 +55,21 @@ public class InitialInterviewActivity extends AppCompatActivity {
                         temp = new VaccinationFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
+                    case R.id.menu_case_information:
+                        Toast.makeText(InitialInterviewActivity.this, "Case Information Fragment", Toast.LENGTH_SHORT).show();
+                        temp = new CaseInformationFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_initial_health_assessment:
+                        Toast.makeText(InitialInterviewActivity.this, "Initial Health  Fragment", Toast.LENGTH_SHORT).show();
+                        temp = new InitialHealthAssessmentFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_testing_information:
+                        Toast.makeText(InitialInterviewActivity.this, "Testing Fragment", Toast.LENGTH_SHORT).show();
+                        temp = new TestingInformationFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, temp).commit();
                 return true;
