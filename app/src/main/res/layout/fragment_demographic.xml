@@ -9,6 +9,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:padding="10dp" >
 
         <RelativeLayout
@@ -21,6 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:textColor="@color/primary_color"
                 android:hint="Name">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -28,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,12 +43,15 @@
                 android:layout_below="@+id/txtName"
                 android:layout_margin="4dp"
                 android:text=""
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Date of Birth">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtDob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/primary_color"
                     android:text=""/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,76 +73,136 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtDob"
                 android:layout_margin="4dp"
-                android:hint="Guurdian's Name">
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:hint="Gaurdian's Name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtGuardianName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtMinor"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:background="@color/lightgrey"
+            <AutoCompleteTextView
+                android:id="@+id/autoMinor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_below="@+id/txtGuardianName"
-                android:layout_margin="4dp"
-                android:hint="Minor">
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtMinor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtConsent"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
                 android:background="@color/lightgrey"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtMinor"
-                android:layout_margin="4dp"
-                android:hint="Guardian's Consent">
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Minor"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtConsent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:id="@+id/txtGender"
+            <AutoCompleteTextView
+                android:id="@+id/autoConsent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtConsent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/autoMinor"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
                 android:background="@color/lightgrey"
-                android:layout_margin="4dp"
-                android:hint="Gender">
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Guardian's Consent"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/autoGender"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/autoConsent"
+                android:layout_margin="4dp"
+                android:hint="Gender"
+                android:textColor="@color/primary_color"
+                android:textSize="18dp"
+                android:completionThreshold="1"
+                android:layout_weight="1"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget"
+                />
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/txtMinor"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--                android:background="@color/lightgrey"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/txtGuardianName"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:hint="Minor">-->
+
+<!--                <com.google.android.material.textfield.MaterialAutoCompleteTextView-->
+<!--                    android:id="@+id/edtMinor"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    tools:ignore="KeyboardInaccessibleWidget" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/txtConsent"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--                android:background="@color/lightgrey"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/autoMinor"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:hint="Guardian's Consent">-->
+
+<!--                <com.google.android.material.textfield.MaterialAutoCompleteTextView-->
+<!--                    android:id="@+id/edtConsent"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    tools:ignore="KeyboardInaccessibleWidget" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--                android:id="@+id/txtGender"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/txtConsent"-->
+<!--                android:background="@color/lightgrey"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:hint="Gender">-->
+
+<!--                <com.google.android.material.textfield.MaterialAutoCompleteTextView-->
+<!--                    android:id="@+id/edtGender"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    tools:ignore="KeyboardInaccessibleWidget" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtRace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtGender"
+                android:layout_below="@+id/autoGender"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Race">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -142,6 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,6 +219,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtRace"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:layout_margin="4dp"
                 android:hint="Primary Language">
 
@@ -158,33 +229,55 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtDeceased"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:background="@color/lightgrey"
+            <AutoCompleteTextView
+                android:id="@+id/autoDeceased"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_below="@+id/txtPrimaryLanguage"
-                android:layout_margin="4dp"
-                android:hint="Deceased">
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/lightgrey"
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Deceased"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtDeceased"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/txtDeceased"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"-->
+<!--                android:background="@color/lightgrey"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/txtPrimaryLanguage"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:hint="Deceased">-->
+
+<!--                <com.google.android.material.textfield.MaterialAutoCompleteTextView-->
+<!--                    android:id="@+id/edtDeceased"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    tools:ignore="KeyboardInaccessibleWidget" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtDiedDueTo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtDeceased"
+                android:layout_below="@+id/autoDeceased"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Died Due To">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -192,6 +285,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -201,12 +295,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtDiedDueTo"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:layout_margin="4dp"
                 android:hint="Deceased Date">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtDeceasedDate"
                     android:layout_width="match_parent"
+                    android:textColor="@color/primary_color"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,13 +321,16 @@
 
             <TextView
                 android:id="@+id/txtContact"
-                android:layout_below="@+id/txtDeceasedDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDeceasedDate"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="Contact Details:"
-                android:textSize="22sp"
-                android:layout_margin="10dp"
-                />
+                android:textColor="@color/primary_color"
+                android:textSize="22sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtPhone"
@@ -238,6 +338,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtContact"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Telephone">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -245,6 +347,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -254,6 +357,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtPhone"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Mobile">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -261,6 +366,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -270,6 +376,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtMobile"
                 android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -277,6 +385,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:textColor="@color/primary_color"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 

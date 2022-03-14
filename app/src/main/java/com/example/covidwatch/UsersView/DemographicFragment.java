@@ -80,10 +80,10 @@ public class DemographicFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //UI reference of textView
-        final AutoCompleteTextView autoMinor = view.findViewById(R.id.edtMinor);
-        final AutoCompleteTextView autoConsent = view.findViewById(R.id.edtConsent);
-        final AutoCompleteTextView autoGender = view.findViewById(R.id.edtGender);
-        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.edtDeceased);
+        final AutoCompleteTextView autoMinor = view.findViewById(R.id.autoMinor);
+        final AutoCompleteTextView autoConsent = view.findViewById(R.id.autoConsent);
+        final AutoCompleteTextView autoGender = view.findViewById(R.id.autoGender);
+        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.autoDeceased);
 
         //Create lists
         ArrayList<String> List1 = getYesNoList();
