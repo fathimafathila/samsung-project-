@@ -25,6 +25,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Method for opening security question page
 
-
+       calculateAge();
 
 
 
@@ -135,7 +137,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    private int calculateAge(){
+        Date date = new Date();
+        Toast.makeText(getApplicationContext(), date.toString(), Toast.LENGTH_SHORT).show();
+        return 10;
+    }
 
     private boolean CheckAllFields() {
         if (edtUsername.length() == 0) {

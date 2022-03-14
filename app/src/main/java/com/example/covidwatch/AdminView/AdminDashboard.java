@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
 import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.UserDashboardActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,6 +51,7 @@ public class AdminDashboard extends AppCompatActivity {
 
         // Greeting Message
         TextView greetings =findViewById(R.id.title);
+
         db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -58,19 +60,19 @@ public class AdminDashboard extends AppCompatActivity {
 
                 // Greeting Message
                 Calendar calendar = Calendar.getInstance();
-                long hour = Long.parseLong(String.valueOf(calendar.get(Calendar.HOUR)));
+                int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
                 Toast.makeText(AdminDashboard.this,String.valueOf(hour),Toast.LENGTH_SHORT).show();
-                String greetingMsg ;
-                if( hour >= 5 && hour < 12) {
+                String greetingMsg = "";
+                if( hour >= 0 && hour < 12) {
                     greetingMsg   = "Good Morning";
-                }else if (hour >=12 && hour < 17) {
+                }else if(hour >= 12  && hour < 16){
                     greetingMsg = "Good Afternoon";
-                }else{
+                } else if (hour >=16 && hour < 21) {
                     greetingMsg = "Good Evening";
+                }else if (hour >= 21 && hour < 24 ){
+                    greetingMsg = "Good Night";
                 }
-
-
                 greetings.setText( greetingMsg + " "  +fName + " " + lname + "!");
 
             }

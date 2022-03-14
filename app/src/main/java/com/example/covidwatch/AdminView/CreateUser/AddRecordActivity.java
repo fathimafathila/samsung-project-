@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddRecordActivity extends AppCompatActivity {
     EditText edtFName,edtLName, edtEmail, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
@@ -158,14 +159,9 @@ public class AddRecordActivity extends AppCompatActivity {
         }else{
             password = String.valueOf(number);
         }
-
     }
-
     //Calculate Age
-    private int calculateAge(){
 
-        return 10;
-    }
 
     // Showing specimen date
     private void showDate2(int year, int month, int day) {
