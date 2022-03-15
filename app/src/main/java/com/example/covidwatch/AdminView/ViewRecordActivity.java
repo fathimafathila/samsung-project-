@@ -68,6 +68,7 @@ public class ViewRecordActivity extends AppCompatActivity {
                                     ob1.setLname(dc.getDocument().getString("Last Name"));
                                     ob1.setId(dc.getDocument().getString("ID"));
                                     ob1.setNumber(dc.getDocument().getString("Phone Number"));
+                                    ob1.setUuid(dc.getDocument().getString("uuid"));
                                     userArrayList.add(ob1);
                                 }
                                 adapter.notifyDataSetChanged();

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Method for opening security question page
 
-       calculateAge();
+
 
 
 
@@ -137,11 +140,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private int calculateAge(){
-        Date date = new Date();
-        Toast.makeText(getApplicationContext(), date.toString(), Toast.LENGTH_SHORT).show();
-        return 10;
-    }
+
+
 
     private boolean CheckAllFields() {
         if (edtUsername.length() == 0) {

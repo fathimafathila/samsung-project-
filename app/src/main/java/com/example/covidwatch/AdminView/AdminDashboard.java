@@ -77,13 +77,6 @@ public class AdminDashboard extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
     }
 
 
@@ -101,10 +94,8 @@ public class AdminDashboard extends AppCompatActivity {
             case R.id.personalInfo:
                 Intent intent1 = new Intent(this, PersonalInfoActivity.class);
                 startActivity(intent1);
-
                 return true;
             case R.id.logOut:
-
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;

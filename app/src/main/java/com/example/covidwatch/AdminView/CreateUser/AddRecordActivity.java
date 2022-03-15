@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,8 @@ import com.example.covidwatch.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -159,8 +162,32 @@ public class AddRecordActivity extends AppCompatActivity {
         }else{
             password = String.valueOf(number);
         }
+        int y =calculateAge(year,month,day);
+        String ye = String.valueOf(y);
+        edtAge.setText(ye);
+
+        if( y < 18 ){
+            edtMinor.setText("Yes");
+        }else{
+            edtMinor.setText("No");
+        }
+
+
+
     }
     //Calculate Age
+    private int calculateAge(int year, int month, int days){
+        LocalDate today = null;
+        LocalDate past = null;
+        int y = 0 ;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            today = LocalDate.now();
+            past = LocalDate.of(year,month,days);
+            y = Period.between(past,today).getYears();
+            Toast.makeText(getApplicationContext(),String.valueOf(Period.between(past,today).getYears()), Toast.LENGTH_SHORT).show();
+        }
+        return y;
+    }
 
 
     // Showing specimen date

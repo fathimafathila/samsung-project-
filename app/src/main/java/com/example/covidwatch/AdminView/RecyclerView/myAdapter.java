@@ -46,9 +46,8 @@ public class myAdapter extends RecyclerView.Adapter<myViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"Working" + temp.getId() ,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, UpdateUserActivity.class);
-                intent.putExtra("ID",temp.getId());
+                intent.putExtra("uuid", temp.getUuid());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

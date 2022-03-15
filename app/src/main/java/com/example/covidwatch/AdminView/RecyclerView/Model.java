@@ -6,14 +6,23 @@ public class Model {
    private String lname;
    private  String id;
    private  String number;
+   private  String uuid ;
 
    public Model() { }
 
-    public Model(String fName, String lname, String id, String number) {
+    public Model(String fName, String lname, String id, String number, String uuid) {
         this.fName = fName;
         this.lname = lname;
         this.id = id;
         this.number = number;
+        this.uuid = uuid;
+    }
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getfName() {
