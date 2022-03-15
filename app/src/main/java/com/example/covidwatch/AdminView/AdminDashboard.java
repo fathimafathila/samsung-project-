@@ -3,7 +3,6 @@ package com.example.covidwatch.AdminView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,9 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
+import com.example.covidwatch.AdminView.ViewRecord.ViewRecordActivity;
 import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.UserDashboardActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;

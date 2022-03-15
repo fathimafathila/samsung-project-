@@ -1,4 +1,4 @@
-package com.example.covidwatch.AdminView.RecyclerView;
+package com.example.covidwatch.AdminView.ViewRecord.RecyclerView;
 
 public class Model {
 

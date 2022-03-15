@@ -1,4 +1,4 @@
-package com.example.covidwatch.AdminView;
+package com.example.covidwatch.AdminView.ViewRecord;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,14 +14,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.covidwatch.AdminView.CreateUser.AddRecord2Activity;
-import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.time.LocalDate;
 import java.time.Period;

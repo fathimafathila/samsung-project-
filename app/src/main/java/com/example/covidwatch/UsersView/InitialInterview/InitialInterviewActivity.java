@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView;
+package com.example.covidwatch.UsersView.InitialInterview;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
+import java.time.chrono.HijrahChronology;
 
 public class InitialInterviewActivity extends AppCompatActivity {
 
@@ -49,7 +49,7 @@ public class InitialInterviewActivity extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this, dl, toolbar, R.string.open, R.string.close);
         dl.addDrawerListener(toggle);
         toggle.syncState();
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
         updateNavheader(fAuth.getCurrentUser().getUid());
 
@@ -59,6 +59,11 @@ public class InitialInterviewActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.menu_Home:
+                        Toast.makeText(InitialInterviewActivity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
+                        temp = new HomeFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.menu_demographic:
                         Toast.makeText(InitialInterviewActivity.this, "Demographic Fragment", Toast.LENGTH_SHORT).show();
                         temp = new DemographicFragment();

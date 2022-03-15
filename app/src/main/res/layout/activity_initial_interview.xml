@@ -7,7 +7,7 @@
     android:id="@+id/drawer"
     tools:openDrawer="start"
     android:background="@color/white"
-    tools:context=".UsersView.InitialInterviewActivity">
+    tools:context=".UsersView.InitialInterview.InitialInterviewActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -20,10 +20,11 @@
             android:background="@color/primary_color"
             android:title="Navigation Drawer"
             android:titleTextColor="@color/white" />
+
         <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container"/>
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

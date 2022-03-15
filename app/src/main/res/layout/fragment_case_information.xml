@@ -3,12 +3,307 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsersView.CaseInformationFragment">
+    tools:context=".UsersView.InitialInterview.CaseInformationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="50dp"
+        android:padding="10dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/caseNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:textColor="@color/primary_color"
+                android:hint="Case Number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/caseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_below="@+id/caseNumber"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:textColor="@color/primary_color"
+                android:hint="Case Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <AutoCompleteTextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/caseName"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/lightgrey"
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Minor"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
+
+
+            <AutoCompleteTextView
+                android:id="@+id/autoPriority"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/status"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/lightgrey"
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Priority"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCaseType"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/autoPriority"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/lightgrey"
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Case Type"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoReifected"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/autoCaseType"
+                android:layout_margin="4dp"
+                android:hint="Reinfected"
+                android:textColor="@color/primary_color"
+                android:textSize="18dp"
+                android:completionThreshold="1"
+                android:layout_weight="1"
+                android:clickable="true"
+                tools:ignore="KeyboardInaccessibleWidget"
+                />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/primaryoccupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/autoReifected"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:hint="Primary Occupation">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPrimaryLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/primaryoccupation"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:layout_margin="4dp"
+                android:hint="Province">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtProvience"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <AutoCompleteTextView
+                android:id="@+id/autoDeceased"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_below="@+id/txtPrimaryLanguage"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/lightgrey"
+                android:clickable="true"
+                android:completionThreshold="1"
+                android:hint="Address Street 1"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:textSize="18dp"
+                tools:ignore="KeyboardInaccessibleWidget" />
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDiedDueTo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/autoDeceased"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:hint="Address Street 2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtiedDueTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDeceasedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDiedDueTo"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:layout_margin="4dp"
+                android:hint="Address Type">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtDeceasedDate"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/primary_color"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDeceasedDate"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:hint="Country">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPhone"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:hint="Zip Code:">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/primary_color"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below ="@+id/txtMobile">
+                <Button
+                    android:id="@+id/savebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:text="Save" />
+
+
+                <Button
+                    android:id="@+id/nextbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/savebutton"
+                    android:backgroundTint="@color/primary_color"
+                    android:onClick="btn_next"
+                    android:text="Next" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 
 </FrameLayout>

@@ -10,21 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch" >
         <activity
-            android:name=".UsersView.InitialInterviewActivity"
+            android:name=".UsersView.InitialInterview.InitialInterviewActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".UsersView.DailyHealthActivity"
+            android:name=".UsersView.DailyHealth.DailyHealthActivity"
             android:exported="false" />
         <activity
             android:name=".UsersView.UserDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminView.UpdateUser2Activity"
+            android:name=".AdminView.ViewRecord.UpdateUser2Activity"
             android:exported="true"
             android:label="Case Information" />
         <activity
-            android:name=".AdminView.UpdateUserActivity"
+            android:name=".AdminView.ViewRecord.UpdateUserActivity"
             android:exported="false"
             android:label="Case Information" />
         <activity
@@ -35,7 +35,7 @@
             android:name=".AdminView.ResourceRequestCaseActivity"
             android:exported="true" />
         <activity
-            android:name=".AdminView.ViewRecordActivity"
+            android:name=".AdminView.ViewRecord.ViewRecordActivity"
             android:exported="true"
             android:label="View Record" />
         <activity

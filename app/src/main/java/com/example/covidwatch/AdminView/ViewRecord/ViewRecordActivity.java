@@ -1,4 +1,4 @@
-package com.example.covidwatch.AdminView;
+package com.example.covidwatch.AdminView.ViewRecord;
 
 
 import androidx.annotation.Nullable;
@@ -11,8 +11,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.example.covidwatch.AdminView.RecyclerView.Model;
-import com.example.covidwatch.AdminView.RecyclerView.myAdapter;
+import com.example.covidwatch.AdminView.ViewRecord.RecyclerView.Model;
+import com.example.covidwatch.AdminView.ViewRecord.RecyclerView.myAdapter;
 import com.example.covidwatch.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;

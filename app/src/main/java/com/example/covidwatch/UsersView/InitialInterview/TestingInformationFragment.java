@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView;
+package com.example.covidwatch.UsersView.InitialInterview;
 
 import android.os.Bundle;
 

@@ -1,11 +1,9 @@
-package com.example.covidwatch.AdminView;
+package com.example.covidwatch.AdminView.ViewRecord;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,24 +11,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.covidwatch.AdminView.CreateUser.AddRecord2Activity;
 import com.example.covidwatch.R;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 public class UpdateUser2Activity extends AppCompatActivity {
 
@@ -38,7 +27,6 @@ public class UpdateUser2Activity extends AppCompatActivity {
     private Calendar calendar;
     private EditText dateView;
     private int year, month, day;
-
     private Button CreateUsear ;
 
     //Firebase Object Create

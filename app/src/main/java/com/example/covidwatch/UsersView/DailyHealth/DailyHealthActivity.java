@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView;
+package com.example.covidwatch.UsersView.DailyHealth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
