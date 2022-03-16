@@ -18,10 +18,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TestingInformationFragment#newInstance} factory method to
+ * Use the {@link TreatmentInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TestingInformationFragment extends Fragment {
+public class TreatmentInformationFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +32,7 @@ public class TestingInformationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TestingInformationFragment() {
+    public TreatmentInformationFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +42,11 @@ public class TestingInformationFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TestingInformation.
+     * @return A new instance of fragment TreatmentInformationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TestingInformationFragment newInstance(String param1, String param2) {
-        TestingInformationFragment fragment = new TestingInformationFragment();
+    public static TreatmentInformationFragment newInstance(String param1, String param2) {
+        TreatmentInformationFragment fragment = new TreatmentInformationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +67,7 @@ public class TestingInformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_testing_information, container, false);
+        return inflater.inflate(R.layout.fragment_treatment_information, container, false);
     }
 
     @Override
@@ -75,25 +75,27 @@ public class TestingInformationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //UI reference of textView
-        final AutoCompleteTextView autoTestingSite = view.findViewById(R.id.autoTestingSite);
+        final AutoCompleteTextView autoSoughtCase = view.findViewById(R.id.autoSoughtCase);
+        final AutoCompleteTextView autoTreatmentRecieved = view.findViewById(R.id.autoTreatmentRecieved);
+        final AutoCompleteTextView autoHospitalization = view.findViewById(R.id.autoHospitalization);
 
         //Create lists
-        ArrayList<String> List1 = getTestingSites();
+        ArrayList<String> List1 = getYesNoList();
 
         //Create adapter
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, List1);
 
         //Set adapter
-        autoTestingSite.setAdapter(adapter1);
+        autoSoughtCase.setAdapter(adapter1);
+        autoTreatmentRecieved.setAdapter(adapter1);
+        autoHospitalization.setAdapter(adapter1);
     }
 
-    private ArrayList<String> getTestingSites()
+    private ArrayList<String> getYesNoList()
     {
-        ArrayList<String> sites = new ArrayList<>();
-        sites.add("Toronto");
-        sites.add("Mississauga");
-        sites.add("Hamilton");
-        sites.add("Milton");
-        return sites;
+        ArrayList<String> yesno = new ArrayList<>();
+        yesno.add("Yes");
+        yesno.add("No");
+        return yesno;
     }
 }
