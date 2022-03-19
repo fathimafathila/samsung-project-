@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_monitoring"
+        android:icon="@drawable/ic_baseline_monitoring_24"
+        android:title="Monitoring"/>
+    <item android:id="@+id/nav_request"
+        android:icon="@drawable/ic_baseline_request_24"
+        android:title="Resource Request"/>
+
+</menu>

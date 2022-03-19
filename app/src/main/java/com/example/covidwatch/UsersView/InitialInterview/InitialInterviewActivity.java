@@ -12,16 +12,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.Demographic.DemographicFragment;
+import com.example.covidwatch.UsersView.InitialInterview.Location.LocationCloseContactFragment;
+import com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest.MonitoringResourceRequestFragment;
+import com.example.covidwatch.UsersView.InitialInterview.TestingTreatment.TestingTreatmentFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.time.chrono.HijrahChronology;
 
 public class InitialInterviewActivity extends AppCompatActivity {
 
@@ -60,33 +61,35 @@ public class InitialInterviewActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.menu_Home:
-                        Toast.makeText(InitialInterviewActivity.this, "Home Fragment", Toast.LENGTH_SHORT).show();
                         temp = new HomeFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_demographic:
-                        Toast.makeText(InitialInterviewActivity.this, "Demographic Fragment", Toast.LENGTH_SHORT).show();
                         temp = new DemographicFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.menu_vaccination:
-                        Toast.makeText(InitialInterviewActivity.this, "Vaccination Fragment", Toast.LENGTH_SHORT).show();
-                        temp = new VaccinationFragment();
-                        dl.closeDrawer(GravityCompat.START);
-                        break;
-                    case R.id.menu_case_information:
-                        Toast.makeText(InitialInterviewActivity.this, "Case Information Fragment", Toast.LENGTH_SHORT).show();
-                        temp = new CaseInformationFragment();
-                        dl.closeDrawer(GravityCompat.START);
-                        break;
                     case R.id.menu_initial_health_assessment:
-                        Toast.makeText(InitialInterviewActivity.this, "Initial Health  Fragment", Toast.LENGTH_SHORT).show();
                         temp = new InitialHealthAssessmentFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.menu_testing_information:
-                        Toast.makeText(InitialInterviewActivity.this, "Testing Fragment", Toast.LENGTH_SHORT).show();
-                        temp = new TestingInformationFragment();
+                    case R.id.menu_Testing_Treatment:
+                        temp = new TestingTreatmentFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_Epilinkage_Congregrate:
+                        temp = new EpilinkageCongregateFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_Monitoring_Resource:
+                        temp = new MonitoringResourceRequestFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_Location_Close_Contact:
+                        temp = new LocationCloseContactFragment();
+                        dl.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.menu_Additional_Information:
+                        temp = new AdditionalInfoFragment();
                         dl.closeDrawer(GravityCompat.START);
                         break;
                 }

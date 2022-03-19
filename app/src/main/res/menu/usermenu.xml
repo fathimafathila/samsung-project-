@@ -5,14 +5,16 @@
         android:title="Home"/>
     <item android:id="@+id/menu_demographic"
         android:title="Demographic"/>
-    <item android:id="@+id/menu_vaccination"
-        android:title="Vaccination"/>
-    <item android:id="@+id/menu_case_information"
-        android:title="Case Information"/>
     <item android:id="@+id/menu_initial_health_assessment"
         android:title="Initial Health Assessment"/>
-    <item android:id="@+id/menu_testing_information"
-        android:title="Testing Information"/>
-
-
+    <item android:id="@+id/menu_Testing_Treatment"
+        android:title="Testing And Treatment"/>
+    <item android:id="@+id/menu_Epilinkage_Congregrate"
+        android:title="Epilinkage / Congregate Setting"/>
+    <item android:id="@+id/menu_Monitoring_Resource"
+        android:title="Monitoring And Recourse Request"/>
+    <item android:id="@+id/menu_Location_Close_Contact"
+        android:title="Location And Close Contact"/>
+    <item android:id="@+id/menu_Additional_Information"
+        android:title="Additional Information"/>
 </menu>

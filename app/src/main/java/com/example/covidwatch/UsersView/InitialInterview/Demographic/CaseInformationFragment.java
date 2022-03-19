@@ -1,27 +1,21 @@
-package com.example.covidwatch.UsersView.InitialInterview;
+package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
 
-import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
 import com.example.covidwatch.R;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CaseInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
- *
  */
 public class CaseInformationFragment extends Fragment {
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +25,10 @@ public class CaseInformationFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    public CaseInformationFragment() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -50,10 +48,6 @@ public class CaseInformationFragment extends Fragment {
         return fragment;
     }
 
-    public CaseInformationFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,22 +55,12 @@ public class CaseInformationFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_case_information, container, false);
-
-
-        return view;
-
-
+        return inflater.inflate(R.layout.fragment_case_information, container, false);
     }
-
-
-
 }
