@@ -6,9 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
@@ -28,8 +31,12 @@ public class CaseInformationFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    String mParam1, mParam2;
+    EditText edtDeceasedDate;
+    ImageButton calDeceasedDate;
+    String selectedDate;
+    public static final int REQUEST_CODE = 11;
+
 
     public CaseInformationFragment() {
         // Required empty public constructor
@@ -92,5 +99,19 @@ public class CaseInformationFragment extends Fragment {
         autoDeceased.setAdapter(adapter1);
         autoRace.setAdapter(adapter2);
         autoPrimaryLanguage.setAdapter(adapter3);
+
+        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
+
+        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "DatePicker");
+
+            }
+        });
     }
+
 }

@@ -488,6 +488,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
+                    android:id="@+id/calDeceasedDate"
                     android:layout_below="@id/txtRace"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
