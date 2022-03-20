@@ -1,12 +1,15 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
 
@@ -15,6 +18,8 @@ import com.example.covidwatch.R;
  * Use the {@link CaseInformationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
 public class CaseInformationFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -62,5 +67,30 @@ public class CaseInformationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_case_information, container, false);
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //UI reference of textView
+        final AutoCompleteTextView autoConsent = view.findViewById(R.id.autoConsent);
+        final AutoCompleteTextView autoReinfected = view.findViewById(R.id.autoReinfected);
+        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.autoDeceased);
+        final AutoCompleteTextView autoRace = view.findViewById(R.id.autoRace);
+        final AutoCompleteTextView autoPrimaryLanguage = view.findViewById(R.id.autoPrimaryLanguage);
+
+        //Create adapter
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrYesNo));
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrRace));
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrPrimaryLanguage));
+
+        //Set adapter
+        autoConsent.setAdapter(adapter1);
+        autoReinfected.setAdapter(adapter1);
+        autoDeceased.setAdapter(adapter1);
+        autoRace.setAdapter(adapter2);
+        autoPrimaryLanguage.setAdapter(adapter3);
     }
 }
