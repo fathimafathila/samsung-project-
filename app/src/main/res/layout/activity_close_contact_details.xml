@@ -11,7 +11,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
 
 <ScrollView android:layout_marginTop="10dp"
     android:layout_width="fill_parent"
-    android:layout_height="1500dp"
+    android:layout_height="wrap_content"
     android:id="@+id/scrollView">
 
 
