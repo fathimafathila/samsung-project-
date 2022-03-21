@@ -9,10 +9,20 @@ import android.widget.EditText;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.TestingTreatment.TreatmentFragment;
 
 import java.util.Calendar;
 
-public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener
+{
+
+    public Boolean getDeceasedDate() {
+        return deceasedDate;
+    }
+
+    public void setDeceasedDate(Boolean deceasedDate) {
+        this.deceasedDate = deceasedDate;
+    }
 
     public Boolean deceasedDate;
 
@@ -30,8 +40,23 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
 
     }
     public void populateSetDeceasedDate(int year, int month, int day) {
-            EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);
+
+        try {
+                EditText edtDeceasedDate = getActivity().findViewById( R.id.edtDeceasedDate );
+                edtDeceasedDate.setText( month + "/" + day + "/" + year );
+
+                EditText edtfirstfeelDate = getActivity().findViewById( R.id.edtDatefirstFellsick );
+                edtfirstfeelDate.setText( month + "/" + day + "/" + year );
+
+            EditText edtAdmissionDate = getActivity().findViewById(R.id.edtAdmissionDate);
             edtDeceasedDate.setText(month + "/" + day + "/" + year);
+
+            EditText edtDischargedDate = getActivity().findViewById(R.id.edtDischargedate);
+            edtDeceasedDate.setText(month + "/" + day + "/" + year);
+            }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     public void populateSetSickDate(int year, int month, int day) {
         EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDatefirstFellsick);

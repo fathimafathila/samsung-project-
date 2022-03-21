@@ -20,6 +20,9 @@
             android:name=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".UsersView.InitialInterview.Location.AddIsolationLocationactivity"
+            android:exported="false" />
+        <activity
             android:name=".UsersView.DailyHealth.DailyHealthActivity"
             android:exported="false" />
         <activity

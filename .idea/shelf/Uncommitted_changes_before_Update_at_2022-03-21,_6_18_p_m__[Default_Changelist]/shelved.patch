@@ -1,0 +1,1697 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.example.covidwatch\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.CovidWatch\">\n        <activity\n            android:name=\".UsersView.InitialInterview.Demographic.CaseInformationCardActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".UsersView.InitialInterview.InitialInterviewActivity\"\n            android:exported=\"true\"\n            android:theme=\"@style/Theme.AppCompat.NoActionBar\" />\n        <activity\n            android:name=\".UsersView.InitialInterview.Location.CloseContactDetailsActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".UsersView.DailyHealth.DailyHealthActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".UsersView.UserDashboardActivity\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".AdminView.ViewRecord.UpdateUser2Activity\"\n            android:exported=\"true\"\n            android:label=\"Case Information\" />\n        <activity\n            android:name=\".AdminView.ViewRecord.UpdateUserActivity\"\n            android:exported=\"false\"\n            android:label=\"Case Information\" />\n        <activity\n            android:name=\".AdminView.PersonalInfoActivity\"\n            android:exported=\"true\"\n            android:label=\"Personal Information\" />\n        <activity\n            android:name=\".AdminView.ResourceRequestCaseActivity\"\n            android:exported=\"true\" />\n        <activity\n            android:name=\".AdminView.ViewRecord.ViewRecordActivity\"\n            android:exported=\"true\"\n            android:label=\"View Record\" />\n        <activity\n            android:name=\".AdminView.EscalatedCaseActivity\"\n            android:exported=\"true\" />\n        <activity\n            android:name=\".AdminView.SecurityQuestionActivity\"\n            android:exported=\"false\"\n            android:theme=\"@style/Theme.AppCompat.NoActionBar\" />\n        <activity\n            android:name=\".AdminView.CreateUser.AddRecord2Activity\"\n            android:exported=\"true\"\n            android:label=\"Cash Information\" />\n        <activity\n            android:name=\".AdminView.CreateUser.AddRecordActivity\"\n            android:exported=\"true\"\n            android:label=\"Case Information\" />\n        <activity\n            android:name=\".AdminView.AdminDashboard\"\n            android:exported=\"false\"\n            android:label=\"Admin DashBoard\" />\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"\n            android:theme=\"@style/Theme.AppCompat.NoActionBar\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n\n        <meta-data\n            android:name=\"preloaded_fonts\"\n            android:resource=\"@array/preloaded_fonts\" />\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/AndroidManifest.xml	(date 1647900869055)
+@@ -20,6 +20,9 @@
+             android:name=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
+             android:exported="false" />
+         <activity
++            android:name=".UsersView.InitialInterview.Location.AddIsolationLocationactivity"
++            android:exported="false" />
++        <activity
+             android:name=".UsersView.DailyHealth.DailyHealthActivity"
+             android:exported="false" />
+         <activity
+Index: app/src/main/res/layout/fragment_add_location.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    tools:context=\".UsersView.InitialInterview.Demographic.CaseInformationFragment\">\n\n\n\n    <ScrollView\n        android:id=\"@+id/scrollView\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"70dp\"\n        android:padding=\"16dp\"\n        >\n\n        <RelativeLayout\n            android:id=\"@+id/relCard\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\"\n            >\n\n            <androidx.recyclerview.widget.RecyclerView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n                xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n                xmlns:tools=\"http://schemas.android.com/tools\"\n                android:id=\"@+id/recLocation\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:layout_marginTop=\"10dp\" />\n\n            <TextView\n                android:id=\"@+id/textView\"\n                android:layout_below=\"@+id/recLocation\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:text=\"Select your relationship with the close contact:\"\n                android:textSize=\"20sp\"\n                android:textColor=\"@color/textColor\"\n                android:layout_marginTop=\"20dp\"\n                />\n\n            <Spinner\n                android:id=\"@+id/spinnerContactType\"\n                android:layout_width=\"300dp\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@id/textView\"\n                android:layout_marginTop=\"20dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColor=\"@color/primary_color\"\n                android:textSize=\"20sp\" />\n\n            <Button\n                android:id=\"@+id/btnAddContact\"\n                android:layout_width=\"40dp\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@id/textView\"\n                android:layout_alignParentRight=\"true\"\n                android:layout_marginTop=\"20dp\"\n                android:layout_marginRight=\"20dp\"\n                android:backgroundTint=\"@color/primary_color\"\n                android:text=\"+\" />\n\n        </RelativeLayout>\n\n    </ScrollView>\n\n\n\n</FrameLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/fragment_add_location.xml b/app/src/main/res/layout/fragment_add_location.xml
+--- a/app/src/main/res/layout/fragment_add_location.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/res/layout/fragment_add_location.xml	(date 1647896048546)
+@@ -42,7 +42,7 @@
+                 />
+ 
+             <Spinner
+-                android:id="@+id/spinnerContactType"
++                android:id="@+id/spinnerLocationType"
+                 android:layout_width="300dp"
+                 android:layout_height="55dp"
+                 android:layout_below="@id/textView"
+@@ -52,7 +52,7 @@
+                 android:textSize="20sp" />
+ 
+             <Button
+-                android:id="@+id/btnAddContact"
++                android:id="@+id/btnAddLocation"
+                 android:layout_width="40dp"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/textView"
+Index: app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Location/AddLocationFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.covidwatch.UsersView.InitialInterview.Location;\n\nimport android.os.Bundle;\n\nimport androidx.fragment.app.Fragment;\nimport androidx.recyclerview.widget.LinearLayoutManager;\nimport androidx.recyclerview.widget.RecyclerView;\n\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\n\nimport com.example.covidwatch.R;\nimport com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.ContactModel;\nimport com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.contactAdapter;\nimport com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.LocationModel;\nimport com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.locationAdapter;\n\nimport java.util.ArrayList;\n\n\npublic class AddLocationFragment extends Fragment {\n\n    RecyclerView rcv ;\n    locationAdapter adapter;\n\n\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n\n    }\n\n    @Override\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\n                             Bundle savedInstanceState) {\n        // Inflate the layout for this fragment\n        View view = inflater.inflate(R.layout.fragment_add_location, container, false);\n\n        rcv = (RecyclerView) view.findViewById(R.id.recLocation);\n        rcv.setLayoutManager(new LinearLayoutManager(getContext()));\n\n\n        adapter = new locationAdapter(dataQueue(),getContext());\n        rcv.setAdapter(adapter);\n\n        return view;\n    }\n\n    public ArrayList<LocationModel> dataQueue() {\n        ArrayList<LocationModel> holder = new ArrayList<>();\n\n        LocationModel ob1 = new LocationModel();\n        ob1.setHeader(\"760 Mohawk road west\");\n        ob1.setDesc(\"03/23/2022\");\n        holder.add(ob1);\n\n        LocationModel ob2 = new LocationModel();\n        ob2.setHeader(\"Toronto Pearson Airport\");\n        ob2.setDesc(\"03/22/2022\");\n        holder.add(ob2);\n\n        return  holder;\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Location/AddLocationFragment.java b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Location/AddLocationFragment.java
+--- a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Location/AddLocationFragment.java	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Location/AddLocationFragment.java	(date 1647897674754)
+@@ -1,7 +1,10 @@
+ package com.example.covidwatch.UsersView.InitialInterview.Location;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
+ 
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
+ import androidx.fragment.app.Fragment;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+@@ -9,6 +12,12 @@
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.AdapterView;
++import android.widget.ArrayAdapter;
++import android.widget.Button;
++import android.widget.Spinner;
++import android.widget.TextView;
++import android.widget.Toast;
+ 
+ import com.example.covidwatch.R;
+ import com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.ContactModel;
+@@ -46,6 +55,44 @@
+ 
+         return view;
+     }
++    @Override
++    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
++        super.onViewCreated(view, savedInstanceState);
++
++        //UI reference of textView
++        final Spinner spinnerContactType = view.findViewById(R.id.spinnerLocationType);
++
++        //Create adapter
++
++        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
++                R.array.arrContactType, R.layout.list_item);
++
++        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
++        spinnerContactType.setAdapter(adapter);
++        String str = spinnerContactType.getSelectedItem().toString();
++       System.out.print("Stringssss" + str);
++
++
++        Button btnAddContact = view.findViewById(R.id.btnAddLocation);
++
++        btnAddContact.setOnClickListener(new View.OnClickListener() {
++
++            @Override
++            public void onClick(View arg0) {
++
++                Intent intent = new Intent(getActivity(), AddIsolationLocationactivity.class);
++                startActivity(intent);
++
++            }
++        });
++    }
++//    @Override
++//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
++//        String text = parent.getItemAtPosition(position).toString();
++//        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
++//    }
++//    @Override
++//    public void onNothingSelected(AdapterView<?> parent) { }
+ 
+     public ArrayList<LocationModel> dataQueue() {
+         ArrayList<LocationModel> holder = new ArrayList<>();
+Index: app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Demographic/SelectDateFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.covidwatch.UsersView.InitialInterview.Demographic;\n\nimport android.app.DatePickerDialog;\nimport android.app.Dialog;\nimport android.os.Bundle;\nimport android.widget.DatePicker;\nimport android.widget.EditText;\n\nimport androidx.fragment.app.DialogFragment;\n\nimport com.example.covidwatch.R;\n\nimport java.util.Calendar;\n\npublic class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {\n\n    public Boolean deceasedDate;\n\n    @Override\n    public Dialog onCreateDialog(Bundle savedInstanceState) {\n        final Calendar calendar = Calendar.getInstance();\n        int yy = calendar.get(Calendar.YEAR);\n        int mm = calendar.get(Calendar.MONTH);\n        int dd = calendar.get(Calendar.DAY_OF_MONTH);\n        return new DatePickerDialog(getActivity(), this, yy, mm, dd);\n    }\n\n    public void onDateSet(DatePicker view, int yy, int mm, int dd) {\n        populateSetDeceasedDate(yy, mm + 1, dd);\n\n    }\n    public void populateSetDeceasedDate(int year, int month, int day) {\n            EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);\n            edtDeceasedDate.setText(month + \"/\" + day + \"/\" + year);\n    }\n    public void populateSetSickDate(int year, int month, int day) {\n        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDatefirstFellsick);\n        edtDeceasedDate.setText(month + \"/\" + day + \"/\" + year);\n    }\n    public void populateSetAdmissionDate(int year, int month, int day) {\n        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtAdmissionDate);\n        edtDeceasedDate.setText(month + \"/\" + day + \"/\" + year);\n    }\n    public void populateSetDischargeDate(int year, int month, int day) {\n        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDischargedate);\n        edtDeceasedDate.setText(month + \"/\" + day + \"/\" + year);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Demographic/SelectDateFragment.java b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Demographic/SelectDateFragment.java
+--- a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Demographic/SelectDateFragment.java	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/Demographic/SelectDateFragment.java	(date 1647889923313)
+@@ -9,10 +9,20 @@
+ import androidx.fragment.app.DialogFragment;
+ 
+ import com.example.covidwatch.R;
++import com.example.covidwatch.UsersView.InitialInterview.TestingTreatment.TreatmentFragment;
+ 
+ import java.util.Calendar;
+ 
+-public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
++public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener
++{
++
++    public Boolean getDeceasedDate() {
++        return deceasedDate;
++    }
++
++    public void setDeceasedDate(Boolean deceasedDate) {
++        this.deceasedDate = deceasedDate;
++    }
+ 
+     public Boolean deceasedDate;
+ 
+@@ -30,8 +40,23 @@
+ 
+     }
+     public void populateSetDeceasedDate(int year, int month, int day) {
+-            EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);
++
++        try {
++                EditText edtDeceasedDate = getActivity().findViewById( R.id.edtDeceasedDate );
++                edtDeceasedDate.setText( month + "/" + day + "/" + year );
++
++                EditText edtfirstfeelDate = getActivity().findViewById( R.id.edtDatefirstFellsick );
++                edtfirstfeelDate.setText( month + "/" + day + "/" + year );
++
++            EditText edtAdmissionDate = getActivity().findViewById(R.id.edtAdmissionDate);
+             edtDeceasedDate.setText(month + "/" + day + "/" + year);
++
++            EditText edtDischargedDate = getActivity().findViewById(R.id.edtDischargedate);
++            edtDeceasedDate.setText(month + "/" + day + "/" + year);
++            }catch (Exception e)
++        {
++            e.printStackTrace();
++        }
+     }
+     public void populateSetSickDate(int year, int month, int day) {
+         EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDatefirstFellsick);
+Index: app/src/main/res/layout/activity_case_information_card.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:id=\"@+id/scrollView\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:paddingHorizontal=\"10dp\"\n    android:fillViewport=\"true\"\n    android:scrollbars=\"vertical\"\n    tools:context=\".UsersView.InitialInterview.Demographic.CaseInformationCardActivity\">\n\n\n    <RelativeLayout\n        android:id=\"@+id/relDetails\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:layout_marginTop=\"20dp\"\n        >\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/FirstName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"First Name\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtFirstName\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/LastName\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/FirstName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Last Name\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtLastName\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/emailId\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/LastName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Email ID\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtemailId\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/Dob\"\n            android:layout_below=\"@+id/emailId\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Date of Birth\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtDob\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <ImageButton\n            android:id=\"@+id/calDob\"\n            android:layout_width=\"20dp\"\n            android:layout_height=\"20dp\"\n            android:layout_alignParentRight=\"true\"\n            android:layout_marginTop=\"30dp\"\n            android:layout_marginEnd=\"20dp\"\n            android:scaleType=\"fitCenter\"\n            android:background=\"@color/lightgrey\"\n            android:src=\"@drawable/cal1\"\n            android:layout_below=\"@+id/emailId\"\n            android:onClick=\"setDate\"\n            />\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/txtGender\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/Dob\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Gender\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtGender\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/ContactNo\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/txtGender\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Phone Number\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtCN\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            style=\"@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu\"\n            android:id=\"@+id/txtAddressType\"\n            android:background=\"@color/lightgrey\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/ContactNo\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Type\">\n\n            <com.google.android.material.textfield.MaterialAutoCompleteTextView\n                android:id=\"@+id/edtAddressType\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:clickable=\"true\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/Address1\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/txtAddressType\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Street 1\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtAddress1\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/Address2\"\n            android:layout_below=\"@+id/Address1\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Street 2\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtAddress2\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/txtAddressCity\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/Address2\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"City\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtCity\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <Button\n            android:id=\"@+id/btnUpdate\"\n            android:backgroundTint=\"@color/primary_color\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginTop=\"20dp\"\n            android:layout_below=\"@+id/txtAddressCity\"\n            android:layout_centerHorizontal=\"true\"\n            android:text=\"Update\"\n            />\n\n    </RelativeLayout>\n\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_case_information_card.xml b/app/src/main/res/layout/activity_case_information_card.xml
+--- a/app/src/main/res/layout/activity_case_information_card.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/res/layout/activity_case_information_card.xml	(date 1647892447631)
+@@ -14,7 +14,7 @@
+     <RelativeLayout
+         android:id="@+id/relDetails"
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
++        android:layout_height="800dp"
+         android:layout_marginTop="20dp"
+         >
+ 
+Index: app/src/main/res/layout/activity_add_isolation_locationactivity.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".UsersView.InitialInterview.Location.AddIsolationLocationactivity\">\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_add_isolation_locationactivity.xml b/app/src/main/res/layout/activity_add_isolation_locationactivity.xml
+--- a/app/src/main/res/layout/activity_add_isolation_locationactivity.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/res/layout/activity_add_isolation_locationactivity.xml	(date 1647896048563)
+@@ -1,9 +1,336 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context=".UsersView.InitialInterview.Location.AddIsolationLocationactivity">
++
++    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++        xmlns:app="http://schemas.android.com/apk/res-auto"
++        xmlns:tools="http://schemas.android.com/tools"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:paddingHorizontal="10dp"
++        tools:context=".UsersView.InitialInterview.Location.AddIsolationLocationactivity">
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="1100dp"
++            android:layout_marginTop="20dp"
++            android:orientation="vertical">
++
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/FirstName"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Location Name">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edtFirstName"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/LastName"
++                android:layout_width="match_parent"
++                android:layout_below="@+id/FirstName"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Location Type">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/edtLastName"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/emailId"
++                android:layout_width="match_parent"
++                android:layout_below="@+id/LastName"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Street 1">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/edtemailId"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/Dob"
++                android:layout_below="@+id/emailId"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Street 2">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edtDob"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++<!--            <ImageButton-->
++<!--                android:id="@+id/calDob"-->
++<!--                android:layout_width="20dp"-->
++<!--                android:layout_height="20dp"-->
++<!--                android:layout_alignParentRight="true"-->
++<!--                android:layout_marginTop="30dp"-->
++<!--                android:layout_marginEnd="20dp"-->
++<!--                android:scaleType="fitCenter"-->
++<!--                android:background="@color/lightgrey"-->
++<!--                android:src="@drawable/cal1"-->
++<!--                android:layout_below="@+id/emailId"-->
++<!--                android:onClick="setDate"-->
++<!--                />-->
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/txtGender"
++                android:layout_width="185dp"
++                android:layout_below="@+id/Dob"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="City">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/edtGender"
++                    android:layout_width="185dp"
++                    android:layout_height="wrap_content" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++
++            <com.google.android.material.textfield.TextInputLayout
++                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
++
++                android:id="@+id/Country"
++                android:layout_width="185dp"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/Dob"
++                android:layout_marginStart="300dp"
++                android:layout_margin="4dp"
++                android:layout_toRightOf="@id/txtGender"
++                android:hint="Province">
++
++                <com.google.android.material.textfield.MaterialAutoCompleteTextView
++                    android:id="@+id/edtCounty"
++                    android:layout_width="185dp"
++                    android:layout_marginStart="7dp"
++
++                    android:layout_height="wrap_content"
++                    android:layout_toRightOf="@id/txtGender" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
++
++                android:id="@+id/txtCountry"
++                android:layout_width="185dp"
++                android:layout_below="@+id/txtGender"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Country">
++
++                <com.google.android.material.textfield.MaterialAutoCompleteTextView
++                    android:id="@+id/edtCountry"
++                    android:layout_width="185dp"
++                    android:clickable="true"
++                    tools:ignore="KeyboardInaccessibleWidget"
++                    android:layout_height="wrap_content" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/ZipCode"
++                android:layout_width="185dp"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/txtGender"
++                android:layout_marginStart="300dp"
++                android:layout_margin="4dp"
++                android:layout_toRightOf="@id/txtCountry"
++                android:hint="Zipcode">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/edtZipcode"
++                    android:layout_width="185dp"
++                    android:layout_marginStart="7dp"
++                    android:clickable="true"
++                    tools:ignore="KeyboardInaccessibleWidget"
++                    android:layout_height="wrap_content"
++                    android:layout_toRightOf="@id/txtCountry" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/fromDate"
++                android:layout_below="@+id/txtCountry"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="From Date">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edDFD"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/ToDate"
++                android:layout_below="@+id/fromDate"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="To Date">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edtTd"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/HhAdults"
++                android:layout_below="@+id/ToDate"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="# Household Adults">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edthhadults"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++            <com.google.android.material.textfield.TextInputLayout
++                android:layout_width="match_parent"
++                android:id="@+id/HhKids"
++                android:layout_below="@+id/HhAdults"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="# Household Kids">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:id="@+id/edthhkids"
++                    android:inputType="text"
++                    android:maxLines="1" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++
++
++            <com.google.android.material.textfield.TextInputLayout
++                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
++                android:id="@+id/txtisolationCheck"
++                android:background="@color/lightgrey"
++                android:layout_width="match_parent"
++                android:layout_below="@+id/HhKids"
++                android:layout_height="wrap_content"
++                android:layout_margin="4dp"
++                android:hint="Are you able to isolate safely ?">
++
++                <com.google.android.material.textfield.MaterialAutoCompleteTextView
++                    android:id="@+id/edtIsolatecheck"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:clickable="true"
++                    tools:ignore="KeyboardInaccessibleWidget" />
++            </com.google.android.material.textfield.TextInputLayout>
++
++
++
++            <TextView
++                android:id="@+id/txtinstruction"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/txtisolationCheck"
++
++                android:text="Do you have following in your home ?"
++                android:textSize="18sp"
++                android:textColor="@color/textColor"
++                android:layout_marginTop="10dp"
++                android:layout_toRightOf="@+id/checkbox"
++                />
++
++
++            <CheckBox
++                android:id="@+id/checkbox1"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/txtinstruction"
++                android:layout_marginRight="10dp"
++                android:background="@color/white" />
++
++            <TextView
++                android:id="@+id/txtCheckbox1"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="A separate room for sleeping and Daily Activities Where you can stay away from other house mates"
++                android:textSize="12sp"
++                android:textColor="@color/textColor"
++                android:layout_below="@+id/txtinstruction"
++
++                android:layout_marginTop="10dp"
++                android:layout_toRightOf="@+id/checkbox1"
++                />
++            <CheckBox
++                android:id="@+id/checkbox2"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/checkbox1"
++                android:layout_marginRight="10dp"
++                android:background="@color/white" />
++
++            <TextView
++                android:id="@+id/txtCheckbox2"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="A separate bathroom for use or if not, ability for you or some one to clean after each use."
++                android:textSize="12sp"
++                android:textColor="@color/textColor"
++                android:layout_below="@+id/checkbox1"
++
++                android:layout_marginTop="10dp"
++                android:layout_toRightOf="@+id/checkbox2"
++                />
++
++
++            <com.google.android.material.textfield.TextInputLayout
++                android:id="@+id/txtAdditionalInfo"
++                android:layout_width="match_parent"
++                android:layout_below="@+id/checkbox2"
++                android:layout_height="100dp"
++                android:layout_margin="4dp"
++                android:hint="Additional Info">
++
++                <com.google.android.material.textfield.TextInputEditText
++                    android:id="@+id/edtAdditionalInfo"
++                    android:layout_height="100dp"
++
++                    android:layout_width="match_parent"/>
++            </com.google.android.material.textfield.TextInputLayout>
++
++            <Button
++                android:id="@+id/btnAddContact"
++                android:backgroundTint="@color/primary_color"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_below="@+id/txtAdditionalInfo"
++                android:layout_marginTop="20dp"
++                android:layout_alignParentRight="true"
++                android:text="Add Location"
++                android:layout_marginRight="20dp"
++                />
++
++        </RelativeLayout>
++
++    </ScrollView>
++
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\"></string>\n    <string name=\"admin_dashboard\">Admin Dashboard</string>\n\n    ------------------Main Screen ----------------\n    <string name=\"errorAccount\">Invalid Account Information </string>\n\n    ------------------Forget password--------------\n    <string name=\"title\">Forgot your password?</string>\n    <string name=\"msg\">We will send you a code to reset your password</string>\n    <string name=\"mobile\">Enter E-mail Id</string>\n    <string name=\"resetBtn\">RESET PASSWORD</string>\n    <string name=\"title_activity_home_page\">HomePage</string>\n    <string name=\"errorMsg\"> ! Email Id account does not exits</string>\n\n    -----------------Navigation Drawer--------------\n    <string name=\"open\">Open</string>\n    <string name=\"close\">Close</string>\n    <!-- TODO: Remove or change this placeholder text -->\n    <string name=\"hello_blank_fragment\">Hello blank fragment</string>\n\n\n    ----------------Fragments----------------\n    <string name=\"titleMain\">\"Today, on the second National Day of Observance for COVID-19, we take time to\nmourn the people we lost, as well as recognize those who got sick, and those who are\nstill suffering from long COVID-19. This is also the day where we recognize and show\ngratitude to our health care workers who sacrificed so much, and spent two years on\nthe front lines to protect us all. I invite everyone in Canada to reflect on the significant\nimpacts we have felt―and continue to experience-since the onset of the pandemic,\nboth in our professional and personal lives.\"</string>\n\n    <string-array name=\"arrYesNo\">\n        <item>Yes</item>\n        <item>No</item>\n    </string-array>\n\n    <string-array name=\"arrPriority\">\n        <item>Low</item>\n        <item>Medium</item>\n        <item>High</item>\n    </string-array>\n\n    <string-array name=\"arrGender\">\n        <item>Male</item>\n        <item>Female</item>\n        <item>Transgender</item>\n        <item>Non-binary</item>\n        <item>Intersex</item>\n        <item>Not Listed</item>\n        <item>Prefer not to say</item>\n    </string-array>\n\n    <string-array name=\"arrInvestigationStatus\">\n        <item>New</item>\n        <item>Initial Engagement</item>\n        <item>Isolation</item>\n        <item>Closed</item>\n        <item>None</item>\n    </string-array>\n\n    <string-array name=\"arrCaseType\">\n        <item>Confirmed</item>\n        <item>Close Contact</item>\n        <item>Probable</item>\n        <item>None</item>\n    </string-array>\n\n    <string-array name=\"arrRace\">\n        <item>White</item>\n        <item>Black, African American</item>\n        <item>American Indian or Alaska Native</item>\n        <item>Asian</item>\n        <item>Japanese</item>\n        <item>Korean</item>\n        <item>Chinese</item>\n        <item>Native Hawaiian</item>\n        <item>Filipino</item>\n        <item>Vietnamese</item>\n        <item>Samoan</item>\n        <item>Pacific Islander</item>\n        <item>Not Listed</item>\n    </string-array>\n\n    <string-array name=\"arrPrimaryLanguage\">\n        <item>English</item>\n        <item>French</item>\n        <item>Spanish</item>\n        <item>Chinese</item>\n        <item>Hindi</item>\n        <item>Portuguese</item>\n        <item>Russian</item>\n        <item>Japanese</item>\n        <item>Arabic</item>\n        <item>Lahnda</item>\n        <item>Bengali</item>\n        <item>German</item>\n        <item>Italian</item>\n        <item>Dutch</item>\n        <item>Swedish</item>\n        <item>Korean</item>\n        <item>Not Listed</item>\n    </string-array>\n\n    <string-array name=\"arrContactType\">\n        <item>Boyfriend/Girlfriend, Household</item>\n        <item>Boyfriend/Girlfriend, Non-Household</item>\n        <item>Camp Counsellor</item>\n        <item>Camper</item>\n        <item>Campmate</item>\n        <item>Caregiver (eg. home nursing/elder care)</item>\n        <item>Childcare provider (babysitter/daycare)</item>\n        <item>Child supervised (provided daycare/babysat)</item>\n        <item>Classmate</item>\n        <item>Coach</item>\n        <item>Co-worker</item>\n        <item>Customer/Client</item>\n        <item>Employee</item>\n        <item>Family, Household</item>\n        <item>Family, Non-Household</item>\n        <item>Friend,Household</item>\n        <item>Friend, Non-Household</item>\n        <item>Healthcare Provider</item>\n        <item>Patient</item>\n        <item>Re-creational Activity Co-participant (non-sports team)</item>\n        <item>Resident at Congregate Facility</item>\n        <item>Roommate</item>\n        <item>Service Provider (eg. hairdresser, plumber)</item>\n        <item>Student</item>\n        <item>Supervisor</item>\n        <item>Teacher</item>\n        <item>Teammate (sports team)</item>\n        <item>Other</item>\n        <item>Contact Only - No Relationship</item>\n    </string-array>\n\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/res/values/strings.xml	(date 1647896154802)
+@@ -100,8 +100,14 @@
+         <item>Korean</item>
+         <item>Not Listed</item>
+     </string-array>
++    <string-array name="arrLocationType">
++        <item> Isolation/Quarantine Location</item>
++        <item> Employment Location</item>
++
++    </string-array>
+ 
+     <string-array name="arrContactType">
++        <item>-- None --</item>
+         <item>Boyfriend/Girlfriend, Household</item>
+         <item>Boyfriend/Girlfriend, Non-Household</item>
+         <item>Camp Counsellor</item>
+Index: app/src/main/res/layout/activity_close_contact_details.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\nxmlns:app=\"http://schemas.android.com/apk/res-auto\"\nxmlns:tools=\"http://schemas.android.com/tools\"\nandroid:layout_width=\"match_parent\"\nandroid:layout_height=\"match_parent\"\nandroid:paddingHorizontal=\"10dp\"\ntools:context=\".UsersView.InitialInterview.Location.CloseContactDetailsActivity\">\n\n    <RelativeLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:layout_marginTop=\"20dp\"\n        android:orientation=\"vertical\">\n\n        <CheckBox\n            android:id=\"@+id/checkbox\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:background=\"@color/white\"\n            />\n\n        <TextView\n            android:id=\"@+id/txtCheckbox\"\n            android:layout_width=\"wrap_content\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"Same Address\"\n            android:textSize=\"24sp\"\n            android:textColor=\"@color/textColor\"\n            android:layout_marginTop=\"10dp\"\n            android:layout_toRightOf=\"@+id/checkbox\"\n            />\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/FirstName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_below=\"@+id/checkbox\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"First Name\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtFirstName\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/LastName\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/FirstName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Last Name\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtLastName\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/emailId\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/LastName\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Email ID\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtemailId\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/Dob\"\n            android:layout_below=\"@+id/emailId\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Date of Birth\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtDob\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <ImageButton\n            android:id=\"@+id/calDob\"\n            android:layout_width=\"20dp\"\n            android:layout_height=\"20dp\"\n            android:layout_alignParentRight=\"true\"\n            android:layout_marginTop=\"30dp\"\n            android:layout_marginEnd=\"20dp\"\n            android:scaleType=\"fitCenter\"\n            android:background=\"@color/lightgrey\"\n            android:src=\"@drawable/cal1\"\n            android:layout_below=\"@+id/emailId\"\n            android:onClick=\"setDate\"\n            />\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/txtGender\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/Dob\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Gender\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtGender\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/ContactNo\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/txtGender\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Phone Number\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtCN\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            style=\"@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu\"\n            android:id=\"@+id/txtAddressType\"\n            android:background=\"@color/lightgrey\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/ContactNo\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Type\">\n\n            <com.google.android.material.textfield.MaterialAutoCompleteTextView\n                android:id=\"@+id/edtAddressType\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:clickable=\"true\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/Address1\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/txtAddressType\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Street 1\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtAddress1\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n        <com.google.android.material.textfield.TextInputLayout\n            android:layout_width=\"match_parent\"\n            android:id=\"@+id/Address2\"\n            android:layout_below=\"@+id/Address1\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Address Street 2\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:id=\"@+id/edtAddress2\"\n                android:inputType=\"text\"\n                android:maxLines=\"1\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/txtAddressCity\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/Address2\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"City\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtCity\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n        <com.google.android.material.textfield.TextInputLayout\n            android:id=\"@+id/txtAdditionalInfo\"\n            android:layout_width=\"match_parent\"\n            android:layout_below=\"@+id/txtAddressCity\"\n            android:layout_height=\"wrap_content\"\n            android:layout_margin=\"4dp\"\n            android:hint=\"Additional Info\">\n\n            <com.google.android.material.textfield.TextInputEditText\n                android:id=\"@+id/edtAdditionalInfo\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\" />\n        </com.google.android.material.textfield.TextInputLayout>\n\n            <Button\n                android:id=\"@+id/btnAddContact\"\n                android:backgroundTint=\"@color/primary_color\"\n                android:layout_width=\"wrap_content\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/txtAdditionalInfo\"\n                android:layout_marginTop=\"20dp\"\n                android:layout_alignParentRight=\"true\"\n                android:text=\"Add Contact\"\n                android:layout_marginRight=\"20dp\"\n                />\n\n    </RelativeLayout>\n\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_close_contact_details.xml b/app/src/main/res/layout/activity_close_contact_details.xml
+--- a/app/src/main/res/layout/activity_close_contact_details.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ b/app/src/main/res/layout/activity_close_contact_details.xml	(date 1647892616043)
+@@ -9,7 +9,7 @@
+ 
+     <RelativeLayout
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
++        android:layout_height="900dp"
+         android:layout_marginTop="20dp"
+         android:orientation="vertical">
+ 
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20__9_38_p_m___Default_Changelist_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20__9_38_p_m___Default_Changelist_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20__9_38_p_m___Default_Changelist_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20__9_38_p_m___Default_Changelist_.xml	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ /dev/null	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]" date="1647826776799" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2022-03-20, 9:38 p.m. [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2022-03-20,_9_38_p_m__[Default_Changelist]/shelved.patch	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
++++ /dev/null	(revision 6c2e3ea464ed1b64f34d8b617796d7b7898d8b45)
+@@ -1,1076 +0,0 @@
+-Index: app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/InitialHealthAssessmentFragment.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.covidwatch.UsersView.InitialInterview;\n\nimport android.os.Bundle;\n\nimport androidx.fragment.app.Fragment;\n\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\n\nimport com.example.covidwatch.R;\n\npublic class InitialHealthAssessmentFragment extends Fragment {\n\n    @Override\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\n                             Bundle savedInstanceState) {\n        // Inflate the layout for this fragment\n        return inflater.inflate(R.layout.fragment_initial_health_assessment, container, false);\n    }\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/InitialHealthAssessmentFragment.java b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/InitialHealthAssessmentFragment.java
+---- a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/InitialHealthAssessmentFragment.java	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/InitialHealthAssessmentFragment.java	(date 1647792510542)
+-@@ -1,5 +1,7 @@
+- package com.example.covidwatch.UsersView.InitialInterview;
+- 
+-+import android.app.DatePickerDialog;
+-+import android.app.Dialog;
+- import android.os.Bundle;
+- 
+- import androidx.fragment.app.Fragment;
+-@@ -7,15 +9,155 @@
+- import android.view.LayoutInflater;
+- import android.view.View;
+- import android.view.ViewGroup;
+-+import android.widget.ArrayAdapter;
+-+import android.widget.AutoCompleteTextView;
+-+import android.widget.DatePicker;
+-+import android.widget.EditText;
+-+import android.widget.MultiAutoCompleteTextView;
+- 
+- import com.example.covidwatch.R;
+- 
+-+import java.util.ArrayList;
+-+import java.util.Calendar;
+-+import java.util.List;
+-+
+- public class InitialHealthAssessmentFragment extends Fragment {
+-+    MultiAutoCompleteTextView initHealthStatus;
+-+    MultiAutoCompleteTextView Symptomscheck;
+-+    AutoCompleteTextView Yesno;
+-+    AutoCompleteTextView Currentsituation;
+-+    final static String[] item_Hc = new String[]{
+-+            "Asthma",
+-+            "Cardiac Disease",
+-+            " Chronic Kidney Disease",
+-+            "Chronic liver Disease",
+-+            "Chronic Pulmonary Disease",
+-+            "Congenital heart disease",
+-+            " Current Smoker",
+-+            "Current Vaper",
+-+            "Diabetes",
+-+            "Former Smoker",
+-+            "Hypertension",
+-+            "Immunocompromised",
+-+            "Pregnancy",
+-+            "Sickle cell disease",
+-+            "Other"};
+-+
+-+    final static String[] item_CS = new String[]{"--None--",
+-+            "Still symptomatic", "not currently hospitalized Still symptomatic"," currently hospitalized",
+-+            "No longer have any symptoms",
+-+            "Never had symptom"};
+-+
+-+    final static String[] item_Sc = new String[]{
+-+
+-+            "Inability to Wake or Stay Awake",
+-+           " Abdominal Discomfort",
+-+           " Loss of Taste and/or Smell",
+-+            "Change in Skin", "Lips or Nail Beds",
+-+            "Muscle Ache",
+-+            "Chest Pain or Pressure in the Chest",
+-+            "Rash",
+-+            "Chills",
+-+"            Confusion or Change in Mental Status",    "Congestion",
+-+    "Rigors",
+-+    "Cough",
+-+"    Sore Throat",
+-+" ,   Difficulty Breathing/Shortness of Breath","   Runny Nose",
+-+    "Diarrhea",
+-+    "Vomiting",
+-+    "Fatigue",
+-+    "Wheezing",
+-+    "Feverish",
+-+    "Other"
+-+};
+-+
+-+
+-+    final static String[] item_YN = new String[]{"Yes", "No"};
+-+    EditText edtDatefirstFellsick;
+-+    private Calendar calendar;
+-+    private EditText dateView1, dateView2, dateView3;
+-+    private int year, month, day;
+-+    View v1;
+- 
+-     @Override
+-     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                              Bundle savedInstanceState) {
+-         // Inflate the layout for this fragment
+--        return inflater.inflate(R.layout.fragment_initial_health_assessment, container, false);
+-+
+-+        View v = inflater.inflate( R.layout.fragment_initial_health_assessment, container, false );
+-+        v1 = v;
+-+        // Health Condition Spinner
+-+        initHealthStatus = v.findViewById( R.id.caseInfo );
+-+        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_Hc );
+-+        initHealthStatus.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        initHealthStatus.setAdapter( adapterHC );
+-+
+-+        // Yes/ No Spinner
+-+        Yesno = v.findViewById( R.id.edtsymp );
+-+        ArrayAdapter<String> adapterYn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+-+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        Yesno.setAdapter( adapterYn );
+-+
+-+        // Currentsituation Spinner
+-+        Currentsituation = v.findViewById( R.id.edtcurrentsts );
+-+        ArrayAdapter<String> adapterCs = new ArrayAdapter( requireContext(), R.layout.list_item, item_CS );
+-+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        Currentsituation.setAdapter( adapterCs );
+-+
+-+        // Symptoms Check  Spinner
+-+        Symptomscheck = v.findViewById( R.id.edtsymptomsInfo );
+-+        ArrayAdapter<String> adapterSC = new ArrayAdapter( requireContext(), R.layout.list_item, item_Sc );
+-+        Symptomscheck.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        Symptomscheck.setAdapter( adapterSC );
+-+
+-+        dateView3 = (EditText) v.findViewById( R.id.edtDatefirstFellsick );
+-+        calendar = Calendar.getInstance();
+-+        year = calendar.get( Calendar.YEAR );
+-+
+-+        month = calendar.get( Calendar.MONTH );
+-+        day = calendar.get( Calendar.DAY_OF_MONTH );
+-+        return v;
+-     }
+-+
+-+//    // Setting date of birth
+-+//    @SuppressWarnings("deprecation")
+-+//    public void setDate(View v1) {
+-+//        showDialog(997);
+-+//    }
+-+//
+-+//    @Override
+-+//    protected Dialog onCreateDialog(int id) {
+-+//        // TODO Auto-generated method stub
+-+//        if (id == 997) {
+-+//            return new DatePickerDialog(this,
+-+//                    myDateListener1, year, month, day);
+-+//        }
+-+//
+-+//        return null;
+-+//    }
+-+
+-+//    private DatePickerDialog.OnDateSetListener myDateListener1 = new
+-+//            DatePickerDialog.OnDateSetListener() {
+-+//                @Override
+-+//                public void onDateSet(DatePicker arg0,
+-+//                                      int arg1, int arg2, int arg3) {
+-+//                    // TODO Auto-generated method stub
+-+//                    // arg1 = year
+-+//                    // arg2 = month
+-+//                    // arg3 = day
+-+//                    showDate1( arg1, arg2 + 1, arg3 );
+-+//                }
+-+//
+-+//            };
+-+//
+-+//
+-+//
+-+//    // Showing date of birth
+-+//    private void showDate1(int year, int month, int day) {
+-+//        dateView1.setText( new StringBuilder().append( day ).append( "/" )
+-+//                .append( month ).append( "/" ).append( year ) );
+-+//
+-+//        int number = month * 10000 + day * 100 + year % 100;
+-+//    }
+-+
+- }
+-\ No newline at end of file
+-Index: app/src/main/res/layout/fragment_testing.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@android:color/holo_green_dark\"\n    >\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Testing Fragment\"\n        android:textSize=\"30dp\"\n        android:layout_centerInParent=\"true\"/>\n\n</RelativeLayout>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/fragment_testing.xml b/app/src/main/res/layout/fragment_testing.xml
+---- a/app/src/main/res/layout/fragment_testing.xml	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/res/layout/fragment_testing.xml	(date 1647825970551)
+-@@ -1,14 +1,152 @@
+- <?xml version="1.0" encoding="utf-8"?>
+- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-+    xmlns:tools="http://schemas.android.com/tools"
+-     android:layout_width="match_parent"
+-     android:layout_height="match_parent"
+--    android:background="@android:color/holo_green_dark"
+--    >
+--    <TextView
+--        android:layout_width="wrap_content"
+--        android:layout_height="wrap_content"
+--        android:text="Testing Fragment"
+--        android:textSize="30dp"
+--        android:layout_centerInParent="true"/>
+-+    tools:context=".UsersView.InitialInterview.TestingTreatment.TestingFragment">
+-+<!--    <TextView-->
+-+<!--        android:layout_width="wrap_content"-->
+-+<!--        android:layout_height="wrap_content"-->
+-+<!--        android:text="Testing Fragment"-->
+-+<!--        android:textSize="30dp"-->
+-+<!--        android:layout_centerInParent="true"/>-->
+-+    <ScrollView
+-+        android:id="@+id/scrollView"
+-+        android:layout_width="match_parent"
+-+        android:layout_height="wrap_content"
+-+        android:layout_marginTop="20dp"
+-+        android:padding="10dp">
+-+
+-+        <LinearLayout
+-+            android:id="@+id/heathinfo"
+-+
+-+            android:layout_width="match_parent"
+-+            android:layout_height="match_parent"
+-+            android:layout_marginTop="30dp"
+-+            android:orientation="vertical">
+-+
+-+            <com.google.android.material.textfield.TextInputLayout
+-+                android:id="@+id/testingSite"
+-+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:hint="Recent Covid Testing Site"
+-+                android:textColor="@color/primary_color"
+-+                android:textColorHint="@color/primary_color"
+-+                android:theme="@style/Theme.CovidWatch">
+-+
+-+                <AutoCompleteTextView
+-+                    android:id="@+id/siteInfo"
+-+                    android:layout_width="match_parent"
+-+
+-+                    android:layout_height="55dp"
+-+                    android:layout_marginStart="5dp"
+-+                    android:layout_marginEnd="4dp"
+-+                    android:layout_marginBottom="4dp"
+-+                    android:layout_weight="5"
+-+                    android:background="@color/lightgrey"
+-+                    android:clickable="true"
+-+                    android:completionThreshold="5"
+-+                    android:ems="10"
+-+                    android:textSize="18dp"
+-+
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    tools:ignore="KeyboardInaccessibleWidget" />
+-+            </com.google.android.material.textfield.TextInputLayout>
+-+
+-+            <com.google.android.material.textfield.TextInputLayout
+-+                android:id="@+id/SiteName"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:layout_below="@+id/testingSite"
+-+                android:layout_margin="4dp"
+-+                android:background="@color/lightgrey"
+-+                android:hint=" Site Name (others)"
+-+                android:textColor="@color/primary_color"
+-+                android:textColorHint="@color/primary_color">
+-+
+-+                <com.google.android.material.textfield.TextInputEditText
+-+                    android:id="@+id/edtName1"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:inputType="text"
+-+                    android:maxLines="1"
+-+                    android:textColor="@color/primary_color" />
+-+            </com.google.android.material.textfield.TextInputLayout>
+-+
+-+            <com.google.android.material.textfield.TextInputLayout
+-+                android:id="@+id/Specimendate"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:layout_below="@+id/testingSite"
+-+                android:layout_margin="4dp"
+-+                android:background="@color/lightgrey"
+-+                android:hint=" Specimen Collection Date"
+-+                android:textColor="@color/primary_color"
+-+                android:textColorHint="@color/primary_color">
+-+
+-+                <com.google.android.material.textfield.TextInputEditText
+-+                    android:id="@+id/edtSpecimendate"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:inputType="text"
+-+                    android:maxLines="1"
+-+                    android:textColor="@color/primary_color" />
+-+            </com.google.android.material.textfield.TextInputLayout>
+-+
+-+            <com.google.android.material.textfield.TextInputLayout
+-+                android:id="@+id/Reportdate"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:layout_below="@+id/testingSite"
+-+                android:layout_margin="4dp"
+-+                android:background="@color/lightgrey"
+-+                android:hint=" Lab Report Date"
+-+                android:textColor="@color/primary_color"
+-+                android:textColorHint="@color/primary_color">
+-+
+-+                <com.google.android.material.textfield.TextInputEditText
+-+                    android:id="@+id/edtReportdate"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:inputType="text"
+-+                    android:maxLines="1"
+-+                    android:textColor="@color/primary_color" />
+-+            </com.google.android.material.textfield.TextInputLayout>
+-+
+-+            <RelativeLayout
+-+
+-+                android:layout_width="match_parent"
+-+                android:layout_height="100dp"
+-+                android:layout_below="@+id/Reportdate"
+-+
+-+                android:layout_marginTop="250dp">
+-+
+-+                <Button
+-+                    android:id="@+id/savebutton"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_marginLeft="30dp"
+-+                    android:layout_marginTop="20dp"
+-+                    android:backgroundTint="@color/primary_color"
+-+                    android:text="Save" />
+-+
+-+
+-+                <Button
+-+                    android:id="@+id/nextbutton"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_marginLeft="120dp"
+-+                    android:layout_marginTop="20dp"
+-+                    android:layout_toRightOf="@+id/savebutton"
+-+                    android:backgroundTint="@color/primary_color"
+-+                    android:onClick="btn_next"
+-+                    android:text="cancel" />
+-+
+-+            </RelativeLayout>
+-+        </LinearLayout>
+-+    </ScrollView>
+-+
+-+
+- 
+- </RelativeLayout>
+-\ No newline at end of file
+-Index: app/src/main/res/layout/fragment_initial_health_assessment.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".UsersView.InitialInterview.InitialHealthAssessmentFragment\">\n\n    <!-- TODO: Update blank fragment layout -->\n    <TextView\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:text=\"@string/hello_blank_fragment\" />\n\n</FrameLayout>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/fragment_initial_health_assessment.xml b/app/src/main/res/layout/fragment_initial_health_assessment.xml
+---- a/app/src/main/res/layout/fragment_initial_health_assessment.xml	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/res/layout/fragment_initial_health_assessment.xml	(date 1647795166174)
+-@@ -1,14 +1,268 @@
+- <?xml version="1.0" encoding="utf-8"?>
+- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-+
+-     xmlns:tools="http://schemas.android.com/tools"
+-     android:layout_width="match_parent"
+-     android:layout_height="match_parent"
+-     tools:context=".UsersView.InitialInterview.InitialHealthAssessmentFragment">
+- 
+-     <!-- TODO: Update blank fragment layout -->
+--    <TextView
+--        android:layout_width="match_parent"
+--        android:layout_height="match_parent"
+--        android:text="@string/hello_blank_fragment" />
+-+
+-+        <ScrollView
+-+            android:id="@+id/scrollView"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_marginTop="20dp"
+-+            android:padding="10dp">
+-+
+-+
+-+            <LinearLayout
+-+                android:id="@+id/heathinfo"
+-+
+-+                android:layout_width="match_parent"
+-+                android:layout_height="match_parent"
+-+                android:layout_marginTop="30dp"
+-+                android:orientation="vertical">
+-+
+-+                <com.google.android.material.textview.MaterialTextView
+-+                    android:id="@+id/caseInfo_title"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_margin="5dp"
+-+                    android:fontFamily="@font/belleza"
+-+                    android:text="Initial Health Assessment"
+-+                    android:textAlignment="center"
+-+                    android:textColor="@color/primary_color"
+-+                    android:textSize="24sp"
+-+                    android:textStyle="bold" />
+-+
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    android:id="@+id/healthconditions"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:hint="Underlying health conditions"
+-+                    android:textColor="@color/primary_color"
+-+                    android:textColorHint="@color/primary_color">
+-+                <MultiAutoCompleteTextView
+-+                    android:id="@+id/caseInfo"
+-+                    android:layout_width="match_parent"
+-+
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    android:layout_height="55dp"
+-+                    android:layout_below="@+id/caseName"
+-+                    android:layout_marginStart="5dp"
+-+                    android:layout_marginTop="4dp"
+-+                    android:layout_marginEnd="4dp"
+-+                    android:layout_marginBottom="4dp"
+-+                    android:layout_weight="5"
+-+                    android:ems="10"
+-+                    android:background="@color/lightgrey"
+-+                    android:clickable="true"
+-+                    android:completionThreshold="5"
+-+
+-+                    android:textSize="18dp"
+-+                    tools:ignore="KeyboardInaccessibleWidget" />
+-+
+-+
+-+            </com.google.android.material.textfield.TextInputLayout>
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                    android:id="@+id/otherHC"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_margin="4dp"
+-+                    android:layout_below="@+id/healthconditions"
+-+                    android:background="@color/lightgrey"
+-+                    android:textColorHint="@color/primary_color"
+-+                    android:textColor="@color/primary_color"
+-+                    android:hint="Other Health Conditions">
+-+
+-+                    <com.google.android.material.textfield.TextInputEditText
+-+                        android:id="@+id/edtName1"
+-+                        android:layout_width="match_parent"
+-+                        android:layout_height="wrap_content"
+-+                        android:inputType="text"
+-+                        android:textColor="@color/primary_color"
+-+                        android:maxLines="1" />
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+
+-+
+-+                <com.google.android.material.textview.MaterialTextView
+-+                    android:id="@+id/InitialSymp_title"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_below="@+id/otherHC"
+-+
+-+                    android:layout_margin="5dp"
+-+                    android:fontFamily="@font/belleza"
+-+                    android:text="Initial Health Symptoms"
+-+                    android:textAlignment="center"
+-+                    android:textColor="@color/primary_color"
+-+                    android:textSize="24sp"
+-+                    android:textStyle="bold" />
+-+
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                    android:id="@+id/txtsymp"
+-+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    android:background="@color/lightgrey"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_below="@+id/InitialSymp_title"
+-+                    android:layout_margin="4dp"
+-+                    android:text=""
+-+                    android:hint="Did You ever have symptoms?"
+-+                    android:textColorHint="@color/primary_color">
+-+
+-+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+-+                        android:id="@+id/edtsymp"
+-+                        android:layout_width="match_parent"
+-+                        android:layout_height="wrap_content"
+-+                        android:text=""
+-+                        android:clickable="true"
+-+
+-+                        tools:ignore="KeyboardInaccessibleWidget" />
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                    android:id="@+id/txtDatefirstFellsick"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_below="@+id/txtsymp"
+-+                    android:background="@color/lightgrey"
+-+                    android:textColorHint="@color/primary_color"
+-+
+-+                    android:layout_margin="4dp"
+-+                    android:text=""
+-+                    android:hint="On what date did you first feel sick?">
+-+
+-+                    <com.google.android.material.textfield.TextInputEditText
+-+                        android:id="@+id/edtDatefirstFellsick"
+-+                        android:layout_width="match_parent"
+-+                        android:layout_height="wrap_content"
+-+                        android:text=""/>
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+                 <com.google.android.material.textfield.TextInputLayout
+-+                    android:id="@+id/txtcurrentsts"
+-+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    android:background="@color/lightgrey"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_below="@+id/txtDatefirstFellsick"
+-+                    android:layout_margin="4dp"
+-+                    android:hint="which best describes you right now ?"
+-+
+-+                    android:textColorHint="@color/primary_color">
+-+
+-+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+-+                        android:id="@+id/edtcurrentsts"
+-+                        android:layout_width="match_parent"
+-+                        android:layout_height="wrap_content"
+-+                        android:clickable="true"
+-+
+-+                        tools:ignore="KeyboardInaccessibleWidget" />
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+                    android:theme="@style/Theme.CovidWatch"
+-+                    android:id="@+id/txtsymptomscheck"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_below="@+id/txtcurrentsts"
+-+                    android:hint="Select the symptoms you are experiencing right now"
+-+                    android:textColor="@color/primary_color"
+-+                    android:textColorHint="@color/primary_color">
+-+                    <MultiAutoCompleteTextView
+-+                        android:id="@+id/edtsymptomsInfo"
+-+                        android:layout_width="match_parent"
+-+                        android:theme="@style/Theme.CovidWatch"
+-+                        android:layout_height="100dp"
+-+                        android:layout_below="@+id/txtcurrentsts"
+-+                        android:layout_marginStart="5dp"
+-+                        android:layout_marginTop="4dp"
+-+                        android:layout_marginEnd="4dp"
+-+                        android:layout_marginBottom="4dp"
+-+                        android:layout_weight="5"
+-+                        android:ems="10"
+-+                        android:background="@color/lightgrey"
+-+                        android:clickable="true"
+-+                        android:completionThreshold="5"
+-+                        android:gravity="top"
+-+                        android:textSize="18dp"
+-+                        tools:ignore="KeyboardInaccessibleWidget" />
+-+
+-+
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+                <com.google.android.material.textfield.TextInputLayout
+-+                    android:id="@+id/otherSymtoms"
+-+                    android:layout_width="match_parent"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_margin="4dp"
+-+                    android:layout_below="@+id/txtcurrentsts"
+-+                    android:background="@color/lightgrey"
+-+                    android:textColorHint="@color/primary_color"
+-+                    android:textColor="@color/primary_color"
+-+                    android:hint=" Describe Other symptoms">
+-+
+-+                    <com.google.android.material.textfield.TextInputEditText
+-+                        android:id="@+id/edtsymptoms"
+-+                        android:layout_width="match_parent"
+-+                        android:layout_height="100dp"
+-+                        android:inputType="text"
+-+                        android:textColor="@color/primary_color"
+-+                        android:gravity="top"
+-+                        android:maxLines="1" />
+-+                </com.google.android.material.textfield.TextInputLayout>
+-+
+-+<!--                <ImageButton-->
+-+<!--                    android:layout_below="@id/txtsymp"-->
+-+<!--                    android:layout_width="20dp"-->
+-+<!--                    android:layout_height="20dp"-->
+-+<!--                    android:layout_marginTop="30dp"-->
+-+<!--                    android:layout_marginEnd="10dp"-->
+-+<!--                    android:layout_marginStart="335dp"-->
+-+
+-+<!--                    android:layout_marginLeft="100dp"-->
+-+<!--                    android:background="@color/lightgrey"-->
+-+<!--                    android:onClick="setDate"-->
+-+<!--                    android:scaleType="fitCenter"-->
+-+<!--                    android:src="@drawable/cal1" />-->
+-+
+-+
+-+
+-+            <RelativeLayout
+-+
+-+                android:layout_width="match_parent"
+-+                android:layout_height="100dp"
+-+                android:layout_below ="@+id/otherSymtoms">
+-+                <Button
+-+                    android:id="@+id/savebutton"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_marginLeft="50dp"
+-+                    android:layout_marginTop="20dp"
+-+                    android:backgroundTint="@color/primary_color"
+-+                    android:text="Save" />
+-+
+-+
+-+                <Button
+-+                    android:id="@+id/nextbutton"
+-+                    android:layout_width="wrap_content"
+-+                    android:layout_height="wrap_content"
+-+                    android:layout_marginLeft="100dp"
+-+                    android:layout_marginTop="20dp"
+-+                    android:layout_toRightOf="@+id/savebutton"
+-+                    android:backgroundTint="@color/primary_color"
+-+                    android:onClick="btn_next"
+-+                    android:text="cancel" />
+-+
+-+            </RelativeLayout>
+-+            </LinearLayout>
+-+        </ScrollView>
+-+
+-+
+-+
+- 
+- </FrameLayout>
+-\ No newline at end of file
+-Index: app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TreatmentFragment.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment;\n\nimport android.os.Bundle;\n\nimport androidx.fragment.app.Fragment;\n\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\n\nimport com.example.covidwatch.R;\n\n/**\n * A simple {@link Fragment} subclass.\n * Use the {@link TreatmentFragment#newInstance} factory method to\n * create an instance of this fragment.\n */\npublic class TreatmentFragment extends Fragment {\n\n    // TODO: Rename parameter arguments, choose names that match\n    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER\n    private static final String ARG_PARAM1 = \"param1\";\n    private static final String ARG_PARAM2 = \"param2\";\n\n    // TODO: Rename and change types of parameters\n    private String mParam1;\n    private String mParam2;\n\n    public TreatmentFragment() {\n        // Required empty public constructor\n    }\n\n    /**\n     * Use this factory method to create a new instance of\n     * this fragment using the provided parameters.\n     *\n     * @param param1 Parameter 1.\n     * @param param2 Parameter 2.\n     * @return A new instance of fragment TreatmentFragment.\n     */\n    // TODO: Rename and change types and number of parameters\n    public static TreatmentFragment newInstance(String param1, String param2) {\n        TreatmentFragment fragment = new TreatmentFragment();\n        Bundle args = new Bundle();\n        args.putString(ARG_PARAM1, param1);\n        args.putString(ARG_PARAM2, param2);\n        fragment.setArguments(args);\n        return fragment;\n    }\n\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        if (getArguments() != null) {\n            mParam1 = getArguments().getString(ARG_PARAM1);\n            mParam2 = getArguments().getString(ARG_PARAM2);\n        }\n    }\n\n    @Override\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\n                             Bundle savedInstanceState) {\n        // Inflate the layout for this fragment\n        return inflater.inflate(R.layout.fragment_treatment, container, false);\n    }\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TreatmentFragment.java b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TreatmentFragment.java
+---- a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TreatmentFragment.java	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TreatmentFragment.java	(date 1647815040862)
+-@@ -7,6 +7,9 @@
+- import android.view.LayoutInflater;
+- import android.view.View;
+- import android.view.ViewGroup;
+-+import android.widget.ArrayAdapter;
+-+import android.widget.AutoCompleteTextView;
+-+import android.widget.MultiAutoCompleteTextView;
+- 
+- import com.example.covidwatch.R;
+- 
+-@@ -26,6 +29,15 @@
+-     private String mParam1;
+-     private String mParam2;
+- 
+-+    AutoCompleteTextView edtsoughtmedicalcare;
+-+    AutoCompleteTextView edthospitalization;
+-+    MultiAutoCompleteTextView edtReceivedmedicalcare;
+-+
+-+    final static String[] item_YN = new String[]{"Yes", "No"};
+-+    final static String[] item_Mc = new String[]{"Monoclonal antibody infusion",
+-+            "Convalescent plasma",
+-+            "Remdesivir","--None--","Other"
+-+    };
+-     public TreatmentFragment() {
+-         // Required empty public constructor
+-     }
+-@@ -61,6 +73,22 @@
+-     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                              Bundle savedInstanceState) {
+-         // Inflate the layout for this fragment
+--        return inflater.inflate(R.layout.fragment_treatment, container, false);
+-+        View v = inflater.inflate(R.layout.fragment_treatment, container, false);
+-+        edtsoughtmedicalcare = v.findViewById( R.id.edtsoughtmedicalcare );
+-+        ArrayAdapter<String> adapterYn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+-+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        edtsoughtmedicalcare.setAdapter( adapterYn );
+-+
+-+        edtReceivedmedicalcare = v.findViewById( R.id.edtReceivedmedicalcare );
+-+        ArrayAdapter<String> adapter_Mc = new ArrayAdapter( requireContext(), R.layout.list_item, item_Mc );
+-+        edtReceivedmedicalcare.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        edtReceivedmedicalcare.setAdapter( adapter_Mc );
+-+
+-+        edthospitalization = v.findViewById( R.id.edthospitalization );
+-+        ArrayAdapter<String> adapter_Yn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+-+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+-+        edthospitalization.setAdapter( adapter_Yn );
+-+
+-+        return v;
+-     }
+- }
+-\ No newline at end of file
+-Index: app/src/main/res/layout/fragment_treatment.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@android:color/holo_green_dark\"\n    >\n    <TextView\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Treatment Fragment\"\n        android:textSize=\"30dp\"\n        android:layout_centerInParent=\"true\"/>\n\n</RelativeLayout>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/fragment_treatment.xml b/app/src/main/res/layout/fragment_treatment.xml
+---- a/app/src/main/res/layout/fragment_treatment.xml	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/res/layout/fragment_treatment.xml	(date 1647826409235)
+-@@ -1,14 +1,231 @@
+- <?xml version="1.0" encoding="utf-8"?>
+- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-+    xmlns:tools="http://schemas.android.com/tools"
+-     android:layout_width="match_parent"
+-     android:layout_height="match_parent"
+--    android:background="@android:color/holo_green_dark"
+--    >
+--    <TextView
+--        android:layout_width="wrap_content"
+--        android:layout_height="wrap_content"
+--        android:text="Treatment Fragment"
+--        android:textSize="30dp"
+--        android:layout_centerInParent="true"/>
+-+    tools:context=".UsersView.InitialInterview.TestingTreatment.TreatmentFragment">
+-+
+-+    <ScrollView
+-+        android:id="@+id/scrollView"
+-+        android:layout_width="match_parent"
+-+        android:layout_height="wrap_content"
+-+        android:layout_marginTop="50dp"
+-+        android:padding="10dp">
+-+    <LinearLayout
+-+        android:id="@+id/medicalinfo"
+-+
+-+        android:layout_width="match_parent"
+-+        android:layout_height="match_parent"
+-+        android:layout_marginTop="30dp"
+-+        android:orientation="vertical">
+-+
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/soughtmedicalcare"
+-+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:hint="Did you sought Covid-19 medical care?"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color"
+-+            android:theme="@style/Theme.CovidWatch">
+-+
+-+            <AutoCompleteTextView
+-+                android:id="@+id/edtsoughtmedicalcare"
+-+                android:layout_width="match_parent"
+-+
+-+                android:layout_height="55dp"
+-+                android:layout_marginStart="5dp"
+-+                android:layout_marginEnd="4dp"
+-+                android:layout_marginBottom="4dp"
+-+                android:layout_weight="5"
+-+                android:background="@color/lightgrey"
+-+                android:clickable="true"
+-+                android:completionThreshold="5"
+-+                android:ems="10"
+-+                android:textSize="18dp"
+-+
+-+                android:theme="@style/Theme.CovidWatch"
+-+                tools:ignore="KeyboardInaccessibleWidget" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/Receivedmedicalcare"
+-+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:hint="Covid Treatment received"
+-+            android:layout_below = "@id/soughtmedicalcare"
+-+
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color"
+-+            android:theme="@style/Theme.CovidWatch">
+-+
+-+            <MultiAutoCompleteTextView
+-+                android:id="@+id/edtReceivedmedicalcare"
+-+                android:layout_width="match_parent"
+-+
+-+                android:layout_height="100dp"
+-+                android:layout_marginStart="5dp"
+-+                android:layout_marginTop="4dp"
+-+                android:layout_marginEnd="4dp"
+-+                android:layout_marginBottom="4dp"
+-+                android:layout_weight="5"
+-+                android:background="@color/lightgrey"
+-+                android:clickable="true"
+-+                android:gravity="top"
+-+                android:completionThreshold="5"
+-+                android:ems="10"
+-+                android:textSize="18dp"
+-+
+-+                android:theme="@style/Theme.CovidWatch"
+-+                tools:ignore="KeyboardInaccessibleWidget" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/hospitalization"
+-+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_below = "@id/Receivedmedicalcare"
+-+            android:hint="Did you ever or still hospitalized??"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color"
+-+            android:theme="@style/Theme.CovidWatch">
+-+
+-+            <AutoCompleteTextView
+-+                android:id="@+id/edthospitalization"
+-+                android:layout_width="match_parent"
+-+
+-+                android:layout_height="55dp"
+-+                android:layout_marginStart="5dp"
+-+                android:layout_marginTop="4dp"
+-+                android:layout_marginEnd="4dp"
+-+                android:layout_marginBottom="4dp"
+-+                android:layout_weight="5"
+-+                android:background="@color/lightgrey"
+-+                android:clickable="true"
+-+                android:completionThreshold="5"
+-+                android:ems="10"
+-+                android:textSize="18dp"
+-+
+-+                android:theme="@style/Theme.CovidWatch"
+-+                tools:ignore="KeyboardInaccessibleWidget" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/AdmissionDate"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_below="@+id/hospitalization"
+-+            android:layout_margin="4dp"
+-+            android:background="@color/lightgrey"
+-+            android:hint=" Admission date"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color">
+-+
+-+            <com.google.android.material.textfield.TextInputEditText
+-+                android:id="@+id/edtAdmissionDate"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:inputType="text"
+-+                android:maxLines="1"
+-+                android:textColor="@color/primary_color" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/Dischargedate"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_below="@+id/AdmissionDate"
+-+            android:layout_margin="4dp"
+-+            android:background="@color/lightgrey"
+-+            android:hint=" Discharge Date"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color">
+-+
+-+            <com.google.android.material.textfield.TextInputEditText
+-+                android:id="@+id/edtDischargedate"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:inputType="text"
+-+                android:maxLines="1"
+-+                android:textColor="@color/primary_color" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/HospName"
+-+            android:layout_width="match_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_below="@+id/Dischargedate"
+-+            android:layout_margin="4dp"
+-+            android:background="@color/lightgrey"
+-+            android:hint=" Hospital Name"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color">
+-+
+-+            <com.google.android.material.textfield.TextInputEditText
+-+                android:id="@+id/edtReportdate"
+-+                android:layout_width="match_parent"
+-+                android:layout_height="wrap_content"
+-+                android:inputType="text"
+-+                android:maxLines="1"
+-+                android:textColor="@color/primary_color" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+        <com.google.android.material.textfield.TextInputLayout
+-+            android:id="@+id/DescTreatmentReceived"
+-+            android:layout_width="fill_parent"
+-+            android:layout_height="wrap_content"
+-+            android:layout_below="@+id/HospName"
+-+            android:layout_margin="4dp"
+-+            android:background="@color/lightgrey"
+-+            android:gravity="top"
+-+
+-+            android:hint=" Describe Treatment Received"
+-+            android:textColor="@color/primary_color"
+-+            android:textColorHint="@color/primary_color">
+-+
+-+            <com.google.android.material.textfield.TextInputEditText
+-+                android:id="@+id/edtDescTreatmentReceived"
+-+                android:layout_width="fill_parent"
+-+                android:gravity="top"
+-+
+-+                android:layout_height="100dp"
+-+                android:inputType="text"
+-+                android:maxLines="10"
+-+                android:textColor="@color/primary_color" />
+-+        </com.google.android.material.textfield.TextInputLayout>
+-+
+-+        <RelativeLayout
+-+
+-+            android:layout_width="match_parent"
+-+            android:layout_height="100dp"
+-+            android:layout_below="@+id/DescTreatmentReceived"
+-+
+-+            android:layout_marginTop="5dp">
+-+
+-+            <Button
+-+                android:id="@+id/savebutton"
+-+                android:layout_width="wrap_content"
+-+                android:layout_height="wrap_content"
+-+                android:layout_marginLeft="30dp"
+-+                android:layout_marginTop="20dp"
+-+                android:backgroundTint="@color/primary_color"
+-+                android:text="Save" />
+-+
+-+
+-+            <Button
+-+                android:id="@+id/nextbutton"
+-+                android:layout_width="wrap_content"
+-+                android:layout_height="wrap_content"
+-+                android:layout_marginLeft="120dp"
+-+                android:layout_marginTop="20dp"
+-+                android:layout_toRightOf="@+id/savebutton"
+-+                android:backgroundTint="@color/primary_color"
+-+                android:onClick="btn_next"
+-+                android:text="cancel" />
+-+
+-+        </RelativeLayout>
+-+    </LinearLayout>
+-+    </ScrollView>
+-+
+-+
+- 
+- </RelativeLayout>
+-\ No newline at end of file
+-Index: .idea/deploymentTargetDropDown.xml
+-===================================================================
+-diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+-deleted file mode 100644
+---- a/.idea/deploymentTargetDropDown.xml	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ /dev/null	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-@@ -1,17 +0,0 @@
+--<?xml version="1.0" encoding="UTF-8"?>
+--<project version="4">
+--  <component name="deploymentTargetDropDown">
+--    <targetSelectedWithDropDown>
+--      <Target>
+--        <type value="QUICK_BOOT_TARGET" />
+--        <deviceKey>
+--          <Key>
+--            <type value="VIRTUAL_DEVICE_PATH" />
+--            <value value="$USER_HOME$/.android/avd/Pixel_4_XL_API_30.avd" />
+--          </Key>
+--        </deviceKey>
+--      </Target>
+--    </targetSelectedWithDropDown>
+--    <timeTargetWasSelectedWithDropDown value="2022-03-16T13:55:13.544816Z" />
+--  </component>
+--</project>
+-\ No newline at end of file
+-Index: app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TestingFragment.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment;\n\nimport android.os.Bundle;\n\nimport androidx.fragment.app.Fragment;\n\nimport android.view.LayoutInflater;\nimport android.view.View;\nimport android.view.ViewGroup;\n\nimport com.example.covidwatch.R;\n\n/**\n * A simple {@link Fragment} subclass.\n * Use the {@link TestingFragment#newInstance} factory method to\n * create an instance of this fragment.\n */\npublic class TestingFragment extends Fragment {\n\n    // TODO: Rename parameter arguments, choose names that match\n    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER\n    private static final String ARG_PARAM1 = \"param1\";\n    private static final String ARG_PARAM2 = \"param2\";\n\n    // TODO: Rename and change types of parameters\n    private String mParam1;\n    private String mParam2;\n\n    public TestingFragment() {\n        // Required empty public constructor\n    }\n\n    /**\n     * Use this factory method to create a new instance of\n     * this fragment using the provided parameters.\n     *\n     * @param param1 Parameter 1.\n     * @param param2 Parameter 2.\n     * @return A new instance of fragment TestingFragment.\n     */\n    // TODO: Rename and change types and number of parameters\n    public static TestingFragment newInstance(String param1, String param2) {\n        TestingFragment fragment = new TestingFragment();\n        Bundle args = new Bundle();\n        args.putString(ARG_PARAM1, param1);\n        args.putString(ARG_PARAM2, param2);\n        fragment.setArguments(args);\n        return fragment;\n    }\n\n    @Override\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        if (getArguments() != null) {\n            mParam1 = getArguments().getString(ARG_PARAM1);\n            mParam2 = getArguments().getString(ARG_PARAM2);\n        }\n    }\n\n    @Override\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\n                             Bundle savedInstanceState) {\n        // Inflate the layout for this fragment\n        return inflater.inflate(R.layout.fragment_testing, container, false);\n    }\n}
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TestingFragment.java b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TestingFragment.java
+---- a/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TestingFragment.java	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/java/com/example/covidwatch/UsersView/InitialInterview/TestingTreatment/TestingFragment.java	(date 1647809013848)
+-@@ -7,6 +7,10 @@
+- import android.view.LayoutInflater;
+- import android.view.View;
+- import android.view.ViewGroup;
+-+import android.widget.ArrayAdapter;
+-+import android.widget.AutoCompleteTextView;
+-+import android.widget.EditText;
+-+import android.widget.MultiAutoCompleteTextView;
+- 
+- import com.example.covidwatch.R;
+- 
+-@@ -21,6 +25,25 @@
+-     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+-     private static final String ARG_PARAM1 = "param1";
+-     private static final String ARG_PARAM2 = "param2";
+-+    EditText edtSpecimendate ,edtReportdate;
+-+    AutoCompleteTextView testingSite;
+-+
+-+    final static String[] item_Ts = new String[]{"--None--",
+-+
+-+            "Can't remember",
+-+            "Clinic or Outpatient Center",
+-+            "Community Drive-thru Testing Site",
+-+            "Community Walk-up Testing Site",
+-+            "Doctor's office",
+-+            "Emergency Department",
+-+           " Hospital",
+-+            "Pharmacy",
+-+            "Prisons",
+-+            "Processing Plants",
+-+            "School",
+-+            "Urgent Care Center",
+-+            "Work",
+-+            "Other"};
+- 
+-     // TODO: Rename and change types of parameters
+-     private String mParam1;
+-@@ -61,6 +84,16 @@
+-     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+-                              Bundle savedInstanceState) {
+-         // Inflate the layout for this fragment
+--        return inflater.inflate(R.layout.fragment_testing, container, false);
+-+        View v =  inflater.inflate(R.layout.fragment_testing, container, false);
+-+        edtSpecimendate = v.findViewById( R.id.edtSpecimendate );
+-+        edtSpecimendate.setFocusableInTouchMode(false);
+-+        edtReportdate = v.findViewById( R.id.edtReportdate );
+-+        edtReportdate.setFocusableInTouchMode(false);
+-+
+-+        // Covid Testing Site Spinner
+-+        testingSite = v.findViewById( R.id.siteInfo );
+-+        ArrayAdapter<String> adapterTs = new ArrayAdapter( requireContext(), R.layout.list_item, item_Ts );
+-+        testingSite.setAdapter( adapterTs );
+-+        return  v;
+-     }
+- }
+-\ No newline at end of file
+-Index: app/src/main/res/layout/fragment_case_information.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".UsersView.InitialInterview.Demographic.CaseInformationFragment\">\n\n\n\n    <ScrollView\n        android:id=\"@+id/scrollView\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"match_parent\"\n        android:layout_marginTop=\"50dp\"\n        android:padding=\"10dp\" >\n\n        <RelativeLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\"\n            android:layout_marginTop=\"20dp\"\n            android:orientation=\"vertical\">\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/caseNumber\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_margin=\"4dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textColor=\"@color/primary_color\"\n                android:hint=\"Case Number\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtName\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/caseName\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_margin=\"4dp\"\n                android:layout_below=\"@+id/caseNumber\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textColor=\"@color/primary_color\"\n                android:hint=\"Case Name\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtName1\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n\n            <AutoCompleteTextView\n                android:id=\"@+id/status\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@+id/caseName\"\n                android:layout_marginStart=\"4dp\"\n                android:layout_marginTop=\"4dp\"\n                android:layout_marginEnd=\"4dp\"\n                android:layout_marginBottom=\"4dp\"\n                android:layout_weight=\"1\"\n                android:background=\"@color/lightgrey\"\n                android:clickable=\"true\"\n                android:completionThreshold=\"1\"\n                android:hint=\"Minor\"\n                android:textColor=\"@color/primary_color\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textSize=\"18dp\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n\n\n            <AutoCompleteTextView\n                android:id=\"@+id/autoPriority\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@+id/status\"\n                android:layout_marginStart=\"4dp\"\n                android:layout_marginTop=\"4dp\"\n                android:layout_marginEnd=\"4dp\"\n                android:layout_marginBottom=\"4dp\"\n                android:layout_weight=\"1\"\n                android:background=\"@color/lightgrey\"\n                android:clickable=\"true\"\n                android:completionThreshold=\"1\"\n                android:hint=\"Priority\"\n                android:textColor=\"@color/primary_color\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textSize=\"18dp\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n\n            <AutoCompleteTextView\n                android:id=\"@+id/autoCaseType\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@+id/autoPriority\"\n                android:layout_marginStart=\"4dp\"\n                android:layout_marginTop=\"4dp\"\n                android:layout_marginEnd=\"4dp\"\n                android:layout_marginBottom=\"4dp\"\n                android:layout_weight=\"1\"\n                android:background=\"@color/lightgrey\"\n                android:clickable=\"true\"\n                android:completionThreshold=\"1\"\n                android:hint=\"Case Type\"\n                android:textColor=\"@color/primary_color\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textSize=\"18dp\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n\n            <AutoCompleteTextView\n                android:id=\"@+id/autoReifected\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@+id/autoCaseType\"\n                android:layout_margin=\"4dp\"\n                android:hint=\"Reinfected\"\n                android:textColor=\"@color/primary_color\"\n                android:textSize=\"18dp\"\n                android:completionThreshold=\"1\"\n                android:layout_weight=\"1\"\n                android:clickable=\"true\"\n                tools:ignore=\"KeyboardInaccessibleWidget\"\n                />\n\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/primaryoccupation\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/autoReifected\"\n                android:layout_margin=\"4dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:hint=\"Primary Occupation\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtRace\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/txtPrimaryLanguage\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/primaryoccupation\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:layout_margin=\"4dp\"\n                android:hint=\"Province\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtProvience\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n            <AutoCompleteTextView\n                android:id=\"@+id/autoDeceased\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"55dp\"\n                android:layout_below=\"@+id/txtPrimaryLanguage\"\n                android:layout_marginStart=\"4dp\"\n                android:layout_marginTop=\"4dp\"\n                android:layout_marginEnd=\"4dp\"\n                android:layout_marginBottom=\"4dp\"\n                android:layout_weight=\"1\"\n                android:background=\"@color/lightgrey\"\n                android:clickable=\"true\"\n                android:completionThreshold=\"1\"\n                android:hint=\"Address Street 1\"\n                android:textColor=\"@color/primary_color\"\n                android:textColorHint=\"@color/primary_color\"\n                android:textSize=\"18dp\"\n                tools:ignore=\"KeyboardInaccessibleWidget\" />\n\n\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/txtDiedDueTo\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/autoDeceased\"\n                android:layout_margin=\"4dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:hint=\"Address Street 2\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtiedDueTo\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/txtDeceasedDate\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/txtDiedDueTo\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:layout_margin=\"4dp\"\n                android:hint=\"Address Type\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtDeceasedDate\"\n                    android:layout_width=\"match_parent\"\n                    android:textColor=\"@color/primary_color\"\n                    android:layout_height=\"wrap_content\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n\n\n\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/txtPhone\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/txtDeceasedDate\"\n                android:layout_margin=\"4dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:hint=\"Country\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtPhone\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n            <com.google.android.material.textfield.TextInputLayout\n                android:id=\"@+id/txtMobile\"\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"wrap_content\"\n                android:layout_below=\"@+id/txtPhone\"\n                android:layout_margin=\"4dp\"\n                android:background=\"@color/lightgrey\"\n                android:textColorHint=\"@color/primary_color\"\n                android:hint=\"Zip Code:\">\n\n                <com.google.android.material.textfield.TextInputEditText\n                    android:id=\"@+id/edtMobile\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:inputType=\"text\"\n                    android:textColor=\"@color/primary_color\"\n                    android:maxLines=\"1\" />\n            </com.google.android.material.textfield.TextInputLayout>\n\n\n            <RelativeLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"100dp\"\n                android:layout_below =\"@+id/txtMobile\">\n                <Button\n                    android:id=\"@+id/savebutton\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginLeft=\"50dp\"\n                    android:layout_marginTop=\"20dp\"\n                    android:backgroundTint=\"@color/primary_color\"\n                    android:text=\"Save\" />\n\n\n                <Button\n                    android:id=\"@+id/nextbutton\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginLeft=\"100dp\"\n                    android:layout_marginTop=\"20dp\"\n                    android:layout_toRightOf=\"@+id/savebutton\"\n                    android:backgroundTint=\"@color/primary_color\"\n                    android:onClick=\"btn_next\"\n                    android:text=\"Next\" />\n\n            </RelativeLayout>\n\n        </RelativeLayout>\n\n    </ScrollView>\n\n\n\n</FrameLayout>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/app/src/main/res/layout/fragment_case_information.xml b/app/src/main/res/layout/fragment_case_information.xml
+---- a/app/src/main/res/layout/fragment_case_information.xml	(revision 6e7864e5bf345851ca4c44bbe9d9956b5d4fae2f)
+-+++ b/app/src/main/res/layout/fragment_case_information.xml	(date 1647752815348)
+-@@ -118,20 +118,22 @@
+- 
+-             <AutoCompleteTextView
+-                 android:id="@+id/autoReifected"
+--                android:background="@color/lightgrey"
+--                android:textColorHint="@color/primary_color"
+-                 android:layout_width="match_parent"
+-                 android:layout_height="55dp"
+-                 android:layout_below="@+id/autoCaseType"
+--                android:layout_margin="4dp"
+-+                android:layout_marginStart="4dp"
+-+                android:layout_marginTop="4dp"
+-+                android:layout_marginEnd="4dp"
+-+                android:layout_marginBottom="4dp"
+-+                android:layout_weight="1"
+-+                android:background="@color/lightgrey"
+-+                android:clickable="true"
+-+                android:completionThreshold="1"
+-                 android:hint="Reinfected"
+-                 android:textColor="@color/primary_color"
+-+                android:textColorHint="@color/primary_color"
+-                 android:textSize="18dp"
+--                android:completionThreshold="1"
+--                android:layout_weight="1"
+--                android:clickable="true"
+--                tools:ignore="KeyboardInaccessibleWidget"
+--                />
+-+                tools:ignore="KeyboardInaccessibleWidget" />
+- 
+- 
+-             <com.google.android.material.textfield.TextInputLayout

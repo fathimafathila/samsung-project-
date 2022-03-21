@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_add_isolation_locationactivity.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_case_information_card.xml" value="0.21240942028985507" />
+        <entry key="app/src/main/res/layout/activity_close_contact_details.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/fragment_epilinkage_congregate.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_testing.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_testing_treatment.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/fragment_treatment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/spinner_dropdown_item.xml" value="0.12083333333333333" />
+        <entry key="app/src/main/res/layout/spinner_item.xml" value="0.12083333333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

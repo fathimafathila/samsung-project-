@@ -1,7 +1,10 @@
 package com.example.covidwatch.UsersView.InitialInterview.Location;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.ContactModel;
@@ -46,6 +55,44 @@ public class AddLocationFragment extends Fragment {
 
         return view;
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //UI reference of textView
+        final Spinner spinnerContactType = view.findViewById(R.id.spinnerLocationType);
+
+        //Create adapter
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.arrContactType, R.layout.list_item);
+
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerContactType.setAdapter(adapter);
+        String str = spinnerContactType.getSelectedItem().toString();
+       System.out.print("Stringssss" + str);
+
+
+        Button btnAddContact = view.findViewById(R.id.btnAddLocation);
+
+        btnAddContact.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(), AddIsolationLocationactivity.class);
+                startActivity(intent);
+
+            }
+        });
+    }
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//        String text = parent.getItemAtPosition(position).toString();
+//        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+//    }
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) { }
 
     public ArrayList<LocationModel> dataQueue() {
         ArrayList<LocationModel> holder = new ArrayList<>();
