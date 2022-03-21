@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 
 import com.example.covidwatch.R;
 
@@ -21,6 +25,25 @@ public class TestingFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    EditText edtSpecimendate ,edtReportdate;
+    AutoCompleteTextView testingSite;
+
+    final static String[] item_Ts = new String[]{"--None--",
+
+            "Can't remember",
+            "Clinic or Outpatient Center",
+            "Community Drive-thru Testing Site",
+            "Community Walk-up Testing Site",
+            "Doctor's office",
+            "Emergency Department",
+           " Hospital",
+            "Pharmacy",
+            "Prisons",
+            "Processing Plants",
+            "School",
+            "Urgent Care Center",
+            "Work",
+            "Other"};
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,6 +84,16 @@ public class TestingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_testing, container, false);
+        View v =  inflater.inflate(R.layout.fragment_testing, container, false);
+        edtSpecimendate = v.findViewById( R.id.edtSpecimendate );
+        edtSpecimendate.setFocusableInTouchMode(false);
+        edtReportdate = v.findViewById( R.id.edtReportdate );
+        edtReportdate.setFocusableInTouchMode(false);
+
+        // Covid Testing Site Spinner
+        testingSite = v.findViewById( R.id.siteInfo );
+        ArrayAdapter<String> adapterTs = new ArrayAdapter( requireContext(), R.layout.list_item, item_Ts );
+        testingSite.setAdapter( adapterTs );
+        return  v;
     }
 }

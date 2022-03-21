@@ -1,14 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
-    >
-    <TextView
-        android:layout_width="wrap_content"
+    tools:context=".UsersView.InitialInterview.TestingTreatment.TestingFragment">
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Testing Fragment"-->
+<!--        android:textSize="30dp"-->
+<!--        android:layout_centerInParent="true"/>-->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Testing Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/heathinfo"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/testingSite"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Recent Covid Testing Site"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color"
+                android:theme="@style/Theme.CovidWatch">
+
+                <AutoCompleteTextView
+                    android:id="@+id/siteInfo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="55dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_weight="5"
+                    android:background="@color/lightgrey"
+                    android:clickable="true"
+                    android:completionThreshold="5"
+                    android:ems="10"
+                    android:textSize="18dp"
+
+                    android:theme="@style/Theme.CovidWatch"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/SiteName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/testingSite"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:hint=" Site Name (others)"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtName1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/primary_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Specimendate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/testingSite"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:hint=" Specimen Collection Date"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSpecimendate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/primary_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Reportdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/testingSite"
+                android:layout_margin="4dp"
+                android:background="@color/lightgrey"
+                android:hint=" Lab Report Date"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtReportdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/primary_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/Reportdate"
+
+                android:layout_marginTop="250dp">
+
+                <Button
+                    android:id="@+id/savebutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:text="Save" />
+
+
+                <Button
+                    android:id="@+id/nextbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/savebutton"
+                    android:backgroundTint="@color/primary_color"
+                    android:onClick="btn_next"
+                    android:text="cancel" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </RelativeLayout>
