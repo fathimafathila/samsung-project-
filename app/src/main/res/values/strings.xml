@@ -115,8 +115,14 @@ both in our professional and personal lives."</string>
         <item>Korean</item>
         <item>Not Listed</item>
     </string-array>
+    <string-array name="arrLocationType">
+        <item> Isolation/Quarantine Location</item>
+        <item> Employment Location</item>
+
+    </string-array>
 
     <string-array name="arrContactType">
+        <item>-- None --</item>
         <item>Boyfriend/Girlfriend, Household</item>
         <item>Boyfriend/Girlfriend, Non-Household</item>
         <item>Camp Counsellor</item>

@@ -14,7 +14,7 @@
     <RelativeLayout
         android:id="@+id/relDetails"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="800dp"
         android:layout_marginTop="20dp"
         >
 
@@ -26,9 +26,9 @@
             android:hint="First Name">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edtFirstName"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>

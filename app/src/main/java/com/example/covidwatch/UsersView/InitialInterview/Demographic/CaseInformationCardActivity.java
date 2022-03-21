@@ -9,27 +9,55 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.covidwatch.AdminView.PersonalInfoActivity;
 import com.example.covidwatch.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CaseInformationCardActivity extends AppCompatActivity {
 
     private Calendar calendar;
-    private EditText edtDob;
     private Button btnUpdate;
     private int year, month, day;
 
+    FirebaseAuth fAuth;
+    FirebaseFirestore db;
+    EditText edtFirstName, edtLastName, edtGender ,edtDob, edtNumber, edtStreet1, edtStreet2, edtCity , edtEmail, edtType ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_information_card);
 
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
         edtDob = findViewById(R.id.edtDob);
+        edtFirstName = findViewById(R.id.edtFirstName);
+        edtLastName = findViewById(R.id.edtLastName);
+        edtNumber = findViewById(R.id.edtCN);
+        edtGender = findViewById(R.id.edtGender);
+        edtStreet1 = findViewById(R.id.edtAddress1);
+        edtStreet2 = findViewById(R.id.edtAddress2);
+        edtCity = findViewById(R.id.edtCity);
+        edtEmail = findViewById(R.id.edtemailId);
+        edtType = findViewById(R.id.edtAddressType);
+
+
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -38,11 +66,59 @@ public class CaseInformationCardActivity extends AppCompatActivity {
 
         initUI();
 
+        DocumentReference documentReference =  db.collection("users").document(fAuth.getCurrentUser().getUid());
+        documentReference.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        edtFirstName.setText(documentSnapshot.getString("First Name"));
+                        edtLastName.setText(documentSnapshot.getString("Last Name"));
+                        edtDob.setText(documentSnapshot.getString("DOB"));
+                        edtNumber.setText(documentSnapshot.getString("Contact Number"));
+                        edtStreet1.setText(documentSnapshot.getString("Street1"));
+                        edtStreet2.setText(documentSnapshot.getString("Street2"));
+                        edtCity.setText(documentSnapshot.getString("City"));
+                        edtEmail.setText(documentSnapshot.getString("email"));
+                        edtGender.setText(documentSnapshot.getString("Gender"));
+                        edtType.setText(documentSnapshot.getString("Address type"));
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(CaseInformationCardActivity.this,"Not Working",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         btnUpdate = findViewById(R.id.btnUpdate);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Map<String, Object> user = new HashMap<>();
+                user.put("First Name",edtFirstName.getText().toString());
+                user.put("Last Name",edtLastName.getText().toString());
+                user.put("DOB",edtDob.getText().toString());
+                user.put("Contact Number",edtNumber.getText().toString());
+                user.put("Street1",edtStreet1.getText().toString());
+                user.put("Street2",edtStreet2.getText().toString());
+                user.put("City",edtCity.getText().toString());
+                user.put("email",edtEmail.getText().toString());
+                user.put("Gender" , edtGender.getText().toString());
+                user.put("Address type", edtType.getText().toString());
+
+                db.collection("users").document(fAuth.getCurrentUser().getUid()).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(CaseInformationCardActivity.this,"Not Working",Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
     }
