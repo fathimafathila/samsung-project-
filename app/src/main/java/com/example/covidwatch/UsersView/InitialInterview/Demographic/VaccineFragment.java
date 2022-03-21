@@ -1,20 +1,21 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineRecyclerView.VaccineModel;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineRecyclerView.vaccineAdapter;
-import com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.LocationModel;
-import com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.locationAdapter;
 
 import java.util.ArrayList;
 
@@ -59,5 +60,23 @@ public class VaccineFragment extends Fragment {
         holder.add(ob2);
 
         return  holder;
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button btnUpload = view.findViewById(R.id.btnUpload);
+
+        // On clicking date picker
+
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                TextView textFileName = view.findViewById(R.id.txtFileName);
+                textFileName.setText("COVID-19 Vaccine Dose-2.pdf");
+            }
+        });
     }
 }

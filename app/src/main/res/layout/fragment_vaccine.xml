@@ -32,7 +32,6 @@
                     android:background="@color/lightgrey"
                     app:hintTextColor="@color/primary_color"
                     android:textColorHint="@color/primary_color"
-                    android:text="325557698"
                     android:textSize="12sp"
                     >
 
@@ -43,22 +42,22 @@
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
                         android:textSize="20sp"
+                        android:text="325557698"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtTitle"
                 android:layout_below="@id/txtHealthCard"
-                android:text="Vaccine Details"
-                android:textSize="28sp"
-                android:textColor="@color/primary_color"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"
-                />
+                android:layout_marginTop="20dp"
+                android:text="Vaccine Details"
+                android:textColor="@color/primary_color"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -69,27 +68,27 @@
                 android:layout_below="@+id/txtTitle"
                  />
 
-                <Button
-                    android:id="@+id/btnUpload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/recVaccine"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/primary_color"
-                    android:text="Upload Vaccination Certificate" />
-
-            <TextView
+            <Button
+                android:id="@+id/btnUpload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtFileName"
-                android:layout_below="@id/btnUpload"
-                android:text="vaccinedose.pdf"
-                android:textSize="18sp"
-                android:textColor="#0021DC"
-                android:layout_marginTop="10dp"
+                android:layout_below="@id/recVaccine"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/primary_color"
+                android:text="Upload Vaccination Certificate"
                 />
+
+            <TextView
+                android:id="@+id/txtFileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnUpload"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#0021DC"
+                android:textSize="18sp" />
 
             </RelativeLayout>
 
