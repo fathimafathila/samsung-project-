@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -32,11 +31,9 @@ public class CaseInformationFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     String mParam1, mParam2;
-    EditText edtDeceasedDate;
     ImageButton calDeceasedDate;
     String selectedDate;
     public static final int REQUEST_CODE = 11;
-
 
     public CaseInformationFragment() {
         // Required empty public constructor
@@ -108,7 +105,7 @@ public class CaseInformationFragment extends Fragment {
             public void onClick(View arg0) {
 
                 DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
+                newFragment.show(getFragmentManager(), "DeceasedDate");
 
             }
         });

@@ -16,9 +16,8 @@
             android:padding="10dp">
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/heathinfo"
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
@@ -42,6 +41,7 @@
                     android:id="@+id/healthconditions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/caseInfo_title"
                     android:hint="Underlying health conditions"
                     android:textColor="@color/primary_color"
                     android:textColorHint="@color/primary_color">
@@ -65,8 +65,8 @@
                     android:textSize="18dp"
                     tools:ignore="KeyboardInaccessibleWidget" />
 
-
             </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/otherHC"
                     android:layout_width="match_parent"
@@ -132,7 +132,6 @@
                     android:layout_below="@+id/txtsymp"
                     android:background="@color/lightgrey"
                     android:textColorHint="@color/primary_color"
-
                     android:layout_margin="4dp"
                     android:text=""
                     android:hint="On what date did you first feel sick?">
@@ -143,6 +142,19 @@
                         android:layout_height="wrap_content"
                         android:text=""/>
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/calDateFirstFellSick"
+                    android:layout_below="@id/txtsymp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignRight="@+id/txtDatefirstFellsick"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/lightgrey"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cal1" />
+
                  <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtcurrentsts"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -259,7 +271,7 @@
                     android:text="cancel" />
 
             </RelativeLayout>
-            </LinearLayout>
+            </RelativeLayout>
         </ScrollView>
 
 

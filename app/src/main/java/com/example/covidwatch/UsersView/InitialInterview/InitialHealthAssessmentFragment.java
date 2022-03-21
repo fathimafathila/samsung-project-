@@ -1,25 +1,24 @@
 package com.example.covidwatch.UsersView.InitialInterview;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
 
-import com.example.covidwatch.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
+import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
+
 import java.util.Calendar;
-import java.util.List;
 
 public class InitialHealthAssessmentFragment extends Fragment {
     MultiAutoCompleteTextView initHealthStatus;
@@ -119,45 +118,22 @@ public class InitialHealthAssessmentFragment extends Fragment {
         return v;
     }
 
-//    // Setting date of birth
-//    @SuppressWarnings("deprecation")
-//    public void setDate(View v1) {
-//        showDialog(997);
-//    }
-//
-//    @Override
-//    protected Dialog onCreateDialog(int id) {
-//        // TODO Auto-generated method stub
-//        if (id == 997) {
-//            return new DatePickerDialog(this,
-//                    myDateListener1, year, month, day);
-//        }
-//
-//        return null;
-//    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-//    private DatePickerDialog.OnDateSetListener myDateListener1 = new
-//            DatePickerDialog.OnDateSetListener() {
-//                @Override
-//                public void onDateSet(DatePicker arg0,
-//                                      int arg1, int arg2, int arg3) {
-//                    // TODO Auto-generated method stub
-//                    // arg1 = year
-//                    // arg2 = month
-//                    // arg3 = day
-//                    showDate1( arg1, arg2 + 1, arg3 );
-//                }
-//
-//            };
-//
-//
-//
-//    // Showing date of birth
-//    private void showDate1(int year, int month, int day) {
-//        dateView1.setText( new StringBuilder().append( day ).append( "/" )
-//                .append( month ).append( "/" ).append( year ) );
-//
-//        int number = month * 10000 + day * 100 + year % 100;
-//    }
+        ImageButton calDateFirstFellSick = view.findViewById(R.id.calDateFirstFellSick);
+
+        calDateFirstFellSick.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "SickDate");
+
+            }
+        });
+    }
 
 }

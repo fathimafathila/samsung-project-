@@ -1,17 +1,21 @@
 package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,5 +94,35 @@ public class TreatmentFragment extends Fragment {
         edthospitalization.setAdapter( adapter_Yn );
 
         return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ImageButton calAdmissionDate = view.findViewById(R.id.calAdmissionDate);
+        ImageButton calDischargeDate = view.findViewById(R.id.calDischargeDate);
+
+        calAdmissionDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "AdmissionDate");
+
+            }
+        });
+
+        calDischargeDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "DischargeDate");
+
+            }
+        });
     }
 }

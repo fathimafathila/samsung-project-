@@ -14,6 +14,8 @@ import java.util.Calendar;
 
 public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
+    public Boolean deceasedDate;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar calendar = Calendar.getInstance();
@@ -24,11 +26,23 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
 
     public void onDateSet(DatePicker view, int yy, int mm, int dd) {
-        populateSetDate(yy, mm+1, dd);
-    }
-    public void populateSetDate(int year, int month, int day) {
-        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);
-        edtDeceasedDate.setText(month+"/"+day+"/"+year);
-    }
+        populateSetDeceasedDate(yy, mm+1, dd);
 
+    }
+    public void populateSetDeceasedDate(int year, int month, int day) {
+            EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);
+            edtDeceasedDate.setText(month + "/" + day + "/" + year);
+    }
+    public void populateSetSickDate(int year, int month, int day) {
+        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDatefirstFellsick);
+        edtDeceasedDate.setText(month + "/" + day + "/" + year);
+    }
+    public void populateSetAdmissionDate(int year, int month, int day) {
+        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtAdmissionDate);
+        edtDeceasedDate.setText(month + "/" + day + "/" + year);
+    }
+    public void populateSetDischargeDate(int year, int month, int day) {
+        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDischargedate);
+        edtDeceasedDate.setText(month + "/" + day + "/" + year);
+    }
 }
