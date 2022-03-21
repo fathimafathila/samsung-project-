@@ -1,19 +1,17 @@
 package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
-import android.widget.MultiAutoCompleteTextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
@@ -34,17 +32,12 @@ public class MonitoringFragment extends Fragment {
     private String mParam2;
     ImageButton calDeceasedDate;
 
-    MultiAutoCompleteTextView resourceReq;
+    AutoCompleteTextView monitorType;
     final static String[] item_RR = new String[]{
             "Phone Call",
             "Email",
             "Text Message",
             "No Monitoring"};
-
-
-
-
-
 
 
     public MonitoringFragment() {
@@ -90,10 +83,10 @@ public class MonitoringFragment extends Fragment {
         v1 = v;
 
         // Health Condition Spinner
-        resourceReq = v.findViewById( R.id.caseInfoMon);
+        monitorType = v.findViewById( R.id.monType);
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
-        resourceReq.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
-        resourceReq.setAdapter( adapterHC );
+//        monitorType.setTokenizer( new AutoCompleteTextView.CommaTokenizer() );
+        monitorType.setAdapter( adapterHC );
 
         return v;
 

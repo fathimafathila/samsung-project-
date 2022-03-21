@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UsersView.InitialInterview.EpilinkageCongregateFragment">
+    tools:context=".UsersView.InitialInterview.MonitoringResourceRequest.ResourceRequestFragment">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,8 +12,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
+        android:layout_marginTop="70dp"
         >
 
         <RelativeLayout
@@ -24,53 +23,56 @@
             >
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/resReqType"
-                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:theme="@style/Theme.CovidWatch"
+                android:id="@+id/healthconditions"
                 android:layout_width="match_parent"
-                android:layout_marginTop="40dp"
-                android:layout_marginHorizontal="10dp"
-                android:hint="Monitoring Start Date"
-                android:background="@color/lightgrey"
-                app:hintTextColor="@color/primary_color"
-                android:textColorHint="@color/primary_color"
-                android:text=""
-                android:textSize="12sp"
-                >
-
-                <AutoCompleteTextView
-                    android:id="@+id/resReqTypeAuto"
+                android:layout_height="wrap_content"
+                android:hint="Resource Request Type"
+                android:textColor="@color/primary_color"
+                android:textColorHint="@color/primary_color">
+                <MultiAutoCompleteTextView
+                    android:id="@+id/caseInfoMon"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:theme="@style/Theme.CovidWatch"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/caseName"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="5"
+                    android:ems="10"
                     android:background="@color/lightgrey"
-                    android:textColor="@color/primary_color"
-                    android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:clickable="true"
+                    android:completionThreshold="5"
+                    android:textSize="16dp"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/comments"
-                android:layout_width="382dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/txtReqDate"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/healthconditions"
                 android:background="@color/lightgrey"
-                android:hint="Monitoring End Data"
+                android:hint="Resource Request Date"
                 android:text=""
                 android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
-                    android:id="@+id/edtDeceasedDate"
-                    android:layout_width="385dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/edtReqDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,20 +80,49 @@
                 android:id="@+id/calDeceasedDate"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="107dp"
-                android:layout_marginLeft="320dp"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_below="@+id/healthconditions"
                 android:scaleType="fitCenter"
                 android:background="@color/lightgrey"
                 android:src="@drawable/cal1" />
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/comments"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/txtReqDate"
+                android:background="@color/lightgrey"
+                android:hint="Comments"
+                android:text=""
+                android:textColorHint="@color/primary_color"
+                android:textSize="16sp"
+                app:hintTextColor="@color/primary_color">
+
+                <AutoCompleteTextView
+                    android:id="@+id/commentsAuto"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/primary_color"
+                    android:padding="5dp"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/monitoringType"
-                android:layout_width="382dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/comments"
                 android:background="@color/lightgrey"
-                android:hint="No of days left to be monitored?"
+                android:hint="Monitoring Type"
                 android:text=""
                 android:textColorHint="@color/primary_color"
                 android:textSize="12sp"
@@ -99,8 +130,8 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/monitoringTypeAuto"
-                    android:layout_width="385dp"
-                    android:layout_height="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
@@ -108,103 +139,44 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+                <CheckBox
+                    android:id="@+id/urgentCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/white"
+                    android:layout_below="@+id/monitoringType"
+                    />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:theme="@style/Theme.CovidWatch"
-                android:id="@+id/healthconditions"
+            <TextView
+                android:id="@+id/txturgent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="220dp"
-                android:hint="Monitoring Type"
-                android:textColor="@color/primary_color"
-                android:textColorHint="@color/primary_color">
-
-                <AutoCompleteTextView
-                    android:id="@+id/monType"
-                    android:layout_width="match_parent"
-                    android:theme="@style/Theme.CovidWatch"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginTop="220dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="5"
-                    android:ems="10"
-                    android:background="@color/lightgrey"
-                    android:clickable="true"
-                    android:completionThreshold="5"
-                    android:textSize="18dp"
-                    tools:ignore="KeyboardInaccessibleWidget" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneNumb"
-                android:layout_width="382dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="280dp"
-                android:background="@color/lightgrey"
-                android:hint="Phone Number for monitoring"
-                android:text=""
-                android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
-                app:hintTextColor="@color/primary_color">
-
-                <AutoCompleteTextView
-                    android:id="@+id/phoneNumbAuto"
-                    android:layout_width="385dp"
-                    android:layout_height="40dp"
-                    android:background="@color/lightgrey"
-                    android:textColor="@color/primary_color"
-                    android:padding="5dp"
-                    android:textSize="15sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email"
-                android:layout_width="382dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="340dp"
-                android:background="@color/lightgrey"
-                android:hint="Email for monitoring"
-                android:text=""
-                android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
-                app:hintTextColor="@color/primary_color">
-
-                <AutoCompleteTextView
-                    android:id="@+id/emailAuto"
-                    android:layout_width="385dp"
-                    android:layout_height="40dp"
-                    android:background="@color/lightgrey"
-                    android:textColor="@color/primary_color"
-                    android:padding="5dp"
-                    android:textSize="15sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
+                android:layout_toRightOf="@+id/urgentCheckBox"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/monitoringType"
+                android:text="Urgent"
+                android:textColor="@color/textColor"
+                android:textSize="16sp"
+                app:hintTextColor="@color/primary_color"/>
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="520dp"
-                android:layout_marginLeft="20dp"
-                android:backgroundTint="@color/red2"
+                android:layout_marginTop="360dp"
+                android:layout_marginLeft="60dp"
+                android:backgroundTint="@color/gray"
                 android:text="Cancel" />
 
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="520dp"
-                android:layout_marginLeft="280dp"
-                android:backgroundTint="@color/purple_700"
+                android:layout_marginRight="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="360dp"
+                android:backgroundTint="@color/primary_color"
                 android:text="Save" />
 
         </RelativeLayout>
@@ -213,5 +185,7 @@
     </ScrollView>
 
 
-
 </FrameLayout>
+
+
+

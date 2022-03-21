@@ -1,19 +1,17 @@
 package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.MultiAutoCompleteTextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.ImageButton;
-import android.widget.MultiAutoCompleteTextView;
 
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
@@ -34,12 +32,19 @@ public class ResourceRequestFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    AutoCompleteTextView monitorType;
+    MultiAutoCompleteTextView resourceReq;
     final static String[] item_RR = new String[]{
-            "Phone Call",
-            "Email",
-            "Text Message",
-            "No Monitoring"};
+            "-- None --",
+            "Activities of daily living",
+            "Child care/elder care",
+            "Vaccine Related",
+            "Medical",
+            "Income Assistance",
+            "Food",
+            "Personal Safety Concern",
+            "Emotional/Mental Health",
+            "Household item",
+            "Other"};
 
 
     public ResourceRequestFragment() {
@@ -83,10 +88,10 @@ public class ResourceRequestFragment extends Fragment {
         v1 = v;
 
         // Health Condition Spinner
-        monitorType = v.findViewById( R.id.monType);
+        resourceReq = v.findViewById( R.id.caseInfoMon);
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
-//        monitorType.setTokenizer( new AutoCompleteTextView.CommaTokenizer() );
-        monitorType.setAdapter( adapterHC );
+        resourceReq.setAdapter( adapterHC );
+
 
         return v;
 
