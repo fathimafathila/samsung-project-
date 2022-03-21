@@ -14,6 +14,9 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
+            android:name=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".UsersView.DailyHealth.DailyHealthActivity"
             android:exported="false" />
         <activity
