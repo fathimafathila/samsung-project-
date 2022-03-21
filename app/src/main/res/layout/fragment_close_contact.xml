@@ -32,12 +32,22 @@
                 android:id="@+id/recCloseContact"
                 />
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_below="@+id/recCloseContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your relationship with the close contact:"
+                android:textSize="20sp"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="20dp"
+                />
 
             <Spinner
                 android:id="@+id/spinnerContactType"
                 android:layout_width="300dp"
                 android:layout_height="55dp"
-                android:layout_below="@id/recCloseContact"
+                android:layout_below="@id/textView"
                 android:layout_marginTop="20dp"
                 android:background="@color/lightgrey"
                 android:textColor="@color/primary_color"
@@ -47,7 +57,7 @@
                 android:id="@+id/btnAddContact"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/recCloseContact"
+                android:layout_below="@id/textView"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
