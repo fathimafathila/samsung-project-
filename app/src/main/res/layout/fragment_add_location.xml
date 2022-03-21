@@ -3,14 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
-    tools:context=".UsersView.InitialInterview.Location.AddLocationFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UsersView.InitialInterview.Demographic.CaseInformationFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Location Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="70dp"
+        android:padding="16dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/relCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/recLocation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_below="@+id/recLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your relationship with the close contact:"
+                android:textSize="20sp"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="20dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerContactType"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightgrey"
+                android:textColor="@color/primary_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnAddContact"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/primary_color"
+                android:text="+" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 
 </FrameLayout>

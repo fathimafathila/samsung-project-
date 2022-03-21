@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
     android:elevation="4dp"
-    android:layout_margin="20dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -20,7 +19,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Shrinal Patel"
+                    android:text="Ridham Patel"
                     android:textColor="@color/textColor"
                     android:textSize="18dp"
                     android:textStyle="bold" />
