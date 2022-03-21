@@ -29,6 +29,21 @@ the front lines to protect us all. I invite everyone in Canada to reflect on the
 impacts we have felt―and continue to experience-since the onset of the pandemic,
 both in our professional and personal lives."</string>
 
+    <string name="covidGuidelines1">- Get the latest case data and updates, learn how to get vaccinated and get advice on what to do next if you think you might have COVID-19.
+</string>
+
+    <string name="covidGuidelines2">
+        - To book a vaccination slot, call the Provincial Vaccine Contact Centre at 1-833-943-3900 to book over the phone. This line is available 8:00 a.m. to 8:00 p.m., 7 days a week.
+</string>
+
+    <string name="covidGuidelines3">
+        - If you have a fever, cough and difficulty breathing, seek medical attention. Call in advance so your healthcare provider can direct you to the right health facility. This protects you, and prevents the spread of viruses and other infections.
+</string>
+
+    <string name="covidGuidelines4">
+        - Properly fitted masks can help prevent the spread of the virus from the person wearing the mask to others. Masks alone do not protect against COVID-19, and should be combined with physical distancing and hand hygiene. Follow the advice provided by your local health authority.
+</string>
+
     <string-array name="arrYesNo">
         <item>Yes</item>
         <item>No</item>
