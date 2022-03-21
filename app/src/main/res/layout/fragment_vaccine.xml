@@ -32,7 +32,7 @@
                     android:background="@color/lightgrey"
                     app:hintTextColor="@color/primary_color"
                     android:textColorHint="@color/primary_color"
-                    android:text=""
+                    android:text="325557698"
                     android:textSize="12sp"
                     >
 
@@ -78,6 +78,18 @@
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/primary_color"
                     android:text="Upload Vaccination Certificate" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtFileName"
+                android:layout_below="@id/btnUpload"
+                android:text="vaccinedose.pdf"
+                android:textSize="18sp"
+                android:textColor="#0021DC"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                />
 
             </RelativeLayout>
 

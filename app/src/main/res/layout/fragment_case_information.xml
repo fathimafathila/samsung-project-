@@ -6,8 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UsersView.InitialInterview.Demographic.CaseInformationFragment">
 
-
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -293,13 +291,13 @@
                     android:textColorHint="@color/primary_color"
                     >
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/autoConsent"
                     android:layout_width="185dp"
                     android:layout_height="40dp"
+                    android:textSize="12sp"
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
-                    android:textSize="12sp"
                     />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -319,7 +317,7 @@
                     android:textColorHint="@color/primary_color"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoReinfected"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -374,7 +372,7 @@
                     android:textSize="12sp"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoDeceased"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -402,7 +400,7 @@
                     android:textSize="12sp"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoRace"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -456,7 +454,7 @@
                     android:textSize="12sp"
                     app:hintTextColor="@color/primary_color">
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoPrimaryLanguage"
                         android:layout_width="185dp"
                         android:layout_height="40dp"

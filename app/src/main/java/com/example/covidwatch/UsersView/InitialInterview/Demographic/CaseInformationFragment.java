@@ -1,5 +1,6 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,13 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,8 +36,11 @@ public class CaseInformationFragment extends Fragment {
     // TODO: Rename and change types of parameters
     String mParam1, mParam2;
     ImageButton calDeceasedDate;
-    String selectedDate;
-    public static final int REQUEST_CODE = 11;
+
+    final Calendar calendar = Calendar.getInstance();
+    int yy = calendar.get(Calendar.YEAR);
+    int mm = calendar.get(Calendar.MONTH);
+    int dd = calendar.get(Calendar.DAY_OF_MONTH);
 
     public CaseInformationFragment() {
         // Required empty public constructor
@@ -86,9 +93,9 @@ public class CaseInformationFragment extends Fragment {
         final AutoCompleteTextView autoPrimaryLanguage = view.findViewById(R.id.autoPrimaryLanguage);
 
         //Create adapter
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrYesNo));
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrRace));
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrPrimaryLanguage));
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrYesNo));
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrRace));
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrPrimaryLanguage));
 
         //Set adapter
         autoConsent.setAdapter(adapter1);
@@ -98,6 +105,8 @@ public class CaseInformationFragment extends Fragment {
         autoPrimaryLanguage.setAdapter(adapter3);
 
         calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
+
+        // On clicking date picker
 
         calDeceasedDate.setOnClickListener(new View.OnClickListener() {
 
@@ -109,6 +118,20 @@ public class CaseInformationFragment extends Fragment {
 
             }
         });
-    }
 
+        // On clicking card view
+
+        CardView card = view.findViewById(R.id.card);
+
+        card.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(), CaseInformationCardActivity.class);
+                startActivity(intent);
+
+            }
+        });
+    }
 }

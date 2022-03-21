@@ -57,7 +57,7 @@ public class CloseContactFragment extends Fragment {
         //Create adapter
 
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.arrContactType, R.layout.spinner_item);
+                R.array.arrContactType, R.layout.list_item);
 
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinnerContactType.setAdapter(adapter);

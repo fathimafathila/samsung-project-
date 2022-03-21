@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView.InitialInterview.Location;
+package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -16,16 +17,17 @@ import com.example.covidwatch.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class CloseContactDetailsActivity extends AppCompatActivity {
+public class CaseInformationCardActivity extends AppCompatActivity {
 
     private Calendar calendar;
     private EditText edtDob;
+    private Button btnUpdate;
     private int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_close_contact_details);
+        setContentView(R.layout.activity_case_information_card);
 
         edtDob = findViewById(R.id.edtDob);
         calendar = Calendar.getInstance();
@@ -35,6 +37,14 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
         initUI();
+
+        btnUpdate = findViewById(R.id.btnUpdate);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
     // Setting date of birth
@@ -83,7 +93,7 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
         ArrayList<String> List1 = getAddressType();
 
         //Create adapter
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(CloseContactDetailsActivity.this, android.R.layout.simple_spinner_item, List1);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(CaseInformationCardActivity.this, android.R.layout.simple_spinner_item, List1);
 
         //Set adapter
         customerAutoTV1.setAdapter(adapter1);

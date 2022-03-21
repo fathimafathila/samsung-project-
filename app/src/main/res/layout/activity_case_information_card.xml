@@ -1,41 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingHorizontal="10dp"
-tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="10dp"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    tools:context=".UsersView.InitialInterview.Demographic.CaseInformationCardActivity">
+
 
     <RelativeLayout
+        android:id="@+id/relDetails"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            />
-
-        <TextView
-            android:id="@+id/txtCheckbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Same Address"
-            android:textSize="24sp"
-            android:textColor="@color/textColor"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/checkbox"
-            />
+        >
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:id="@+id/FirstName"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkbox"
             android:layout_margin="4dp"
             android:hint="First Name">
 
@@ -196,31 +182,16 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtAdditionalInfo"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/txtAddressCity"
+        <Button
+            android:id="@+id/btnUpdate"
+            android:backgroundTint="@color/primary_color"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:hint="Additional Info">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtAdditionalInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnAddContact"
-                android:backgroundTint="@color/primary_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtAdditionalInfo"
-                android:layout_marginTop="20dp"
-                android:layout_alignParentRight="true"
-                android:text="Add Contact"
-                android:layout_marginRight="20dp"
-                />
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/txtAddressCity"
+            android:layout_centerHorizontal="true"
+            android:text="Update"
+            />
 
     </RelativeLayout>
 
