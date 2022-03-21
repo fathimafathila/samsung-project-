@@ -6,8 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UsersView.InitialInterview.Demographic.CaseInformationFragment">
 
-
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -280,6 +278,8 @@
                 android:layout_below="@+id/card">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:theme="@style/Theme.CovidWatch"
                     android:id="@+id/txtConsent"
                     android:layout_height="40dp"
                     android:layout_width="185dp"
@@ -291,19 +291,21 @@
                     android:textColorHint="@color/primary_color"
                     >
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/autoConsent"
                     android:layout_width="185dp"
                     android:layout_height="40dp"
+                    android:textSize="12sp"
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
-                    android:textSize="12sp"
                     />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtReinfected"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:theme="@style/Theme.CovidWatch"
                     android:layout_height="40dp"
                     android:layout_width="185dp"
                     android:layout_marginTop="10dp"
@@ -315,7 +317,7 @@
                     android:textColorHint="@color/primary_color"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoReinfected"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -354,6 +356,8 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtDeceased"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:theme="@style/Theme.CovidWatch"
                     android:layout_height="40dp"
                     android:layout_width="185dp"
                     android:layout_marginTop="10dp"
@@ -368,7 +372,7 @@
                     android:textSize="12sp"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoDeceased"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -381,6 +385,8 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtRace"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:theme="@style/Theme.CovidWatch"
                     android:layout_height="40dp"
                     android:layout_width="185dp"
                     android:layout_marginTop="10dp"
@@ -394,7 +400,7 @@
                     android:textSize="12sp"
                     >
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoRace"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
@@ -434,6 +440,8 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtPrimaryLanguage"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:theme="@style/Theme.CovidWatch"
                     android:layout_width="185dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/txtRace"
@@ -446,7 +454,7 @@
                     android:textSize="12sp"
                     app:hintTextColor="@color/primary_color">
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoPrimaryLanguage"
                         android:layout_width="185dp"
                         android:layout_height="40dp"

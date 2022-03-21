@@ -1,20 +1,23 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,11 +35,12 @@ public class CaseInformationFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     String mParam1, mParam2;
-    EditText edtDeceasedDate;
     ImageButton calDeceasedDate;
-    String selectedDate;
-    public static final int REQUEST_CODE = 11;
 
+    final Calendar calendar = Calendar.getInstance();
+    int yy = calendar.get(Calendar.YEAR);
+    int mm = calendar.get(Calendar.MONTH);
+    int dd = calendar.get(Calendar.DAY_OF_MONTH);
 
     public CaseInformationFragment() {
         // Required empty public constructor
@@ -77,9 +81,6 @@ public class CaseInformationFragment extends Fragment {
 
     }
 
-           //Create adapter
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrYesNo));
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrRace));
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -91,7 +92,10 @@ public class CaseInformationFragment extends Fragment {
         final AutoCompleteTextView autoRace = view.findViewById(R.id.autoRace);
         final AutoCompleteTextView autoPrimaryLanguage = view.findViewById(R.id.autoPrimaryLanguage);
 
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.arrPrimaryLanguage));
+        //Create adapter
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrYesNo));
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrRace));
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrPrimaryLanguage));
 
         //Set adapter
         autoConsent.setAdapter(adapter1);
@@ -102,16 +106,32 @@ public class CaseInformationFragment extends Fragment {
 
         calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
 
+        // On clicking date picker
+
         calDeceasedDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
+                newFragment.show(getFragmentManager(), "DeceasedDate");
+
+            }
+        });
+
+        // On clicking card view
+
+        CardView card = view.findViewById(R.id.card);
+
+        card.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(), CaseInformationCardActivity.class);
+                startActivity(intent);
 
             }
         });
     }
-
 }

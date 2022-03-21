@@ -3,64 +3,63 @@ package com.example.covidwatch.UsersView.InitialInterview.Location;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.ContactModel;
+import com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycle.contactAdapter;
+import com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.LocationModel;
+import com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecycle.locationAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddLocationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class AddLocationFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView rcv ;
+    locationAdapter adapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AddLocationFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddLocationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AddLocationFragment newInstance(String param1, String param2) {
-        AddLocationFragment fragment = new AddLocationFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_location, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_location, container, false);
+
+        rcv = (RecyclerView) view.findViewById(R.id.recLocation);
+        rcv.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        adapter = new locationAdapter(dataQueue(),getContext());
+        rcv.setAdapter(adapter);
+
+        return view;
+    }
+
+    public ArrayList<LocationModel> dataQueue() {
+        ArrayList<LocationModel> holder = new ArrayList<>();
+
+        LocationModel ob1 = new LocationModel();
+        ob1.setHeader("760 Mohawk road west");
+        ob1.setDesc("03/23/2022");
+        holder.add(ob1);
+
+        LocationModel ob2 = new LocationModel();
+        ob2.setHeader("Toronto Pearson Airport");
+        ob2.setDesc("03/22/2022");
+        holder.add(ob2);
+
+        return  holder;
     }
 }

@@ -11,9 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:padding="10dp">
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/medicalinfo"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp"
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:hint="Covid Treatment received"
             android:layout_below = "@id/soughtmedicalcare"
-
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color"
             android:theme="@style/Theme.CovidWatch">
@@ -62,7 +60,6 @@
             <MultiAutoCompleteTextView
                 android:id="@+id/edtReceivedmedicalcare"
                 android:layout_width="match_parent"
-
                 android:layout_height="100dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="4dp"
@@ -130,6 +127,18 @@
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <ImageButton
+            android:id="@+id/calAdmissionDate"
+            android:layout_below="@id/hospitalization"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignRight="@+id/AdmissionDate"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/lightgrey"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cal1" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/Dischargedate"
             android:layout_width="match_parent"
@@ -149,6 +158,18 @@
                 android:maxLines="1"
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/calDischargeDate"
+            android:layout_below="@id/AdmissionDate"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignRight="@+id/AdmissionDate"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/lightgrey"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cal1" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/HospName"
@@ -223,7 +244,7 @@
                 android:text="cancel" />
 
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
     </ScrollView>
 
 
