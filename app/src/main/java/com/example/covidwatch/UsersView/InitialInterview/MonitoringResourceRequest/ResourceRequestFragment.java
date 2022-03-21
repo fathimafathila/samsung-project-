@@ -2,13 +2,21 @@ package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequ
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ImageButton;
+import android.widget.MultiAutoCompleteTextView;
 
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +29,18 @@ public class ResourceRequestFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    ImageButton calDeceasedDate;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    AutoCompleteTextView monitorType;
+    final static String[] item_RR = new String[]{
+            "Phone Call",
+            "Email",
+            "Text Message",
+            "No Monitoring"};
+
 
     public ResourceRequestFragment() {
         // Required empty public constructor
@@ -57,10 +73,43 @@ public class ResourceRequestFragment extends Fragment {
         }
     }
 
+    View v1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_resource_request, container, false);
+        View v = inflater.inflate( R.layout.fragment_resource_request, container, false );
+        v1 = v;
+
+        // Health Condition Spinner
+        monitorType = v.findViewById( R.id.monType);
+        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
+//        monitorType.setTokenizer( new AutoCompleteTextView.CommaTokenizer() );
+        monitorType.setAdapter( adapterHC );
+
+        return v;
+
     }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
+
+        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "DatePicker");
+
+            }
+        });
+    }
+
 }
