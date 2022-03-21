@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 
 import com.example.covidwatch.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +32,8 @@ public class TestingFragment extends Fragment {
     EditText edtSpecimendate ,edtReportdate;
     AutoCompleteTextView testingSite;
 
+    FirebaseAuth fAuth ;
+    FirebaseFirestore db ;
     final static String[] item_Ts = new String[]{"--None--",
 
             "Can't remember",
@@ -83,6 +89,10 @@ public class TestingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_testing, container, false);
         edtSpecimendate = v.findViewById( R.id.edtSpecimendate );
@@ -94,6 +104,17 @@ public class TestingFragment extends Fragment {
         testingSite = v.findViewById( R.id.siteInfo );
         ArrayAdapter<String> adapterTs = new ArrayAdapter( requireContext(), R.layout.list_item, item_Ts );
         testingSite.setAdapter( adapterTs );
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String specimen = documentSnapshot.getString("Specimen Date");
+                String result = documentSnapshot.getString("Test Report Date");
+
+                edtSpecimendate.setText(specimen);
+                edtReportdate.setText(result);
+            }
+        });
+
         return  v;
     }
 }

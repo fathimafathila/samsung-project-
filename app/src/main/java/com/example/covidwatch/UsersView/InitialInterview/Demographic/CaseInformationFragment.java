@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,8 +17,13 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.zip.ZipEntry;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +34,9 @@ import java.util.Calendar;
 
 public class CaseInformationFragment extends Fragment {
 
+    FirebaseAuth fAuth ;
+    FirebaseFirestore db ;
+    TextView name,id ,  address ,  number , dob , age, gender, email, openDate,  status , priority ;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -77,13 +86,68 @@ public class CaseInformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_case_information, container, false);
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        View view = inflater.inflate(R.layout.fragment_case_information, container, false);
 
+        name = view.findViewById(R.id.txtFullName);
+        id = view.findViewById(R.id.txtUserId);
+        address = view.findViewById(R.id.txtAddress);
+        number =view.findViewById(R.id.txtContact);
+        dob = view.findViewById(R.id.txtDob);
+        age = view.findViewById(R.id.txtAge);
+        gender = view.findViewById(R.id.txtGender);
+        email = view.findViewById(R.id.txtEmail);
+        openDate = view.findViewById(R.id.txtStartDate);
+        status = view.findViewById(R.id.txtInvestigationStatusV);
+        priority = view.findViewById(R.id.txtPriorityV);
+
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String firstName = documentSnapshot.getString("First Name");
+                String lastName = documentSnapshot.getString("Last Name");
+                String id1 = documentSnapshot.getString("ID");
+                String str1  = documentSnapshot.getString("Street1");
+                String str2  = documentSnapshot.getString("Street2");
+                String City  = documentSnapshot.getString("City");
+                String state  = documentSnapshot.getString("State");
+                String Country  = documentSnapshot.getString("Country");
+                String zipCode  = documentSnapshot.getString("Zip Code");
+                String number1 = documentSnapshot.getString("Contact Number");
+                String dob1 = documentSnapshot.getString("DOB");
+                String age1 = documentSnapshot.getString("Age");
+                String gender1 = documentSnapshot.getString("Gender");
+                String email1 = documentSnapshot.getString("email");
+                String openDate1 = documentSnapshot.getString("Open Date");
+                String status1 = documentSnapshot.getString("Investigation Status");
+                String priority1 = documentSnapshot.getString("Priority");
+
+                name.setText( firstName + " " + lastName);
+                id.setText(id1);
+                address.setText(str1 + "," + str2 + "," + City + "," + state +"," + Country + "," + zipCode);
+                number.setText(number1);
+                dob.setText(dob1);
+                age.setText(age1);
+                gender.setText(gender1);
+                email.setText(email1);
+                openDate.setText(openDate1);
+                status.setText(status1);
+                priority.setText(priority1);
+
+
+            }
+        });
+
+
+        return  view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
         //UI reference of textView
         final AutoCompleteTextView autoConsent = view.findViewById(R.id.autoConsent);
