@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.MultiAutoCompleteTextView;
 
 import com.example.covidwatch.R;
 
@@ -26,6 +29,15 @@ public class TreatmentFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    AutoCompleteTextView edtsoughtmedicalcare;
+    AutoCompleteTextView edthospitalization;
+    MultiAutoCompleteTextView edtReceivedmedicalcare;
+
+    final static String[] item_YN = new String[]{"Yes", "No"};
+    final static String[] item_Mc = new String[]{"Monoclonal antibody infusion",
+            "Convalescent plasma",
+            "Remdesivir","--None--","Other"
+    };
     public TreatmentFragment() {
         // Required empty public constructor
     }
@@ -61,6 +73,22 @@ public class TreatmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_treatment, container, false);
+        View v = inflater.inflate(R.layout.fragment_treatment, container, false);
+        edtsoughtmedicalcare = v.findViewById( R.id.edtsoughtmedicalcare );
+        ArrayAdapter<String> adapterYn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        edtsoughtmedicalcare.setAdapter( adapterYn );
+
+        edtReceivedmedicalcare = v.findViewById( R.id.edtReceivedmedicalcare );
+        ArrayAdapter<String> adapter_Mc = new ArrayAdapter( requireContext(), R.layout.list_item, item_Mc );
+        edtReceivedmedicalcare.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        edtReceivedmedicalcare.setAdapter( adapter_Mc );
+
+        edthospitalization = v.findViewById( R.id.edthospitalization );
+        ArrayAdapter<String> adapter_Yn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        edthospitalization.setAdapter( adapter_Yn );
+
+        return v;
     }
 }
