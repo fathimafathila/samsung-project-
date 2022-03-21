@@ -1,7 +1,5 @@
 package com.example.covidwatch.AdminView.CreateUser;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -15,7 +13,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.covidwatch.MainActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.covidwatch.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,7 +23,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddRecordActivity extends AppCompatActivity {
     EditText edtFName,edtLName, edtEmail, edtAge, edtDob, edtGender, edtPhoneNumber, edtPriority, edtMinor , edtSpecimenDate , edtTestReportDate;
@@ -33,7 +31,7 @@ public class AddRecordActivity extends AppCompatActivity {
     private EditText dateView1, dateView2, dateView3;
     private int year, month, day;
 
-    String password ;
+    String password;
 
     //Firebase Object Create
     private FirebaseAuth fAuth;

@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
-    >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vaccination Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UsersView.InitialInterview.Demographic.CaseInformationFragment">
 
-</RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:padding="10dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/relCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtHealthCard"
+                    android:layout_height="55dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:hint="Health Card Number"
+                    android:background="@color/lightgrey"
+                    app:hintTextColor="@color/primary_color"
+                    android:textColorHint="@color/primary_color"
+                    android:text=""
+                    android:textSize="12sp"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtHealthCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@color/lightgrey"
+                        android:textColor="@color/primary_color"
+                        android:textSize="20sp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTitle"
+                android:layout_below="@id/txtHealthCard"
+                android:text="Vaccine Details"
+                android:textSize="28sp"
+                android:textColor="@color/primary_color"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recVaccine"
+                android:layout_below="@+id/txtTitle"
+                />
+
+                <Button
+                    android:id="@+id/btnUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recVaccine"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/primary_color"
+                    android:text="Upload Vaccination Certificate" />
+
+            </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>

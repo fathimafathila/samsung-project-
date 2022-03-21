@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
-    >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Close Contact Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UsersView.InitialInterview.Demographic.CaseInformationFragment">
 
-</RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:padding="16dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/relCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/recCloseContact"
+                />
+
+
+            <Spinner
+                android:id="@+id/spinnerContactType"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/recCloseContact"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightgrey"
+                android:textColor="@color/primary_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnAddContact"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recCloseContact"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/primary_color"
+                android:text="+" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>

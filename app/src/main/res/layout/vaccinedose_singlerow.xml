@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="4dp"
+    android:layout_margin="20dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightgrey"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtDoseNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Dose 1"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDoseNumber"
+            android:layout_marginTop="10dp"
+            >
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/txtDoseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Name: "
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDoseNameV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Moderna COVID-19 mRNA - 1273"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    />
+
+                    </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/txtDoseDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Date: "
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDoseDateV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="03/24/2021"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/txtLotNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Lot No.: "
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtLotNumberV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="0946737TF"
+                    android:textColor="@color/textColor"
+                    android:textSize="18dp"
+                    />
+
+            </TableRow>
+
+                </TableLayout>
+
+        <TextView
+            android:id="@+id/txtGov"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/table"
+            android:gravity="center_vertical"
+            android:text="Government of Ontario"
+            android:textColor="@color/textColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+

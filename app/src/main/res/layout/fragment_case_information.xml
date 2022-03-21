@@ -289,8 +289,6 @@
                     android:background="@color/lightgrey"
                     app:hintTextColor="@color/primary_color"
                     android:textColorHint="@color/primary_color"
-                    android:text=""
-                    android:textSize="12sp"
                     >
 
                 <AutoCompleteTextView
@@ -299,7 +297,7 @@
                     android:layout_height="40dp"
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -315,8 +313,6 @@
                     android:background="@color/lightgrey"
                     app:hintTextColor="@color/primary_color"
                     android:textColorHint="@color/primary_color"
-                    android:text=""
-                    android:textSize="12sp"
                     >
 
                     <AutoCompleteTextView
@@ -325,7 +321,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -351,7 +347,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -378,7 +374,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -404,7 +400,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -431,7 +427,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -456,7 +452,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -482,7 +478,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -520,7 +516,7 @@
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
                         android:textColor="@color/primary_color"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>

@@ -1,12 +1,17 @@
 package com.example.covidwatch.UsersView.InitialInterview.Location;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
 
@@ -62,5 +67,34 @@ public class CloseContactFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_close_contact, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //UI reference of textView
+        final Spinner spinnerContactType = view.findViewById(R.id.spinnerContactType);
+
+        //Create adapter
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.arrContactType, R.layout.spinner_item);
+
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinnerContactType.setAdapter(adapter);
+
+        Button btnAddContact = view.findViewById(R.id.btnAddContact);
+
+        btnAddContact.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(getActivity(), CloseContactDetailsActivity.class);
+                startActivity(intent);
+
+            }
+        });
     }
 }
