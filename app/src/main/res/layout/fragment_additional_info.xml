@@ -5,10 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".UsersView.InitialInterview.AdditionalInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/otherSymtoms"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+       android:layout_gravity="center"
+        android:layout_below="@+id/txtcurrentsts"
+        android:background="@color/lightgrey"
+        android:textColorHint="@color/primary_color"
+        android:textColor="@color/primary_color"
+        android:hint="Additional Information">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtsymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:inputType="text"
+            android:textColor="@color/primary_color" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </FrameLayout>
