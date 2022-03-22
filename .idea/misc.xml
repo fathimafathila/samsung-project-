@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/activity_view_record.xml" value="0.165" />
         <entry key="app/src/main/res/layout/closecontact_singlerow.xml" value="0.25" />
         <entry key="app/src/main/res/layout/forgetpassword.xml" value="0.11246200607902736" />
+        <entry key="app/src/main/res/layout/fragment_add_location.xml" value="0.11246200607902736" />
         <entry key="app/src/main/res/layout/fragment_additional_info.xml" value="0.11246200607902736" />
         <entry key="app/src/main/res/layout/fragment_case_information.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_close_contact.xml" value="0.25" />

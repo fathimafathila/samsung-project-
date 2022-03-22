@@ -49,6 +49,12 @@ both in our professional and personal lives."</string>
         <item>No</item>
     </string-array>
 
+    <string-array name="arrLocationType">
+        <item>-- None --</item>
+        <item> Isolation/Quarantine Location</item>
+        <item> Employment Location</item>
+    </string-array>
+
     <string-array name="arrPriority">
         <item>Low</item>
         <item>Medium</item>
@@ -114,11 +120,6 @@ both in our professional and personal lives."</string>
         <item>Swedish</item>
         <item>Korean</item>
         <item>Not Listed</item>
-    </string-array>
-    <string-array name="arrLocationType">
-        <item> Isolation/Quarantine Location</item>
-        <item> Employment Location</item>
-
     </string-array>
 
     <string-array name="arrContactType">
