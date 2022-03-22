@@ -1,12 +1,6 @@
 package com.example.covidwatch.UsersView.InitialInterview;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.MultiAutoCompleteTextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
-
-import java.util.ArrayList;
 
 
 public class EpilinkageCongregateFragment extends Fragment {
@@ -30,7 +22,7 @@ public class EpilinkageCongregateFragment extends Fragment {
 
     AutoCompleteTextView KnownCloseCnt;
     AutoCompleteTextView CongrSetting;
-
+    final static String[] item_YN = new String[]{"Yes", "No"};
     final static String[] item_RR = new String[]{
             "--None--",
             "Alcohol/Drug Treatment Facility",
@@ -73,35 +65,17 @@ public class EpilinkageCongregateFragment extends Fragment {
 
         View v = inflater.inflate( R.layout.fragment_epilinkage_congregate, container, false );
         v1 = v;
-
         // Health Condition Spinner
-        KnownCloseCnt = v.findViewById( R.id.resReqTypeAuto);
+        KnownCloseCnt = v.findViewById( R.id.congreagetSetting);
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
         KnownCloseCnt.setAdapter( adapterHC );
-
+        // Yes/ No Spinner
+        CongrSetting = v.findViewById( R.id.resReqTypeAuto );
+        ArrayAdapter<String> adapterYn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+        //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        CongrSetting.setAdapter( adapterYn );
         return v;
 
     }
-
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
-
-        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
-
-            }
-        });
-    }
-
-
 
 }
