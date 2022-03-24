@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch">
         <activity
+            android:name=".AdminView.CreateUser.CreateMedicalInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminView.CreateUser.CreateAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminView.CreateUser.CreatePersonalInfomationActivity"
+            android:exported="false" />
+        <activity
             android:name=".UsersView.InitialInterview.Demographic.CaseInformationCardActivity"
             android:exported="false" />
         <activity
@@ -54,10 +63,6 @@
             android:name=".AdminView.SecurityQuestionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".AdminView.CreateUser.AddRecord2Activity"
-            android:exported="true"
-            android:label="Cash Information" />
         <activity
             android:name=".AdminView.CreateUser.AddRecordActivity"
             android:exported="true"

@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.covidwatch.AdminView.CreateUser.AddRecordActivity;
+import com.example.covidwatch.AdminView.CreateUser.CreatePersonalInfomationActivity;
 import com.example.covidwatch.AdminView.ViewRecord.ViewRecordActivity;
 import com.example.covidwatch.MainActivity;
 import com.example.covidwatch.R;
@@ -103,7 +103,7 @@ public class AdminDashboard extends AppCompatActivity {
         }
     }
     public void openDashboardAct(){
-        Intent intent = new Intent(this, AddRecordActivity.class);
+        Intent intent = new Intent(this, CreatePersonalInfomationActivity.class);
         startActivity(intent);
     }
 
