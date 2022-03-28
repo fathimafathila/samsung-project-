@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView;
+package com.example.covidwatch.UsersView ;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +32,13 @@ public class UserDashboardActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         title = findViewById(R.id.title);
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        String id;
+       if(getIntent().getStringExtra("uuid").isEmpty()){
+           id = fAuth.getCurrentUser().getUid();
+       }else{
+           id = getIntent().getStringExtra("uuid");
+       }
+        db.collection("users").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String fName = documentSnapshot.getString("First Name");

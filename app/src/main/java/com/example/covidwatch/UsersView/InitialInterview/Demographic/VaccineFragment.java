@@ -16,6 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineRecyclerView.VaccineModel;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineRecyclerView.vaccineAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -23,44 +29,46 @@ import java.util.ArrayList;
 public class VaccineFragment extends Fragment {
 
 
+    FirebaseAuth fAuth;
+    FirebaseFirestore db;
     RecyclerView rcv ;
     vaccineAdapter adapter;
-
+    ArrayList<VaccineModel> userArrayList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
         View view = inflater.inflate(R.layout.fragment_vaccine, container, false);
 
         rcv = (RecyclerView) view.findViewById(R.id.recVaccine);
         rcv.setLayoutManager(new LinearLayoutManager(getContext()));
+        // rcv.setAdapter(adapter);
+        userArrayList=new ArrayList<VaccineModel>();
+        adapter = new vaccineAdapter(userArrayList,getContext());
 
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Vaccine")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        for (DocumentChange dc : value.getDocumentChanges()) {
+                            VaccineModel ob1 = new VaccineModel();
+                            ob1.setDose(dc.getDocument().getId());
+                            ob1.setName(dc.getDocument().getString("Name"));
+                            ob1.setDate(dc.getDocument().getString("Date"));
+                            ob1.setLot(dc.getDocument().getString("Lot No"));
+                            ob1.setProvided(dc.getDocument().getString("Provided"));
+                            userArrayList.add(ob1);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                });
 
-        adapter = new vaccineAdapter(dataQueue(),getContext());
         rcv.setAdapter(adapter);
-
         return view;
     }
 
-    public ArrayList<VaccineModel> dataQueue() {
-        ArrayList<VaccineModel> holder = new ArrayList<>();
-
-        VaccineModel ob1 = new VaccineModel();
-        ob1.setHeader("Moderna covid-19 mRNA -1273 ");
-        ob1.setDesc("01/10/2022");
-        ob1.setLot("0946737TF");
-        ob1.setDose("Dose 1");
-        holder.add(ob1);
-
-        VaccineModel ob2 = new VaccineModel();
-        ob2.setHeader("Moderna covid-19 mRNA -1273 ");
-        ob2.setDesc("05/30/2022");
-        ob2.setLot("0946737TF");
-        ob2.setDose("Dose 2");
-        holder.add(ob2);
-
-        return  holder;
-    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -68,7 +76,6 @@ public class VaccineFragment extends Fragment {
         Button btnUpload = view.findViewById(R.id.btnUpload);
 
         // On clicking date picker
-
         btnUpload.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -79,4 +86,5 @@ public class VaccineFragment extends Fragment {
             }
         });
     }
+
 }

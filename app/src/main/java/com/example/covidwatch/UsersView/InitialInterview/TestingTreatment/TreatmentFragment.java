@@ -6,8 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,27 +19,22 @@ import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TreatmentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.HashMap;
+
 public class TreatmentFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    AutoCompleteTextView edtsoughtmedicalcare;
-    AutoCompleteTextView edthospitalization;
-    MultiAutoCompleteTextView edtReceivedmedicalcare;
-
+    FirebaseAuth fAuth;
+    FirebaseFirestore db;
+    EditText medicalCare, receiveTreatment, hospitalized, admissionDate, dischargeDate, hospitalName, treatmentDesc ;
+    AutoCompleteTextView edtSoughtMedicalCare;
+    AutoCompleteTextView edtHospitalization;
+    MultiAutoCompleteTextView edtReceivedMedicalCare;
+    Button save ;
     final static String[] item_YN = new String[]{"Yes", "No"};
     final static String[] item_Mc = new String[]{"Monoclonal antibody infusion",
             "Convalescent plasma",
@@ -46,53 +44,80 @@ public class TreatmentFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TreatmentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TreatmentFragment newInstance(String param1, String param2) {
-        TreatmentFragment fragment = new TreatmentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_treatment, container, false);
-        edtsoughtmedicalcare = v.findViewById( R.id.edtsoughtmedicalcare );
+        medicalCare = v.findViewById(R.id.edtSoughtMedicalCare);
+        receiveTreatment = v.findViewById(R.id.edtReceivedMedicalCare);
+        hospitalized = v.findViewById(R.id.edtHospitalization);
+        admissionDate = v.findViewById(R.id.edtAdmissionDate);
+        dischargeDate = v.findViewById(R.id.edtDischargeDate);
+        hospitalName = v.findViewById(R.id.edtHospitalName);
+        treatmentDesc = v.findViewById(R.id.edtDescTreatmentReceived);
+        save = v.findViewById(R.id.saveButton);
+        edtSoughtMedicalCare = v.findViewById( R.id.edtSoughtMedicalCare );
         ArrayAdapter<String> adapterYn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
         //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
-        edtsoughtmedicalcare.setAdapter( adapterYn );
+        edtSoughtMedicalCare.setAdapter( adapterYn );
 
-        edtReceivedmedicalcare = v.findViewById( R.id.edtReceivedmedicalcare );
+        edtReceivedMedicalCare = v.findViewById( R.id.edtReceivedMedicalCare );
         ArrayAdapter<String> adapter_Mc = new ArrayAdapter( requireContext(), R.layout.list_item, item_Mc );
-        edtReceivedmedicalcare.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
-        edtReceivedmedicalcare.setAdapter( adapter_Mc );
+        edtReceivedMedicalCare.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        edtReceivedMedicalCare.setAdapter( adapter_Mc );
 
-        edthospitalization = v.findViewById( R.id.edthospitalization );
+        edtHospitalization = v.findViewById( R.id.edtHospitalization );
         ArrayAdapter<String> adapter_Yn = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
         //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
-        edthospitalization.setAdapter( adapter_Yn );
+        edtHospitalization.setAdapter( adapter_Yn );
 
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Treatment")
+                .document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                medicalCare.setText(documentSnapshot.getString("Medical Care"));
+                receiveTreatment.setText(documentSnapshot.getString("Received Treatment"));
+                hospitalized.setText(documentSnapshot.getString("Hospitalized"));
+                admissionDate.setText(documentSnapshot.getString("Admission Date"));
+                dischargeDate.setText(documentSnapshot.getString("Discharge Date"));
+                hospitalName.setText(documentSnapshot.getString("Hospital Name"));
+                treatmentDesc.setText(documentSnapshot.getString("Treatment Description"));
+
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<Object, String > treatment = new HashMap<>();
+                treatment.put("Medical Care", medicalCare.getText().toString());
+                treatment.put("Received Treatment", receiveTreatment.getText().toString());
+                treatment.put("Hospitalized", hospitalized.getText().toString());
+                treatment.put("Admission Date", admissionDate.getText().toString());
+                treatment.put("Discharge Date", dischargeDate.getText().toString());
+                treatment.put("Hospital Name", hospitalName.getText().toString());
+                treatment.put("Treatment Description", treatmentDesc.getText().toString());
+
+                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Treatment").document(fAuth.getCurrentUser().getUid())
+                        .set(treatment).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(), "working", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
         return v;
     }
 

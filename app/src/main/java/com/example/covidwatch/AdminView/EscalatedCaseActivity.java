@@ -1,4 +1,4 @@
-package com.example.covidwatch.AdminView;
+package com.example.covidwatch.AdminView ;
 
 import androidx.appcompat.app.AppCompatActivity;
 

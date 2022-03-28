@@ -52,6 +52,7 @@ public class InitialInterviewActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
+
         updateNavheader(fAuth.getCurrentUser().getUid());
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

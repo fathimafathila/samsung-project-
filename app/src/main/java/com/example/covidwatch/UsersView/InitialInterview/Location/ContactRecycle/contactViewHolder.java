@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.covidwatch.R;
 
 public class contactViewHolder extends RecyclerView.ViewHolder {
-    ImageView img ;
     TextView t1;
     TextView t2 ;
     public contactViewHolder(@NonNull View itemView) {
         super(itemView);
-        t1 = (TextView) itemView.findViewById(R.id.txtName);
-        t2 = (TextView) itemView.findViewById(R.id.txtDate);
+        t1 = (TextView) itemView.findViewById(R.id.txtContactName);
+        t2 = (TextView) itemView.findViewById(R.id.txtContactDate);
 
     }
 }

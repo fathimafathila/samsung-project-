@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 
@@ -18,18 +19,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TestingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class TestingFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    EditText edtSpecimendate ,edtReportdate;
+
+    EditText edtSpecimendate ,edtReportdate, site, siteName ;
+    Button save;
     AutoCompleteTextView testingSite;
 
     FirebaseAuth fAuth ;
@@ -51,39 +49,18 @@ public class TestingFragment extends Fragment {
             "Work",
             "Other"};
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public TestingFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TestingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TestingFragment newInstance(String param1, String param2) {
-        TestingFragment fragment = new TestingFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -98,8 +75,27 @@ public class TestingFragment extends Fragment {
         edtSpecimendate = v.findViewById( R.id.edtSpecimendate );
         edtSpecimendate.setFocusableInTouchMode(false);
         edtReportdate = v.findViewById( R.id.edtReportdate );
+        site = v.findViewById(R.id.siteInfo);
+        siteName = v.findViewById(R.id.edtName1);
         edtReportdate.setFocusableInTouchMode(false);
+        save = v.findViewById(R.id.saveBtn);
 
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("Site",site.getText().toString());
+                map.put("siteName", siteName.getText().toString());
+
+                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Testing").document("test")
+                        .set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                });
+            }
+        });
         // Covid Testing Site Spinner
         testingSite = v.findViewById( R.id.siteInfo );
         ArrayAdapter<String> adapterTs = new ArrayAdapter( requireContext(), R.layout.list_item, item_Ts );
@@ -112,6 +108,14 @@ public class TestingFragment extends Fragment {
 
                 edtSpecimendate.setText(specimen);
                 edtReportdate.setText(result);
+            }
+        });
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Testing").document("test")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                site.setText(documentSnapshot.getString("Site"));
+                siteName.setText(documentSnapshot.getString("siteName"));
             }
         });
 

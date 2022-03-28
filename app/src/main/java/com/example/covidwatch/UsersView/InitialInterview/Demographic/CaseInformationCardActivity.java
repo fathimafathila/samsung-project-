@@ -75,12 +75,12 @@ public class CaseInformationCardActivity extends AppCompatActivity {
                         edtLastName.setText(documentSnapshot.getString("Last Name"));
                         edtDob.setText(documentSnapshot.getString("DOB"));
                         edtNumber.setText(documentSnapshot.getString("Contact Number"));
-                        edtStreet1.setText(documentSnapshot.getString("Street1"));
-                        edtStreet2.setText(documentSnapshot.getString("Street2"));
+                        edtStreet1.setText(documentSnapshot.getString("Apartment"));
+                        edtStreet2.setText(documentSnapshot.getString("Street"));
                         edtCity.setText(documentSnapshot.getString("City"));
-                        edtEmail.setText(documentSnapshot.getString("email"));
+                        edtEmail.setText(documentSnapshot.getString("Email"));
                         edtGender.setText(documentSnapshot.getString("Gender"));
-                        edtType.setText(documentSnapshot.getString("Address type"));
+                        edtType.setText(documentSnapshot.getString("Address Type"));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -100,10 +100,10 @@ public class CaseInformationCardActivity extends AppCompatActivity {
                 user.put("Last Name",edtLastName.getText().toString());
                 user.put("DOB",edtDob.getText().toString());
                 user.put("Contact Number",edtNumber.getText().toString());
-                user.put("Street1",edtStreet1.getText().toString());
-                user.put("Street2",edtStreet2.getText().toString());
+                user.put("Apartment",edtStreet1.getText().toString());
+                user.put("Street",edtStreet2.getText().toString());
                 user.put("City",edtCity.getText().toString());
-                user.put("email",edtEmail.getText().toString());
+                user.put("Email",edtEmail.getText().toString());
                 user.put("Gender" , edtGender.getText().toString());
                 user.put("Address type", edtType.getText().toString());
 

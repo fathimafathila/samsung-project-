@@ -2,25 +2,31 @@ package com.example.covidwatch.UsersView.InitialInterview.Location.ContactRecycl
 
 public class ContactModel {
 
-    private String header;
-    private  String desc;
+    private String contactName;
+    private  String contactDate;
+    private String uuid;
 
-
-    public String getHeader() {
-        return header;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getContactName() {
+        return contactName;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 
+    public String getContactDate() {
+        return contactDate;
+    }
 
+    public void setContactDate(String contactDate) {
+        this.contactDate = contactDate;
+    }
 }

@@ -2,33 +2,11 @@ package com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineRec
 
 public class VaccineModel {
 
-    private String header;
-    private  String desc;
-    private String lot;
     private String dose;
-
-
-    public String getHeader() {
-        return header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getLot() { return lot; }
-
-    public void setLot(String lot) {
-        this.lot = lot;
-    }
+    private String name;
+    private String date;
+    private String lot;
+    private String provided;
 
     public String getDose() {
         return dose;
@@ -36,5 +14,37 @@ public class VaccineModel {
 
     public void setDose(String dose) {
         this.dose = dose;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getLot() {
+        return lot;
+    }
+
+    public void setLot(String lot) {
+        this.lot = lot;
+    }
+
+    public String getProvided() {
+        return provided;
+    }
+
+    public void setProvided(String provided) {
+        this.provided = provided;
     }
 }

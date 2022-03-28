@@ -33,7 +33,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:id="@+id/FirstName"
+            android:id="@+id/txtFirstName"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkbox"
             android:layout_margin="4dp"
@@ -48,9 +48,9 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/LastName"
+            android:id="@+id/txtLastName"
             android:layout_width="match_parent"
-            android:layout_below="@+id/FirstName"
+            android:layout_below="@+id/txtFirstName"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Last Name">
@@ -62,23 +62,23 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailId"
+            android:id="@+id/txtEmailId"
             android:layout_width="match_parent"
-            android:layout_below="@+id/LastName"
+            android:layout_below="@+id/txtLastName"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Email ID">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtemailId"
+                android:id="@+id/edtEmailId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:id="@+id/Dob"
-            android:layout_below="@+id/emailId"
+            android:id="@+id/txtDob"
+            android:layout_below="@+id/txtEmailId"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Date of Birth">
@@ -101,14 +101,14 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
             android:scaleType="fitCenter"
             android:background="@color/lightgrey"
             android:src="@drawable/cal1"
-            android:layout_below="@+id/emailId"
+            android:layout_below="@+id/txtEmailId"
             android:onClick="setDate"
             />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtGender"
             android:layout_width="match_parent"
-            android:layout_below="@+id/Dob"
+            android:layout_below="@+id/txtDob"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Gender">
@@ -122,7 +122,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ContactNo"
+            android:id="@+id/txtContactNo"
             android:layout_width="match_parent"
             android:layout_below="@+id/txtGender"
             android:layout_height="wrap_content"
@@ -130,7 +130,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
             android:hint="Phone Number">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtCN"
+                android:id="@+id/edtContactNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -140,7 +140,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
             android:id="@+id/txtAddressType"
             android:background="@color/lightgrey"
             android:layout_width="match_parent"
-            android:layout_below="@+id/ContactNo"
+            android:layout_below="@+id/txtContactNo"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Address Type">
@@ -154,38 +154,38 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Address1"
+            android:id="@+id/txtApartment"
             android:layout_width="match_parent"
             android:layout_below="@+id/txtAddressType"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="Address Street 1">
+            android:hint="Apartment/House Number">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtAddress1"
+                android:id="@+id/edtApartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:id="@+id/Address2"
-            android:layout_below="@+id/Address1"
+            android:id="@+id/txtStreet"
+            android:layout_below="@+id/txtApartment"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="Address Street 2">
+            android:hint="Street">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edtAddress2"
+                android:id="@+id/edtStreet"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtAddressCity"
+            android:id="@+id/txtCity"
             android:layout_width="match_parent"
-            android:layout_below="@+id/Address2"
+            android:layout_below="@+id/txtStreet"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="City">
@@ -199,7 +199,7 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtAdditionalInfo"
             android:layout_width="match_parent"
-            android:layout_below="@+id/txtAddressCity"
+            android:layout_below="@+id/txtCity"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="Additional Info">

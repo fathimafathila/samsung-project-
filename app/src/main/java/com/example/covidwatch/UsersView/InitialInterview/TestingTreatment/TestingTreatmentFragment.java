@@ -1,4 +1,4 @@
-package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment;
+package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment ;
 
 import android.os.Bundle;
 
@@ -14,8 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest.MonitoringFragment;
-import com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest.ResourceRequestFragment;
+import com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest.MonitoringFragment ;
+import com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest.ResourceRequestFragment ;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

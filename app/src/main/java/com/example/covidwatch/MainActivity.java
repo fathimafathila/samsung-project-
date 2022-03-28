@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                                     .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                         @Override
                                         public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                            String name = documentSnapshot.getString("admin").toString();
+                                            String name = documentSnapshot.getString("Admin").toString();
                                             System.out.println("");
                                             if( name.equals("0")){
                                                 Intent i = new Intent(MainActivity.this, SecurityQuestionActivity.class);
@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                                             }else{
                                                 Intent intent = new Intent(MainActivity.this, UserDashboardActivity.class);
+                                                intent.putExtra("uuid","");
                                                 startActivity(intent);
                                             }
                                         }

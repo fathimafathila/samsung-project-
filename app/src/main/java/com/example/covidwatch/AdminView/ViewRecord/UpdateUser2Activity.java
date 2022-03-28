@@ -68,8 +68,8 @@ public class UpdateUser2Activity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                edtAddressType.setText(documentSnapshot.getString("Address type"));
-               edtStreet1.setText(documentSnapshot.getString("Street1"));
-               edtStreet2.setText(documentSnapshot.getString("Street2"));
+               edtStreet1.setText(documentSnapshot.getString("Apartment"));
+               edtStreet2.setText(documentSnapshot.getString("Street"));
                edtCity.setText(documentSnapshot.getString("City"));
                edtState.setText(documentSnapshot.getString("State"));
                edtCountry.setText(documentSnapshot.getString("Country"));

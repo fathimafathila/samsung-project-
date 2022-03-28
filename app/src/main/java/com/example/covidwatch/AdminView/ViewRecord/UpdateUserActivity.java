@@ -74,8 +74,8 @@ public class UpdateUserActivity extends AppCompatActivity {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                edtFName.setText(documentSnapshot.getString("First Name"));
                edtLName.setText(documentSnapshot.getString("Last Name"));
-               edtEmail.setText(documentSnapshot.getString("email"));
-               edtDob.setText(documentSnapshot.getString("dob"));
+               edtEmail.setText(documentSnapshot.getString("Email"));
+               edtDob.setText(documentSnapshot.getString("DOB"));
                edtAge.setText(documentSnapshot.getString("Age"));
                edtGender.setText(documentSnapshot.getString("Gender"));
                edtPhoneNumber.setText(documentSnapshot.getString("Phone Number"));

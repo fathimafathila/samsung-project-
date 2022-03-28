@@ -229,8 +229,8 @@
                         android:layout_marginTop="20dp"
                         android:text="Investigation Status:"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="14dp" />
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtInvestigationStatusV"
@@ -291,8 +291,8 @@
                     android:textColorHint="@color/primary_color"
                     >
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/autoConsent"
+                   <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/edtConsent"
                     android:layout_width="185dp"
                     android:layout_height="40dp"
                     android:textSize="12sp"
@@ -318,7 +318,7 @@
                     >
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/autoReinfected"
+                        android:id="@+id/edtReinfected"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
@@ -373,7 +373,7 @@
                     >
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/autoDeceased"
+                        android:id="@+id/edtDeceased"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
@@ -401,7 +401,7 @@
                     >
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/autoRace"
+                        android:id="@+id/edtRace"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
@@ -455,7 +455,7 @@
                     app:hintTextColor="@color/primary_color">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/autoPrimaryLanguage"
+                        android:id="@+id/edtPrimaryLanguage"
                         android:layout_width="185dp"
                         android:layout_height="40dp"
                         android:background="@color/lightgrey"
@@ -537,7 +537,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/primary_color"
-                    android:text="Update" />
+                    android:text="Add" />
 
             </RelativeLayout>
 

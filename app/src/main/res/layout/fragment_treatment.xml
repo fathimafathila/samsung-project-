@@ -19,7 +19,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/soughtmedicalcare"
+            android:id="@+id/txtSoughtMedicalCare"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:theme="@style/Theme.CovidWatch">
 
             <AutoCompleteTextView
-                android:id="@+id/edtsoughtmedicalcare"
+                android:id="@+id/edtSoughtMedicalCare"
                 android:layout_width="match_parent"
 
                 android:layout_height="55dp"
@@ -47,18 +47,18 @@
                 tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Receivedmedicalcare"
+            android:id="@+id/txtReceivedMedicalCare"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Covid Treatment received"
-            android:layout_below = "@id/soughtmedicalcare"
+            android:layout_below = "@id/txtSoughtMedicalCare"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color"
             android:theme="@style/Theme.CovidWatch">
 
             <MultiAutoCompleteTextView
-                android:id="@+id/edtReceivedmedicalcare"
+                android:id="@+id/edtReceivedMedicalCare"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginStart="5dp"
@@ -77,18 +77,18 @@
                 tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/hospitalization"
+            android:id="@+id/txtHospitalization"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below = "@id/Receivedmedicalcare"
+            android:layout_below = "@id/txtReceivedMedicalCare"
             android:hint="Did you ever or still hospitalized??"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color"
             android:theme="@style/Theme.CovidWatch">
 
             <AutoCompleteTextView
-                android:id="@+id/edthospitalization"
+                android:id="@+id/edtHospitalization"
                 android:layout_width="match_parent"
 
                 android:layout_height="55dp"
@@ -108,10 +108,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/AdmissionDate"
+            android:id="@+id/txtAdmissionDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/hospitalization"
+            android:layout_below="@+id/txtHospitalization"
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Admission date"
@@ -129,10 +129,10 @@
 
         <ImageButton
             android:id="@+id/calAdmissionDate"
-            android:layout_below="@id/hospitalization"
+            android:layout_below="@id/txtHospitalization"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignRight="@+id/AdmissionDate"
+            android:layout_alignRight="@+id/txtAdmissionDate"
             android:layout_marginTop="25dp"
             android:layout_marginRight="10dp"
             android:background="@color/lightgrey"
@@ -140,10 +140,10 @@
             android:src="@drawable/cal1" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Dischargedate"
+            android:id="@+id/txtDischargeDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/AdmissionDate"
+            android:layout_below="@+id/txtAdmissionDate"
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Discharge Date"
@@ -151,7 +151,7 @@
             android:textColorHint="@color/primary_color">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtDischargedate"
+                android:id="@+id/edtDischargeDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -161,10 +161,10 @@
 
         <ImageButton
             android:id="@+id/calDischargeDate"
-            android:layout_below="@id/AdmissionDate"
+            android:layout_below="@id/txtAdmissionDate"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignRight="@+id/AdmissionDate"
+            android:layout_alignRight="@+id/txtAdmissionDate"
             android:layout_marginTop="25dp"
             android:layout_marginRight="10dp"
             android:background="@color/lightgrey"
@@ -172,10 +172,10 @@
             android:src="@drawable/cal1" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/HospName"
+            android:id="@+id/txtHospitalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Dischargedate"
+            android:layout_below="@+id/txtDischargeDate"
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Hospital Name"
@@ -183,7 +183,7 @@
             android:textColorHint="@color/primary_color">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtReportdate"
+                android:id="@+id/edtHospitalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -191,10 +191,10 @@
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/DescTreatmentReceived"
+            android:id="@+id/txtDescTreatmentReceived"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/HospName"
+            android:layout_below="@+id/txtHospitalName"
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:gravity="top"
@@ -218,12 +218,12 @@
 
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@+id/DescTreatmentReceived"
+            android:layout_below="@+id/txtDescTreatmentReceived"
 
             android:layout_marginTop="5dp">
 
             <Button
-                android:id="@+id/savebutton"
+                android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -233,12 +233,12 @@
 
 
             <Button
-                android:id="@+id/nextbutton"
+                android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/savebutton"
+                android:layout_toRightOf="@+id/saveButton"
                 android:backgroundTint="@color/primary_color"
                 android:onClick="btn_next"
                 android:text="cancel" />

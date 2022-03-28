@@ -15,7 +15,7 @@
 
 
                 <TextView
-                    android:id="@+id/txtName"
+                    android:id="@+id/txtContactName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -25,11 +25,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtDate"
+                    android:id="@+id/txtContactDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:layout_below="@+id/txtName"
+                    android:layout_below="@+id/txtContactName"
                     android:text="02/24/2022"
                     android:textColor="@color/textColor"
                     android:textSize="18dp"

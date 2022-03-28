@@ -17,12 +17,13 @@ public class vaccineViewHolder extends RecyclerView.ViewHolder {
     TextView t2 ;
     TextView t3;
     TextView t4;
+    TextView t5;
     public vaccineViewHolder(@NonNull View itemView) {
         super(itemView);
-        t1 = (TextView) itemView.findViewById(R.id.txtDoseNameV);
-        t2 = (TextView) itemView.findViewById(R.id.txtDoseDateV);
-        t3 = (TextView) itemView.findViewById(R.id.txtLotNumberV);
-        t4 = (TextView) itemView.findViewById(R.id.txtDoseNumber);
-
+        t1 = (TextView) itemView.findViewById(R.id.txtDoseNumber);
+        t2 = (TextView) itemView.findViewById(R.id.txtDoseNameV);
+        t3 = (TextView) itemView.findViewById(R.id.txtDoseDateV);
+        t4 = (TextView) itemView.findViewById(R.id.txtLotNumberV);
+        t5 = (TextView) itemView.findViewById(R.id.txtGov);
     }
 }

@@ -35,10 +35,11 @@ public class vaccineAdapter extends RecyclerView.Adapter<vaccineViewHolder> {
 
         final VaccineModel temp = data.get(position);
 
-        holder.t1.setText(data.get(position).getHeader());
-        holder.t2.setText(data.get(position).getDesc());
-        holder.t3.setText(data.get(position).getLot());
-        holder.t4.setText(data.get(position).getDose());
+        holder.t1.setText(temp.getDose());
+        holder.t2.setText(temp.getName());
+        holder.t3.setText(temp.getDate());
+        holder.t4.setText(temp.getLot());
+        holder.t5.setText(temp.getProvided());
 
 
 

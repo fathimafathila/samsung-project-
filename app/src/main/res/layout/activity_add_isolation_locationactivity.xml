@@ -5,6 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+       android:id="@+id/addLocationActivity"
         android:paddingHorizontal="10dp"
         tools:context=".UsersView.InitialInterview.Location.AddIsolationLocationactivity">
 
@@ -17,7 +18,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/FirstName"
+                android:id="@+id/txtLocationNameA"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="Location Name">
@@ -25,111 +26,92 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edtFirstName"
+                    android:id="@+id/edtLocationName"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/LastName"
+                android:id="@+id/txtLocationType"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/FirstName"
+                android:layout_below="@+id/txtLocationNameA"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="Location Type">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtLastName"
+                    android:id="@+id/edtLocationType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailId"
+                android:id="@+id/txtApartment"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/LastName"
+                android:layout_below="@+id/txtLocationType"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="Street 1">
+                android:hint="Apartment/House/Office">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtemailId"
+                    android:id="@+id/edtApartment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/Dob"
-                android:layout_below="@+id/emailId"
+                android:id="@+id/txtStreet"
+                android:layout_below="@+id/txtApartment"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="Street 2">
+                android:hint="Street">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edtDob"
+                    android:id="@+id/edtStreet"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
-
-<!--            <ImageButton-->
-<!--                android:id="@+id/calDob"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:layout_marginTop="30dp"-->
-<!--                android:layout_marginEnd="20dp"-->
-<!--                android:scaleType="fitCenter"-->
-<!--                android:background="@color/lightgrey"-->
-<!--                android:src="@drawable/cal1"-->
-<!--                android:layout_below="@+id/emailId"-->
-<!--                android:onClick="setDate"-->
-<!--                />-->
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtGender"
+                android:id="@+id/txtCity"
                 android:layout_width="185dp"
-                android:layout_below="@+id/Dob"
+                android:layout_below="@+id/txtStreet"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="City">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtGender"
+                    android:id="@+id/edtCity"
                     android:layout_width="185dp"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
 
-                android:id="@+id/Country"
+                android:id="@+id/txtProvince"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Dob"
+                android:layout_below="@+id/txtStreet"
                 android:layout_marginStart="300dp"
                 android:layout_margin="4dp"
-                android:layout_toRightOf="@id/txtGender"
+                android:layout_toRightOf="@id/txtCity"
                 android:hint="Province">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtCounty"
+                    android:id="@+id/edtProvince"
                     android:layout_width="185dp"
                     android:layout_marginStart="7dp"
-
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/txtGender" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
 
                 android:id="@+id/txtCountry"
                 android:layout_width="185dp"
-                android:layout_below="@+id/txtGender"
+                android:layout_below="@+id/txtCity"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="Country">
@@ -141,13 +123,11 @@
                     tools:ignore="KeyboardInaccessibleWidget"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ZipCode"
+                android:id="@+id/txtZipCode"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtGender"
+                android:layout_below="@+id/txtCity"
                 android:layout_marginStart="300dp"
                 android:layout_margin="4dp"
                 android:layout_toRightOf="@id/txtCountry"
@@ -162,10 +142,9 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/txtCountry" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/fromDate"
+                android:id="@+id/txtFromDate"
                 android:layout_below="@+id/txtCountry"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
@@ -174,15 +153,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edDFD"
+                    android:id="@+id/edtFromDate"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/ToDate"
-                android:layout_below="@+id/fromDate"
+                android:id="@+id/txtToDate"
+                android:layout_below="@+id/txtFromDate"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="To Date">
@@ -190,14 +168,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edtTd"
+                    android:id="@+id/edtToDate"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/HhAdults"
-                android:layout_below="@+id/ToDate"
+                android:id="@+id/txtHouseHoldAdults"
+                android:layout_below="@+id/txtToDate"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="# Household Adults">
@@ -205,14 +183,14 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edthhadults"
+                    android:id="@+id/edtHouseHoldAdults"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:id="@+id/HhKids"
-                android:layout_below="@+id/HhAdults"
+                android:id="@+id/txtHouseHoldKids"
+                android:layout_below="@+id/txtHouseHoldAdults"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="# Household Kids">
@@ -220,46 +198,37 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edthhkids"
+                    android:id="@+id/edtHouseHoldKids"
                     android:inputType="text"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:id="@+id/txtisolationCheck"
+                android:id="@+id/txtIsolationCheck"
                 android:background="@color/lightgrey"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/HhKids"
+                android:layout_below="@+id/txtHouseHoldKids"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:hint="Are you able to isolate safely ?">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/edtIsolatecheck"
+                    android:id="@+id/edtIsolateCheck"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
             <TextView
                 android:id="@+id/txtinstruction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtisolationCheck"
-
+                android:layout_below="@+id/txtIsolationCheck"
                 android:text="Do you have following in your home ?"
                 android:textSize="18sp"
                 android:textColor="@color/textColor"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/checkbox"
                 />
-
 
             <CheckBox
                 android:id="@+id/checkbox1"
@@ -268,7 +237,6 @@
                 android:layout_below="@+id/txtinstruction"
                 android:layout_marginRight="10dp"
                 android:background="@color/white" />
-
             <TextView
                 android:id="@+id/txtCheckbox1"
                 android:layout_width="wrap_content"
@@ -288,7 +256,6 @@
                 android:layout_below="@+id/checkbox1"
                 android:layout_marginRight="10dp"
                 android:background="@color/white" />
-
             <TextView
                 android:id="@+id/txtCheckbox2"
                 android:layout_width="wrap_content"
@@ -301,8 +268,6 @@
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/checkbox2"
                 />
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtAdditionalInfo"
                 android:layout_width="match_parent"
@@ -317,9 +282,8 @@
 
                     android:layout_width="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
-
             <Button
-                android:id="@+id/btnAddContact"
+                android:id="@+id/btnAddLocation"
                 android:backgroundTint="@color/primary_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

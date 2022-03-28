@@ -1,12 +1,16 @@
-package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest;
+package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest ;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,23 +19,26 @@ import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ResourceRequestFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.HashMap;
+
+
 public class ResourceRequestFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
+    FirebaseAuth fAuth;
+    FirebaseFirestore db;
     ImageButton calDeceasedDate;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    EditText requestType, requestDate, comments, monitoringType ;
+    CheckBox urgent ;
+    Button save;
+
+
     MultiAutoCompleteTextView resourceReq;
     final static String[] item_RR = new String[]{
             "-- None --",
@@ -47,51 +54,66 @@ public class ResourceRequestFragment extends Fragment {
             "Other"};
 
 
-    public ResourceRequestFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ResourceRequestFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ResourceRequestFragment newInstance(String param1, String param2) {
-        ResourceRequestFragment fragment = new ResourceRequestFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    View v1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate( R.layout.fragment_resource_request, container, false );
-        v1 = v;
+        fAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // Health Condition Spinner
-        resourceReq = v.findViewById( R.id.caseInfoMon);
+        resourceReq = v.findViewById( R.id.edtRequestType);
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
         resourceReq.setAdapter( adapterHC );
 
+        requestType = v.findViewById(R.id.edtRequestType);
+        requestDate = v.findViewById(R.id.edtRequestDate);
+        comments = v.findViewById(R.id.edtComments);
+        monitoringType = v.findViewById(R.id.edtMonitoringType);
+        urgent = v.findViewById(R.id.checkBoxUrgent);
+        save = v.findViewById(R.id.saveButton);
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Resource Request")
+                .document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                requestType.setText(documentSnapshot.getString("Resource Type"));
+                requestDate.setText(documentSnapshot.getString("Request Date"));
+                comments.setText(documentSnapshot.getString("Comments"));
+                monitoringType.setText(documentSnapshot.getString("Monitoring Type"));
+                if(documentSnapshot.getString("Urgent").equals("True")){
+                    urgent.setChecked(true);
+                }else{
+                    urgent.setChecked(false);
+                }
+            }
+        });
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<Object,String> resource = new HashMap<>();
+                resource.put("Resource Type",requestType.getText().toString());
+                resource.put("Request Date",requestDate.getText().toString());
+                resource.put("Comments",comments.getText().toString());
+                resource.put("Monitoring Type",monitoringType.getText().toString());
+
+                if(urgent.isChecked()){
+                    resource.put("Urgent","True");
+                }else{
+                    resource.put("Urgent","False");
+                }
+
+                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Resource Request").document(fAuth.getCurrentUser().getUid())
+                        .set(resource).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(), "working", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 
         return v;
 

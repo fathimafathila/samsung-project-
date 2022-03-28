@@ -1,6 +1,6 @@
 package com.example.covidwatch.AdminView.ViewRecord.RecyclerView;
 
-public class Model {
+public class viewModel {
 
    private String fName;
    private String lname;
@@ -8,9 +8,9 @@ public class Model {
    private  String number;
    private  String uuid ;
 
-   public Model() { }
+   public viewModel() { }
 
-    public Model(String fName, String lname, String id, String number, String uuid) {
+    public viewModel(String fName, String lname, String id, String number, String uuid) {
         this.fName = fName;
         this.lname = lname;
         this.id = id;

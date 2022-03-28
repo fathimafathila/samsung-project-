@@ -86,7 +86,7 @@
                 android:src="@drawable/cal1" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/monitoringType"
+                android:id="@+id/txtMonitoringDay"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
@@ -100,7 +100,7 @@
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
-                    android:id="@+id/monitoringTypeAuto"
+                    android:id="@+id/edtMonitoringDay"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:background="@color/lightgrey"
@@ -114,18 +114,18 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:theme="@style/Theme.CovidWatch"
-                android:id="@+id/healthconditions"
+                android:id="@+id/txtMonitoringType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_below="@+id/monitoringType"
+                android:layout_below="@+id/txtMonitoringDay"
                 android:hint="Monitoring Type"
                 android:textColor="@color/primary_color"
                 android:textColorHint="@color/primary_color">
 
                 <AutoCompleteTextView
-                    android:id="@+id/monType"
+                    android:id="@+id/edtMonitoringType"
                     android:layout_width="match_parent"
                     android:theme="@style/Theme.CovidWatch"
                     android:layout_height="55dp"
@@ -143,12 +143,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneNumb"
+                android:id="@+id/txtContactNumber"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/healthconditions"
+                android:layout_below="@+id/txtMonitoringType"
                 android:background="@color/lightgrey"
                 android:hint="Phone Number for Monitoring"
                 android:text=""
@@ -157,7 +157,7 @@
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
-                    android:id="@+id/phoneNumbAuto"
+                    android:id="@+id/edtContactNumber"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:background="@color/lightgrey"
@@ -169,13 +169,13 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email"
+                android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/lightgrey"
-                android:layout_below="@+id/phoneNumb"
+                android:layout_below="@+id/txtContactNumber"
                 android:hint="Email for monitoring"
                 android:text=""
                 android:textColorHint="@color/primary_color"
@@ -183,7 +183,7 @@
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
-                    android:id="@+id/emailAuto"
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:background="@color/lightgrey"
@@ -205,12 +205,12 @@
                 android:text="Cancel" />
 
             <Button
-                android:id="@+id/btnSave"
+                android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="60dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="490dp"
+                android:layout_marginRight="60dp"
                 android:backgroundTint="@color/primary_color"
                 android:text="Save" />
 

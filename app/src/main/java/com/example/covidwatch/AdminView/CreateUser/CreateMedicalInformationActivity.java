@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.covidwatch.AdminView.AdminDashboard;
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -248,7 +249,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                     user.put("Minor",minor);
                     user.put("Specimen Date",specimenDate);
                     user.put("Test Report Date",testReportDate);
-                    user.put("Address type",addressType);
+                    user.put("Address Type",addressType);
                     user.put("Apartment",apartment);
                     user.put("Street",street);
                     user.put("City",city);
@@ -289,6 +290,8 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                                                     JavaMailAPI javaMailAPI = new JavaMailAPI(getApplicationContext(), email);
 
                                                     javaMailAPI.execute();
+                                                    Intent intent = new Intent(CreateMedicalInformationActivity.this , AdminDashboard.class);
+                                                    startActivity(intent);
                                                     Toast.makeText(CreateMedicalInformationActivity.this, "Account Has been Created", Toast.LENGTH_SHORT).show();
                                                 }
                                             })

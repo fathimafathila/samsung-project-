@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,13 +26,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CaseInformationFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 
 
 public class CaseInformationFragment extends Fragment {
@@ -37,13 +38,8 @@ public class CaseInformationFragment extends Fragment {
     FirebaseAuth fAuth ;
     FirebaseFirestore db ;
     TextView name,id ,  address ,  number , dob , age, gender, email, openDate,  status , priority ;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    String mParam1, mParam2;
+    EditText consent, reInfected, gaurdianName, deseaed, race, deseaedDutTo,primaryLanguage, deseaedDate, primaryOccupation ;
+    Button update ;
     ImageButton calDeceasedDate;
 
     final Calendar calendar = Calendar.getInstance();
@@ -51,35 +47,11 @@ public class CaseInformationFragment extends Fragment {
     int mm = calendar.get(Calendar.MONTH);
     int dd = calendar.get(Calendar.DAY_OF_MONTH);
 
-    public CaseInformationFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CaseInformationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CaseInformationFragment newInstance(String param1, String param2) {
-        CaseInformationFragment fragment = new CaseInformationFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -90,6 +62,7 @@ public class CaseInformationFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         View view = inflater.inflate(R.layout.fragment_case_information, container, false);
 
+        update = view.findViewById(R.id.btnUpdate);
         name = view.findViewById(R.id.txtFullName);
         id = view.findViewById(R.id.txtUserId);
         address = view.findViewById(R.id.txtAddress);
@@ -102,14 +75,74 @@ public class CaseInformationFragment extends Fragment {
         status = view.findViewById(R.id.txtInvestigationStatusV);
         priority = view.findViewById(R.id.txtPriorityV);
 
+        consent = view.findViewById(R.id.edtConsent);
+        reInfected = view.findViewById(R.id.edtReinfected);
+        gaurdianName = view.findViewById(R.id.edtGuardianName);
+        deseaed = view.findViewById(R.id.edtDeceased);
+        race = view.findViewById(R.id.edtRace);
+        deseaedDutTo = view.findViewById(R.id.edtDeceasedDueTo);
+        deseaedDate = view.findViewById(R.id.edtDeceasedDueTo);
+        primaryLanguage = view.findViewById(R.id.edtPrimaryLanguage);
+        primaryOccupation = view.findViewById(R.id.edtPrimaryOccupation);
+
+        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                consent.setText(documentSnapshot.getString("Consent"));
+                reInfected.setText(documentSnapshot.getString("Reinfected"));
+                gaurdianName.setText(documentSnapshot.getString("GaurdianName"));
+                deseaed.setText(documentSnapshot.getString("Deseaed"));
+                race.setText(documentSnapshot.getString("Race"));
+                deseaedDutTo.setText(documentSnapshot.getString("Deseaed Due To"));
+                deseaedDate.setText(documentSnapshot.getString("Deseaed Date"));
+                primaryLanguage.setText(documentSnapshot.getString("Primary Language"));
+                primaryOccupation.setText(documentSnapshot.getString("Primary Occupation"));
+            }
+        });
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> sample = new HashMap<>();
+                sample.put("Consent",consent.getText().toString());
+                sample.put("Reinfected",reInfected.getText().toString());
+                sample.put("GaurdianName", gaurdianName.getText().toString());
+                sample.put("Deseaed", deseaed.getText().toString());
+                sample.put("Race",race.getText().toString());
+                sample.put("Deseaed Due To",deseaedDutTo.getText().toString());
+                sample.put("Deseaed Date",deseaedDate.getText().toString());
+                sample.put("Primary Language", primaryLanguage.getText().toString());
+                sample.put("Primary Occupation",primaryLanguage.getText().toString());
+
+                if(update.getText().equals("Add")) {
+                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+                            .set(sample).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                        }
+                    });
+                }else{
+                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+                            .set(sample).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                        }
+                    });
+                }
+
+            }
+        });
         db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String firstName = documentSnapshot.getString("First Name");
                 String lastName = documentSnapshot.getString("Last Name");
                 String id1 = documentSnapshot.getString("ID");
-                String str1  = documentSnapshot.getString("Street1");
-                String str2  = documentSnapshot.getString("Street2");
+                String str1  = documentSnapshot.getString("Apartment");
+                String str2  = documentSnapshot.getString("Street");
                 String City  = documentSnapshot.getString("City");
                 String state  = documentSnapshot.getString("State");
                 String Country  = documentSnapshot.getString("Country");
@@ -118,7 +151,7 @@ public class CaseInformationFragment extends Fragment {
                 String dob1 = documentSnapshot.getString("DOB");
                 String age1 = documentSnapshot.getString("Age");
                 String gender1 = documentSnapshot.getString("Gender");
-                String email1 = documentSnapshot.getString("email");
+                String email1 = documentSnapshot.getString("Email");
                 String openDate1 = documentSnapshot.getString("Open Date");
                 String status1 = documentSnapshot.getString("Investigation Status");
                 String priority1 = documentSnapshot.getString("Priority");
@@ -150,11 +183,11 @@ public class CaseInformationFragment extends Fragment {
 
 
         //UI reference of textView
-        final AutoCompleteTextView autoConsent = view.findViewById(R.id.autoConsent);
-        final AutoCompleteTextView autoReinfected = view.findViewById(R.id.autoReinfected);
-        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.autoDeceased);
-        final AutoCompleteTextView autoRace = view.findViewById(R.id.autoRace);
-        final AutoCompleteTextView autoPrimaryLanguage = view.findViewById(R.id.autoPrimaryLanguage);
+        final AutoCompleteTextView autoConsent = view.findViewById(R.id.edtConsent);
+        final AutoCompleteTextView autoReinfected = view.findViewById(R.id.edtReinfected);
+        final AutoCompleteTextView autoDeceased = view.findViewById(R.id.edtDeceased);
+        final AutoCompleteTextView autoRace = view.findViewById(R.id.edtRace);
+        final AutoCompleteTextView autoPrimaryLanguage = view.findViewById(R.id.edtPrimaryLanguage);
 
         //Create adapter
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getActivity(), R.layout.list_item, getResources().getStringArray(R.array.arrYesNo));

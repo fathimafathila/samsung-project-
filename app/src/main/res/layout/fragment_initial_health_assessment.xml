@@ -37,7 +37,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:theme="@style/Theme.CovidWatch"
-                    android:id="@+id/healthconditions"
+                    android:id="@+id/txtHealthConditions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/caseInfo_title"
@@ -45,7 +45,7 @@
                     android:textColor="@color/primary_color"
                     android:textColorHint="@color/primary_color">
                 <MultiAutoCompleteTextView
-                    android:id="@+id/caseInfo"
+                    android:id="@+id/edtHealthCondition"
                     android:layout_width="match_parent"
                     android:theme="@style/Theme.CovidWatch"
                     android:layout_height="55dp"
@@ -65,18 +65,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/otherHC"
+                    android:id="@+id/txtOtherHealthCondition"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:layout_below="@+id/healthconditions"
+                    android:layout_below="@+id/txtHealthConditions"
                     android:background="@color/lightgrey"
                     android:textColorHint="@color/primary_color"
                     android:textColor="@color/primary_color"
                     android:hint="Other Health Conditions">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtName1"
+                        android:id="@+id/edtOtherHealthCondition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
@@ -89,7 +89,7 @@
                     android:id="@+id/InitialSymp_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/otherHC"
+                    android:layout_below="@+id/txtOtherHealthCondition"
 
                     android:layout_margin="5dp"
                     android:fontFamily="@font/belleza"
@@ -100,7 +100,7 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtsymp"
+                    android:id="@+id/txtSymptoms"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:theme="@style/Theme.CovidWatch"
                     android:background="@color/lightgrey"
@@ -113,7 +113,7 @@
                     android:textColorHint="@color/primary_color">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/edtsymp"
+                        android:id="@+id/edtSymptoms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
@@ -122,10 +122,10 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtDatefirstFellsick"
+                    android:id="@+id/txtFirstDateFellSick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtsymp"
+                    android:layout_below="@+id/txtSymptoms"
                     android:background="@color/lightgrey"
                     android:textColorHint="@color/primary_color"
                     android:layout_margin="4dp"
@@ -133,7 +133,7 @@
                     android:hint="On what date did you first feel sick?">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtDatefirstFellsick"
+                        android:id="@+id/edtDateFirstFellSick"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""/>
@@ -141,10 +141,10 @@
 
                 <ImageButton
                     android:id="@+id/calDateFirstFellSick"
-                    android:layout_below="@id/txtsymp"
+                    android:layout_below="@id/txtSymptoms"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_alignRight="@+id/txtDatefirstFellsick"
+                    android:layout_alignRight="@+id/txtFirstDateFellSick"
                     android:layout_marginTop="25dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/lightgrey"
@@ -152,20 +152,19 @@
                     android:src="@drawable/cal1" />
 
                  <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtcurrentsts"
+                    android:id="@+id/txtCurrentSymptoms"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:theme="@style/Theme.CovidWatch"
                     android:background="@color/lightgrey"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtDatefirstFellsick"
+                    android:layout_below="@+id/txtFirstDateFellSick"
                     android:layout_margin="4dp"
                     android:hint="which best describes you right now ?"
-
                     android:textColorHint="@color/primary_color">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                        android:id="@+id/edtcurrentsts"
+                        android:id="@+id/edtCurrentSymptoms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -175,18 +174,18 @@
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:theme="@style/Theme.CovidWatch"
-                    android:id="@+id/txtsymptomscheck"
+                    android:id="@+id/txtSymptomsCheck"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtcurrentsts"
-                    android:hint="Select the symptoms you are experiencing right now"
+                    android:layout_below="@+id/txtCurrentSymptoms"
+                    android:hint="Select the symptoms you are experiencing rightnow"
                     android:textColor="@color/primary_color"
                     android:textColorHint="@color/primary_color">
                     <MultiAutoCompleteTextView
-                        android:id="@+id/edtsymptomsInfo"
+                        android:id="@+id/edtSymptomsInfo"
                         android:layout_width="match_parent"
                         android:theme="@style/Theme.CovidWatch"
-                        android:layout_height="100dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/txtcurrentsts"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="4dp"
@@ -203,50 +202,34 @@
 
 
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/otherSymtoms"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtOtherSymtoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_below="@+id/txtSymptomsCheck"
+                android:background="@color/lightgrey"
+                android:textColorHint="@color/primary_color"
+                android:textColor="@color/primary_color"
+                android:hint=" Describe Other symptoms">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtOtherSymptoms"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:layout_below="@+id/txtcurrentsts"
-                    android:background="@color/lightgrey"
-                    android:textColorHint="@color/primary_color"
+                    android:layout_height="100dp"
+                    android:inputType="text"
                     android:textColor="@color/primary_color"
-                    android:hint=" Describe Other symptoms">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtsymptoms"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:inputType="text"
-                        android:textColor="@color/primary_color"
-                        android:gravity="top"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-<!--                <ImageButton-->
-<!--                    android:layout_below="@id/txtsymp"-->
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_marginTop="30dp"-->
-<!--                    android:layout_marginEnd="10dp"-->
-<!--                    android:layout_marginStart="335dp"-->
-
-<!--                    android:layout_marginLeft="100dp"-->
-<!--                    android:background="@color/lightgrey"-->
-<!--                    android:onClick="setDate"-->
-<!--                    android:scaleType="fitCenter"-->
-<!--                    android:src="@drawable/cal1" />-->
-
-
-
+                    android:gravity="top"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
             <RelativeLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_below ="@+id/otherSymtoms">
+                android:layout_below ="@+id/txtOtherSymtoms">
+
                 <Button
-                    android:id="@+id/savebutton"
+                    android:id="@+id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
@@ -256,12 +239,12 @@
 
 
                 <Button
-                    android:id="@+id/nextbutton"
+                    android:id="@+id/nextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/savebutton"
+                    android:layout_toRightOf="@+id/saveButton"
                     android:backgroundTint="@color/primary_color"
                     android:onClick="btn_next"
                     android:text="cancel" />

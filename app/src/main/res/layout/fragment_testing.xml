@@ -123,7 +123,7 @@
                 android:layout_marginTop="250dp">
 
                 <Button
-                    android:id="@+id/savebutton"
+                    android:id="@+id/saveBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="120dp"
                     android:layout_marginTop="20dp"
-                    android:layout_toRightOf="@+id/savebutton"
+                    android:layout_toRightOf="@+id/saveBtn"
                     android:backgroundTint="@color/primary_color"
                     android:onClick="btn_next"
                     android:text="cancel" />

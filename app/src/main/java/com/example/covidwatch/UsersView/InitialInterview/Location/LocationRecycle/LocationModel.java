@@ -2,25 +2,31 @@ package com.example.covidwatch.UsersView.InitialInterview.Location.LocationRecyc
 
 public class LocationModel {
 
-    private String header;
-    private  String desc;
+    private String locationName;
+    private  String visitDate;
+    private  String uuid;
 
-
-    public String getHeader() {
-        return header;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getLocationName() {
+        return locationName;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 
+    public String getVisitDate() {
+        return visitDate;
+    }
 
+    public void setVisitDate(String visitDate) {
+        this.visitDate = visitDate;
+    }
 }

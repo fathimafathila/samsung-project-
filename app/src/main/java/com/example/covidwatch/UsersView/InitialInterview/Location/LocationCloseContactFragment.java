@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.InitialInterview.Demographic.CaseInformationFragment;
-import com.example.covidwatch.UsersView.InitialInterview.Demographic.VaccineFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 

@@ -11,15 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.covidwatch.AdminView.ViewRecord.UpdateUserActivity;
 import com.example.covidwatch.R;
+import com.example.covidwatch.UsersView.UserDashboardActivity;
 
 import java.util.ArrayList;
 
 public class myAdapter extends RecyclerView.Adapter<myViewHolder> {
 
-    ArrayList<Model> data;
+    ArrayList<viewModel> data;
     Context context;
 
-    public myAdapter(ArrayList<Model> data, Context context) {
+    public myAdapter(ArrayList<viewModel> data, Context context) {
         this.data = data;
         this.context =context;
     }
@@ -36,7 +37,7 @@ public class myAdapter extends RecyclerView.Adapter<myViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
 
-        final Model temp = data.get(position);
+        final viewModel temp = data.get(position);
 
         holder.t1.setText(temp.getId());
         holder.t2.setText(temp.getFullName());
@@ -44,7 +45,7 @@ public class myAdapter extends RecyclerView.Adapter<myViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateUserActivity.class);
+                Intent intent = new Intent(context, UserDashboardActivity.class);
                 intent.putExtra("uuid", temp.getUuid());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

@@ -63,10 +63,10 @@
             android:name=".AdminView.SecurityQuestionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".AdminView.CreateUser.AddRecordActivity"
-            android:exported="true"
-            android:label="Case Information" />
+<!--        <activity-->
+<!--            android:name=".AdminView.CreateUser.AddRecordActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="Case Information" />-->
         <activity
             android:name=".AdminView.AdminDashboard"
             android:exported="false"

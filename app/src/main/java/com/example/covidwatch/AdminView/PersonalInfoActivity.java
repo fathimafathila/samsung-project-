@@ -90,13 +90,13 @@ public class PersonalInfoActivity extends AppCompatActivity {
                         edtDOB.setText(documentSnapshot.getString("DOB"));
                         edtDateOfJoining.setText(documentSnapshot.getString("Joining Date"));
                         edtNumber.setText(documentSnapshot.getString("Phone Number"));
-                        edtStreet1.setText(documentSnapshot.getString("Street1"));
-                        edtStreet2.setText(documentSnapshot.getString("Street2"));
+                        edtStreet1.setText(documentSnapshot.getString("Apartment"));
+                        edtStreet2.setText(documentSnapshot.getString("Street"));
                         edtCity.setText(documentSnapshot.getString("City"));
                         edtState.setText(documentSnapshot.getString("State"));
-                        edtZipCode.setText(documentSnapshot.getString("PostalCode"));
+                        edtZipCode.setText(documentSnapshot.getString("Zip Code"));
                         edtCountry.setText(documentSnapshot.getString("Country"));
-                        edtEmail.setText(documentSnapshot.getString("email"));
+                        edtEmail.setText(documentSnapshot.getString("Email"));
                         edtQuestion.setText(documentSnapshot.getString("Security Question"));
                         edtAns.setText(documentSnapshot.getString("Security Answer"));
                     }
@@ -117,13 +117,13 @@ public class PersonalInfoActivity extends AppCompatActivity {
                 user.put("DOB",edtDOB.getText().toString());
                 user.put("Joining Date",edtDateOfJoining.getText().toString());
                 user.put("Contact Number",edtNumber.getText().toString());
-                user.put("Street1",edtStreet1.getText().toString());
-                user.put("Street2",edtStreet2.getText().toString());
+                user.put("Apartment",edtStreet1.getText().toString());
+                user.put("Street",edtStreet2.getText().toString());
                 user.put("City",edtCity.getText().toString());
                 user.put("State",edtState.getText().toString());
-                user.put("PostalCode",edtZipCode.getText().toString());
+                user.put("Zip Code",edtZipCode.getText().toString());
                 user.put("Country",edtCountry.getText().toString());
-                user.put("email",edtEmail.getText().toString());
+                user.put("Email",edtEmail.getText().toString());
                 user.put("Security Question",edtQuestion.getText().toString());
                 user.put("Security Answer",edtAns.getText().toString().toLowerCase());
 

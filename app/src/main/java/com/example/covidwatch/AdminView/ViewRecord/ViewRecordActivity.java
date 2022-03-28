@@ -11,7 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.example.covidwatch.AdminView.ViewRecord.RecyclerView.Model;
+import com.example.covidwatch.AdminView.ViewRecord.RecyclerView.viewModel;
 import com.example.covidwatch.AdminView.ViewRecord.RecyclerView.myAdapter;
 import com.example.covidwatch.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +29,7 @@ public class ViewRecordActivity extends AppCompatActivity {
     FirebaseFirestore db;
     RecyclerView rcv;
     myAdapter adapter;
-    ArrayList<Model> userArrayList;
+    ArrayList<viewModel> userArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class ViewRecordActivity extends AppCompatActivity {
 
         rcv = (RecyclerView) findViewById(R.id.rcv);
         rcv.setLayoutManager(new LinearLayoutManager(this));
-        userArrayList = new ArrayList<Model>();
+        userArrayList = new ArrayList<viewModel>();
         adapter = new myAdapter(userArrayList, ViewRecordActivity.this);
 
         rcv.setAdapter(adapter);
@@ -63,7 +63,7 @@ public class ViewRecordActivity extends AppCompatActivity {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                                 for (DocumentChange dc : value.getDocumentChanges()) {
-                                    Model ob1 = new Model();
+                                    viewModel ob1 = new viewModel();
                                     ob1.setfName(dc.getDocument().getString("First Name"));
                                     ob1.setLname(dc.getDocument().getString("Last Name"));
                                     ob1.setId(dc.getDocument().getString("ID"));
