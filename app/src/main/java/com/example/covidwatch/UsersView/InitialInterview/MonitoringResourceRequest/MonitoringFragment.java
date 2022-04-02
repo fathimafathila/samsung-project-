@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest ;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,7 +82,10 @@ public class MonitoringFragment extends Fragment {
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
         monitorType.setAdapter( adapterHC );
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Monitoring").document(fAuth.getCurrentUser().getUid())
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        db.collection("users").document(uuid).collection("Monitoring").document(uuid)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -103,7 +108,7 @@ public class MonitoringFragment extends Fragment {
                 monitor.put("Contact Number", contactNumber.getText().toString());
                 monitor.put("Email",email.getText().toString());
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Monitoring").document(fAuth.getCurrentUser().getUid())
+                db.collection("users").document(uuid).collection("Monitoring").document(uuid)
                         .set(monitor).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

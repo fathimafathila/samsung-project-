@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -94,8 +96,11 @@ public class EpilinkageCongregateFragment extends Fragment {
         //Yesno.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
         CongrSetting.setAdapter( adapterYn );
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Epilinkage Page")
-                .document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        db.collection("users").document(uuid).collection("Epilinkage Page")
+                .document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 closeContact.setText(documentSnapshot.getString("Covid Close Contact"));
@@ -115,7 +120,7 @@ public class EpilinkageCongregateFragment extends Fragment {
                 epilinkage.put("Congregate Name",schoolName.getText().toString());
                 epilinkage.put("Additional Info",additionalInformation.getText().toString());
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Epilinkage Page").document(fAuth.getCurrentUser().getUid())
+                db.collection("users").document(uuid).collection("Epilinkage Page").document(uuid)
                         .set(epilinkage).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

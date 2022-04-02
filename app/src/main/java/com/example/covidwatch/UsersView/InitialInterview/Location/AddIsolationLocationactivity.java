@@ -2,6 +2,9 @@ package com.example.covidwatch.UsersView.InitialInterview.Location;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -10,7 +13,9 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,10 +57,13 @@ public class AddIsolationLocationactivity extends AppCompatActivity {;
         addInfo = findViewById(R.id.edtAdditionalInfo);
         check1 = findViewById(R.id.checkbox1);
         check2 = findViewById(R.id.checkbox2);
-
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String id = sh.getString("uuid","");
         if(!getIntent().getStringExtra("uuid").equals("")) {
+
+
             addLocation.setText("Update Location");
-            db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Location").document(getIntent().getStringExtra("uuid"))
+            db.collection("users").document(id).collection("Location").document(getIntent().getStringExtra("uuid"))
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -98,19 +106,21 @@ public class AddIsolationLocationactivity extends AppCompatActivity {;
                 location.put("Check 2", check2.getText().toString());
 
                 if(addLocation.getText().equals("Add Location")) {
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Location").document().set(location)
+                    db.collection("users").document(id).collection("Location").document().set(location)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(getApplicationContext(), "Working", Toast.LENGTH_SHORT).show();
+
                                 }
                             });
                 }else{
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Location").document(getIntent().getStringExtra("uuid")).update(location)
+                    db.collection("users").document(id).collection("Location").document(getIntent().getStringExtra("uuid")).update(location)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(getApplicationContext(), "Working", Toast.LENGTH_SHORT).show();
+
                                 }
                             });
                 }

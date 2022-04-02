@@ -1,6 +1,8 @@
 package com.example.covidwatch.UsersView.InitialInterview.Location;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +66,11 @@ public class AddLocationFragment extends Fragment {
         rcv.setLayoutManager(new LinearLayoutManager(getContext()));
         locationList = new ArrayList<LocationModel>();
         adapter = new locationAdapter(locationList,getContext());
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Location")
+
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String id = sh.getString("uuid","");
+
+        db.collection("users").document(id).collection("Location")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -92,7 +98,7 @@ public class AddLocationFragment extends Fragment {
             int position = viewHolder.getAdapterPosition();
             locationList.remove(viewHolder.getAdapterPosition());
             adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-            db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Location").document(deletedCourse.getUuid()).delete();
+            db.collection("users").document(id).collection("Location").document(deletedCourse.getUuid()).delete();
 //            Snackbar.make(rcv, deletedCourse.getLocationName(), Snackbar.LENGTH_LONG).setAction("Undo", new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

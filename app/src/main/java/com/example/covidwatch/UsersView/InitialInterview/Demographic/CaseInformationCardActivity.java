@@ -2,6 +2,8 @@ package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -66,7 +68,10 @@ public class CaseInformationCardActivity extends AppCompatActivity {
 
         initUI();
 
-        DocumentReference documentReference =  db.collection("users").document(fAuth.getCurrentUser().getUid());
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        DocumentReference documentReference =  db.collection("users").document(uuid);
         documentReference.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -107,7 +112,7 @@ public class CaseInformationCardActivity extends AppCompatActivity {
                 user.put("Gender" , edtGender.getText().toString());
                 user.put("Address type", edtType.getText().toString());
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                db.collection("users").document(uuid).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
 

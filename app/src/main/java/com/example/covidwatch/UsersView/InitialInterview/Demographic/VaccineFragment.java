@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +50,10 @@ public class VaccineFragment extends Fragment {
         userArrayList=new ArrayList<VaccineModel>();
         adapter = new vaccineAdapter(userArrayList,getContext());
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Vaccine")
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        db.collection("users").document(uuid).collection("Vaccine")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

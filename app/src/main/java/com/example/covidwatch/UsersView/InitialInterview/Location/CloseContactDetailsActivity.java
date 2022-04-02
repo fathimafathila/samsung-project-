@@ -3,6 +3,7 @@ package com.example.covidwatch.UsersView.InitialInterview.Location;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -67,9 +68,12 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
 
         initUI();
 
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String id = sh.getString("uuid","");
+
         if(!getIntent().getStringExtra("uuid").equals("")) {
             addContact.setText("Update Contact");
-            db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Contact").document(getIntent().getStringExtra("uuid"))
+            db.collection("users").document(id).collection("Contact").document(getIntent().getStringExtra("uuid"))
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                         @Override
                         public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -105,7 +109,7 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
 
 
                 if(addContact.getText().equals("Add Contact")) {
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Contact").document()
+                    db.collection("users").document(id).collection("Contact").document()
                             .set(contact).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -113,7 +117,7 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Contact").document(getIntent().getStringExtra("uuid"))
+                    db.collection("users").document(id).collection("Contact").document(getIntent().getStringExtra("uuid"))
                             .update(contact).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {

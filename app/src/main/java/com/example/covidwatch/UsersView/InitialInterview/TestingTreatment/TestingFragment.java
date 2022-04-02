@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview.TestingTreatment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -80,6 +82,9 @@ public class TestingFragment extends Fragment {
         edtReportdate.setFocusableInTouchMode(false);
         save = v.findViewById(R.id.saveBtn);
 
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +92,7 @@ public class TestingFragment extends Fragment {
                 map.put("Site",site.getText().toString());
                 map.put("siteName", siteName.getText().toString());
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Testing").document("test")
+                db.collection("users").document(uuid).collection("Testing").document("test")
                         .set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -100,7 +105,7 @@ public class TestingFragment extends Fragment {
         testingSite = v.findViewById( R.id.siteInfo );
         ArrayAdapter<String> adapterTs = new ArrayAdapter( requireContext(), R.layout.list_item, item_Ts );
         testingSite.setAdapter( adapterTs );
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String specimen = documentSnapshot.getString("Specimen Date");
@@ -110,7 +115,7 @@ public class TestingFragment extends Fragment {
                 edtReportdate.setText(result);
             }
         });
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Testing").document("test")
+        db.collection("users").document(uuid).collection("Testing").document("test")
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

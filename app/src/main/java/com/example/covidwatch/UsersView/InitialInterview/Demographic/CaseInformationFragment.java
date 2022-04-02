@@ -1,6 +1,8 @@
 package com.example.covidwatch.UsersView.InitialInterview.Demographic;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,15 +51,19 @@ public class CaseInformationFragment extends Fragment {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         View view = inflater.inflate(R.layout.fragment_case_information, container, false);
@@ -85,7 +91,10 @@ public class CaseInformationFragment extends Fragment {
         primaryLanguage = view.findViewById(R.id.edtPrimaryLanguage);
         primaryOccupation = view.findViewById(R.id.edtPrimaryOccupation);
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        db.collection("users").document(uuid).collection("Demographic").document("Doc")
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -116,7 +125,7 @@ public class CaseInformationFragment extends Fragment {
                 sample.put("Primary Occupation",primaryLanguage.getText().toString());
 
                 if(update.getText().equals("Add")) {
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+                    db.collection("users").document(uuid).collection("Demographic").document("Doc")
                             .set(sample).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -124,7 +133,7 @@ public class CaseInformationFragment extends Fragment {
                         }
                     });
                 }else{
-                    db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Demographic").document("Doc")
+                    db.collection("users").document(uuid).collection("Demographic").document("Doc")
                             .set(sample).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -135,7 +144,7 @@ public class CaseInformationFragment extends Fragment {
 
             }
         });
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String firstName = documentSnapshot.getString("First Name");

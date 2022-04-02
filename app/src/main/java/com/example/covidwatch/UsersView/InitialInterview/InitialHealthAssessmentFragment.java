@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +98,9 @@ public class InitialHealthAssessmentFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
         View v = inflater.inflate( R.layout.fragment_initial_health_assessment, container, false );
         heathCondition = v.findViewById(R.id.edtHealthCondition);
         otherHealthCondition = v.findViewById(R.id.edtOtherHealthCondition);
@@ -106,7 +111,7 @@ public class InitialHealthAssessmentFragment extends Fragment {
         descOtherSymptoms = v.findViewById(R.id.edtOtherSymptoms);
         save = v.findViewById(R.id.saveButton);
 
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Initial Interview")
+        db.collection("users").document(uuid).collection("Initial Interview")
                 .document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -164,7 +169,7 @@ public class InitialHealthAssessmentFragment extends Fragment {
                 initialInterview.put("Current Symptoms",currentSymptoms.getText().toString());
                 initialInterview.put("Other Symptom",descOtherSymptoms.getText().toString());
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Initial Interview")
+                db.collection("users").document(uuid).collection("Initial Interview")
                         .document(fAuth.getCurrentUser().getUid()).set(initialInterview).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

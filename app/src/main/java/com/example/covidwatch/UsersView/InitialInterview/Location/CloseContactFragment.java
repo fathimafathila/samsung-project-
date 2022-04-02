@@ -1,6 +1,8 @@
 package com.example.covidwatch.UsersView.InitialInterview.Location;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,9 +61,10 @@ public class CloseContactFragment extends Fragment {
         rcv.setLayoutManager(new LinearLayoutManager(getContext()));
         contactList =  new ArrayList<ContactModel>();
         adapter = new contactAdapter(contactList,getContext());
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String id = sh.getString("uuid","");
 
-
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Contact")
+        db.collection("users").document(id).collection("Contact")
           .addSnapshotListener(new EventListener<QuerySnapshot>() {
               @Override
               public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -88,7 +91,7 @@ public class CloseContactFragment extends Fragment {
                 int position = viewHolder.getAdapterPosition();
                 contactList.remove(viewHolder.getAdapterPosition());
                 adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Contact").document(deletedCourse.getUuid()).delete();
+                db.collection("users").document(id).collection("Contact").document(deletedCourse.getUuid()).delete();
             }
         }).attachToRecyclerView(rcv);
         rcv.setAdapter(adapter);

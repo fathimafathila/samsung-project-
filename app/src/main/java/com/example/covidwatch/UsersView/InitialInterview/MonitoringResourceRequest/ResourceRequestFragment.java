@@ -1,5 +1,7 @@
 package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest ;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,8 +77,12 @@ public class ResourceRequestFragment extends Fragment {
         monitoringType = v.findViewById(R.id.edtMonitoringType);
         urgent = v.findViewById(R.id.checkBoxUrgent);
         save = v.findViewById(R.id.saveButton);
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Resource Request")
-                .document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+
+        SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
+
+        db.collection("users").document(uuid).collection("Resource Request")
+                .document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 requestType.setText(documentSnapshot.getString("Resource Type"));
@@ -105,7 +111,7 @@ public class ResourceRequestFragment extends Fragment {
                     resource.put("Urgent","False");
                 }
 
-                db.collection("users").document(fAuth.getCurrentUser().getUid()).collection("Resource Request").document(fAuth.getCurrentUser().getUid())
+                db.collection("users").document(uuid).collection("Resource Request").document(uuid)
                         .set(resource).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

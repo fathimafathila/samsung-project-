@@ -3,6 +3,7 @@ package com.example.covidwatch.UsersView ;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -32,12 +33,19 @@ public class UserDashboardActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         title = findViewById(R.id.title);
 
+
         String id;
        if(getIntent().getStringExtra("uuid").isEmpty()){
            id = fAuth.getCurrentUser().getUid();
        }else{
            id = getIntent().getStringExtra("uuid");
        }
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putString("uuid", id);
+        myEdit.commit();
+
         db.collection("users").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

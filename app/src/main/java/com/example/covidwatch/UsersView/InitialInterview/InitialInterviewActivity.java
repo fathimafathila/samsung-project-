@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,21 +53,28 @@ public class InitialInterviewActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String uuid = sh.getString("uuid","");
 
-        updateNavheader(fAuth.getCurrentUser().getUid());
+        updateNavheader(uuid);
 
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             Fragment temp;
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 switch (menuItem.getItemId()) {
                     case R.id.menu_Home:
+
                         temp = new HomeFragment();
+
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_demographic:
+
                         temp = new DemographicFragment();
+
                         dl.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.menu_initial_health_assessment:

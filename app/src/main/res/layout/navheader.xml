@@ -17,7 +17,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="20dp"
                 android:gravity="center_horizontal"
-                android:text="Ridham Patel"
+                android:text="Patel"
                 android:textColor="@color/white"
                 android:textSize="25dp"
                 android:textStyle="bold"
