@@ -2,6 +2,7 @@ package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequ
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.example.covidwatch.DateCalculation;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -85,13 +88,21 @@ public class MonitoringFragment extends Fragment {
         SharedPreferences sh = this.getActivity().getSharedPreferences("MySharedPref", Context.MODE_PRIVATE);
         String uuid = sh.getString("uuid","");
 
+        db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String firstDate = documentSnapshot.getString("Open Date");
+                DateCalculation dateCalculation = new DateCalculation();
+                endDate.setText(dateCalculation.findEndDate(firstDate));
+                monitoringDay.setText(String.valueOf(dateCalculation.findDifference(dateCalculation.findEndDate(firstDate))));
+                startDate.setText(firstDate);
+            }
+        });
         db.collection("users").document(uuid).collection("Monitoring").document(uuid)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                startDate.setText(documentSnapshot.getString("Start Date"));
-                endDate.setText(documentSnapshot.getString("End Date"));
-                monitoringDay.setText(documentSnapshot.getString("Remaining Days"));
                 monitoringType.setText(documentSnapshot.getString("Monitoring Type"));
                 contactNumber.setText(documentSnapshot.getString("Contact Number"));
                 email.setText(documentSnapshot.getString("Email"));
@@ -101,9 +112,9 @@ public class MonitoringFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<Object, String> monitor = new HashMap<>();
-                monitor.put("Start Date", startDate.getText().toString());
-                monitor.put("End Date",endDate.getText().toString());
-                monitor.put("Remaining Days", monitoringDay.getText().toString());
+//                monitor.put("Start Date", startDate.getText().toString());
+//                monitor.put("End Date",endDate.getText().toString());
+//                monitor.put("Remaining Days", monitoringDay.getText().toString());
                 monitor.put("Monitoring Type", monitoringType.getText().toString());
                 monitor.put("Contact Number", contactNumber.getText().toString());
                 monitor.put("Email",email.getText().toString());

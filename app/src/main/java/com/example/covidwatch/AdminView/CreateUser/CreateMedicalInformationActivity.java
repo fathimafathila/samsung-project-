@@ -1,6 +1,7 @@
 package com.example.covidwatch.AdminView.CreateUser;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 
 import com.example.covidwatch.AdminView.AdminDashboard;
+import com.example.covidwatch.DateCalculation;
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -50,6 +52,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
     //Firebase Object Create
     private FirebaseAuth fAuth;
     private FirebaseFirestore db;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,10 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
         dateView1 = (EditText) findViewById(R.id.edtSpecimenDate);
         dateView2 = (EditText) findViewById(R.id.edttestreportdate);
         dateView3 = (EditText) findViewById(R.id.edtOpenDate);
+
+        DateCalculation dateCalculation = new DateCalculation();
+        dateView3.setText(dateCalculation.currentDate());
+
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -125,11 +132,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
         showDialog(998);
     }
 
-    // Setting test report date
-    @SuppressWarnings("deprecation")
-    public void setOpenDate(View view) {
-        showDialog(999);
-    }
+
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -142,10 +145,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
             return new DatePickerDialog(this,
                     myDateListener2, year, month, day);
         }
-        if (id == 999) {
-            return new DatePickerDialog(this,
-                    myDateListener3, year, month, day);
-        }
+
         return null;
     }
 
@@ -167,14 +167,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                 }
             };
 
-    private DatePickerDialog.OnDateSetListener myDateListener3 = new
-            DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker arg0,
-                                      int arg1, int arg2, int arg3) {
-                    showDate3(arg1, arg2+1, arg3);
-                }
-            };
+
 
     // Showing date of birth
     private void showDate1(int year, int month, int day) {
@@ -189,11 +182,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                 .append(month).append("/").append(year));
     }
 
-    // Showing test report date
-    private void showDate3(int year, int month, int day) {
-        dateView3.setText(new StringBuilder().append(day).append("/")
-                .append(month).append("/").append(year));
-    }
+
 
     public void onClick_Create(View view){
         isAllFieldsChecked = true;
