@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                             if( name.equals("0")){
                                                 Intent i = new Intent(MainActivity.this, SecurityQuestionActivity.class);
                                                 startActivity(i);
-
+                                                finish();
                                                 SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
                                                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
                                                 myEdit.putString("AdminId", fAuth.getCurrentUser().getUid());
@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                                                 Intent intent = new Intent(MainActivity.this, UserDashboardActivity.class);
                                                 intent.putExtra("uuid","");
                                                 startActivity(intent);
+                                                finish();
                                             }
                                         }
                                     })

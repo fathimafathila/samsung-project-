@@ -14,4 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="switchColor" parent="Theme.AppCompat">
+        <item name="android:textColorPrimaryDisableOnly">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
 </resources>

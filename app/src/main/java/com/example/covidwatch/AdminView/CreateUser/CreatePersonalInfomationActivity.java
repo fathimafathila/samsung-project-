@@ -36,6 +36,7 @@ public class CreatePersonalInfomationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_personal_infomation);
 
+        getSupportActionBar().hide();
         ///FindView
         edtFirstName = findViewById(R.id.edtFirstName);
         edtLastName = findViewById(R.id.edtLastName);

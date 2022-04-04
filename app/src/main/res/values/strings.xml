@@ -3,7 +3,7 @@
     <string name="admin_dashboard">Admin Dashboard</string>
 
     ------------------Main Screen ----------------
-    <string name="errorAccount">Invalid Account Information </string>
+    <string name="errorAccount">Invalid Information </string>
 
     ------------------Forget password--------------
     <string name="title">Forgot your password?</string>

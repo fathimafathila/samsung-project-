@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/demographic_menu"
-        android:background="?android:attr/windowBackground"/>
+        />
 
 </RelativeLayout>

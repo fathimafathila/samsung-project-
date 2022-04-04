@@ -29,6 +29,8 @@ public class UserDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashboard);
 
+        getSupportActionBar().hide();
+
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         title = findViewById(R.id.title);

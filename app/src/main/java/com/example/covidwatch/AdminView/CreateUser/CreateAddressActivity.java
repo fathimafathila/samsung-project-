@@ -26,6 +26,7 @@ public class CreateAddressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_address);
 
+        getSupportActionBar().hide();
         // find view by id
         edtAddressType = findViewById(R.id.edtAddressType);
         edtApartment = findViewById(R.id.edtApartment);

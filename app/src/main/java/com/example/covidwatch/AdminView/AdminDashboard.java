@@ -35,6 +35,7 @@ public class AdminDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
+        getSupportActionBar().hide();
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -50,7 +51,7 @@ public class AdminDashboard extends AppCompatActivity {
 
         // Greeting Message
         TextView greetings =findViewById(R.id.title);
-
+        TextView fullName = findViewById(R.id.titl2);
         db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -61,7 +62,6 @@ public class AdminDashboard extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 int hour = calendar.get(Calendar.HOUR_OF_DAY);
 
-                Toast.makeText(AdminDashboard.this,String.valueOf(hour),Toast.LENGTH_SHORT).show();
                 String greetingMsg = "";
                 if( hour >= 0 && hour < 12) {
                     greetingMsg   = "Good Morning";
@@ -72,8 +72,8 @@ public class AdminDashboard extends AppCompatActivity {
                 }else if (hour >= 21 && hour < 24 ){
                     greetingMsg = "Good Night";
                 }
-                greetings.setText( greetingMsg + " "  +fName + " " + lname + "!");
-
+                greetings.setText( greetingMsg + ",");
+                fullName.setText(fName);
             }
         });
     }

@@ -1,5 +1,8 @@
 package com.example.covidwatch.UsersView.InitialInterview.MonitoringResourceRequest ;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -28,6 +33,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 
@@ -67,6 +73,11 @@ public class MonitoringFragment extends Fragment {
         // Inflate the layout for this fragment
 
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel =new NotificationChannel("My Notification","My Notification",NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getContext().getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
         View v = inflater.inflate( R.layout.fragment_monitoring, container, false );
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -92,11 +103,27 @@ public class MonitoringFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+
                 String firstDate = documentSnapshot.getString("Open Date");
                 DateCalculation dateCalculation = new DateCalculation();
                 endDate.setText(dateCalculation.findEndDate(firstDate));
-                monitoringDay.setText(String.valueOf(dateCalculation.findDifference(dateCalculation.findEndDate(firstDate))));
+                int remainingDay = dateCalculation.findDifference(dateCalculation.findEndDate(firstDate));
+                monitoringDay.setText(String.valueOf(remainingDay));
                 startDate.setText(firstDate);
+
+                if(remainingDay >= 0) {
+//                    if(Calendar.getInstance().getTime().getHours() == 8 && Calendar.getInstance().getTime().getMinutes() == 0 )  {
+                        Notification.Builder builder = new Notification.Builder(getContext(), "My Notification");
+                        builder.setContentTitle("Covid Watch");
+                        builder.setContentText("Welcome to my channel");
+                        builder.setSmallIcon(R.drawable.appicon);
+                        builder.setAutoCancel(true);
+                        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getContext());
+                        managerCompat.notify(1, builder.build());
+                   // }
+                }
+
+
             }
         });
         db.collection("users").document(uuid).collection("Monitoring").document(uuid)
@@ -112,9 +139,6 @@ public class MonitoringFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 HashMap<Object, String> monitor = new HashMap<>();
-//                monitor.put("Start Date", startDate.getText().toString());
-//                monitor.put("End Date",endDate.getText().toString());
-//                monitor.put("Remaining Days", monitoringDay.getText().toString());
                 monitor.put("Monitoring Type", monitoringType.getText().toString());
                 monitor.put("Contact Number", contactNumber.getText().toString());
                 monitor.put("Email",email.getText().toString());

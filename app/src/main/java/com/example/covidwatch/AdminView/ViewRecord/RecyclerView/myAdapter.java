@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.covidwatch.AdminView.ViewRecord.UpdateUserActivity;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.UserDashboardActivity;
 

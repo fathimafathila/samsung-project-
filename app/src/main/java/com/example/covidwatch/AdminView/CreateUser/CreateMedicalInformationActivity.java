@@ -58,6 +58,8 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_medical_information);
 
+        getSupportActionBar().hide();
+
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 

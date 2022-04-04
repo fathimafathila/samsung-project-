@@ -99,6 +99,7 @@ public class SecurityQuestionActivity extends AppCompatActivity {
     public void openSecurityPage(){
         Intent intent = new Intent(this, AdminDashboard.class);
         startActivity(intent);
+        finish();
     }
 
     private boolean CheckAllFields() {

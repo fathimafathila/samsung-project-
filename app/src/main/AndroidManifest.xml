@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".AdminView.CreateUser.CreateMedicalInformationActivity"
             android:exported="false" />
         <activity
@@ -38,14 +47,6 @@
             android:name=".UsersView.UserDashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminView.ViewRecord.UpdateUser2Activity"
-            android:exported="true"
-            android:label="Case Information" />
-        <activity
-            android:name=".AdminView.ViewRecord.UpdateUserActivity"
-            android:exported="false"
-            android:label="Case Information" />
-        <activity
             android:name=".AdminView.PersonalInfoActivity"
             android:exported="true"
             android:label="Personal Information" />
@@ -63,10 +64,6 @@
             android:name=".AdminView.SecurityQuestionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-<!--        <activity-->
-<!--            android:name=".AdminView.CreateUser.AddRecordActivity"-->
-<!--            android:exported="true"-->
-<!--            android:label="Case Information" />-->
         <activity
             android:name=".AdminView.AdminDashboard"
             android:exported="false"
@@ -74,13 +71,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
