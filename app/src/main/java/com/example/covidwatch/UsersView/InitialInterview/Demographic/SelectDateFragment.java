@@ -33,46 +33,7 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
 
     public void onDateSet(DatePicker view, int yy, int mm, int dd) {
-//        populateSetDeceasedDate(yy, mm + 1, dd);
         activity_edittext.setText(String.valueOf(yy ) + "/" +   String.valueOf(mm + 1) + "/" + String.valueOf(dd));
-    }
-
-    public void populateSetDeceasedDate(int year, int month, int day) {
-        EditText edtDeceasedDate = getActivity().findViewById(R.id.edtDeceasedDate);
-        edtDeceasedDate.setText(month + "/" + day + "/" + year);
-    }
-
-//    public void populateSetDeceasedDate(int year, int month, int day) {
-//
-//        try {
-//                EditText edtDeceasedDate = getActivity().findViewById( R.id.edtDeceasedDate );
-//                edtDeceasedDate.setText( month + "/" + day + "/" + year );
-//
-//                EditText edtDateFirstFellSick = getActivity().findViewById( R.id.edtDateFirstFellSick );
-//            edtDateFirstFellSick.setText( month + "/" + day + "/" + year );
-//
-//            EditText edtAdmissionDate = getActivity().findViewById(R.id.edtAdmissionDate);
-//            edtAdmissionDate.setText(month + "/" + day + "/" + year);
-//
-//            EditText edtDischargedDate = getActivity().findViewById(R.id.edtDischargeDate);
-//            edtDischargedDate.setText(month + "/" + day + "/" + year);
-//            }catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public void populateSetSickDate(int year, int month, int day) {
-        EditText edtDateFirstFellSick = getActivity().findViewById(R.id.edtDateFirstFellSick);
-        edtDateFirstFellSick.setText(month + "/" + day + "/" + year);
-    }
-    public void populateSetAdmissionDate(int year, int month, int day) {
-        EditText edtAdmissionDate = getActivity().findViewById(R.id.edtAdmissionDate);
-        edtAdmissionDate.setText(month + "/" + day + "/" + year);
-    }
-    public void populateSetDischargeDate(int year, int month, int day) {
-        EditText edtDischargeDate = getActivity().findViewById(R.id.edtDischargeDate);
-        edtDischargeDate.setText(month + "/" + day + "/" + year);
     }
 }
 
