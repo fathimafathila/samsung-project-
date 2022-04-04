@@ -73,18 +73,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageButton
-                android:id="@+id/calEndDate"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/txtStartDate"
-                android:layout_marginRight="20dp"
-                android:layout_alignParentRight="true"
-                android:scaleType="fitCenter"
-                android:background="@color/lightgrey"
-                android:src="@drawable/cal1" />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtMonitoringDay"
                 android:layout_width="match_parent"

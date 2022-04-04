@@ -92,7 +92,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtOtherHealthCondition"
-
                     android:layout_margin="5dp"
                     android:fontFamily="@font/belleza"
                     android:text="Initial Health Symptoms"
@@ -141,6 +140,7 @@
                         android:id="@+id/edtDateFirstFellSick"
                         android:layout_width="match_parent"
                         android:textSize="16dp"
+                        android:textColor="@color/primary_color"
                         android:layout_height="wrap_content"
                         android:text=""/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -167,15 +167,17 @@
                     android:layout_below="@+id/txtFirstDateFellSick"
                     android:layout_margin="4dp"
                      android:textSize="16dp"
+                     android:textColor="@color/primary_color"
                     android:hint="Which best describes you right now ?"
                     android:textColorHint="@color/primary_color">
 
-                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    <AutoCompleteTextView
                         android:id="@+id/edtCurrentSymptoms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
                         android:textSize="16dp"
+                        android:textColor="@color/primary_color"
                         tools:ignore="KeyboardInaccessibleWidget" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -201,6 +203,7 @@
                         android:layout_marginBottom="4dp"
                         android:layout_weight="5"
                         android:ems="10"
+                        android:textColor="@color/primary_color"
                         android:textSize="16dp"
                         android:background="@color/lightgrey"
                         android:clickable="true"
@@ -208,8 +211,8 @@
                         android:gravity="top"
                         tools:ignore="KeyboardInaccessibleWidget" />
 
-
                 </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtOtherSymtoms"
                 android:layout_width="match_parent"

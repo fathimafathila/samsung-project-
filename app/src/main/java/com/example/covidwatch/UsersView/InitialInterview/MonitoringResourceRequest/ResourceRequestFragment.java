@@ -17,11 +17,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -138,20 +136,6 @@ try {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
-
-        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                DialogFragment newFragment = new SelectDateFragment(edt);
-                newFragment.show(getFragmentManager(), "DatePicker");
-
-            }
-        });
     }
 
 }
