@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -35,13 +36,15 @@ public class ResourceRequestFragment extends Fragment {
     FirebaseAuth fAuth;
     FirebaseFirestore db;
     ImageButton calDeceasedDate;
+    //MultiAutoCompleteTextView requestType;
 
-    EditText requestType, requestDate, comments, monitoringType ;
+    EditText  requestDate, comments, monitoringType ;
     CheckBox urgent ;
     Button save;
+    AutoCompleteTextView Agreeconsent;
+    final static String[] item_YN = new String[]{"Yes", "No"};
 
-
-    MultiAutoCompleteTextView resourceReq;
+    MultiAutoCompleteTextView requestType;
     final static String[] item_RR = new String[]{
             "-- None --",
             "Activities of daily living",
@@ -66,12 +69,18 @@ public class ResourceRequestFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Health Condition Spinner
-        resourceReq = v.findViewById( R.id.edtRequestType);
-        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
-        resourceReq.setAdapter( adapterHC );
+        Agreeconsent =  v.findViewById( R.id.edtagreeconsent );
+        ArrayAdapter<String> adapterYN = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
+        Agreeconsent.setAdapter( adapterYN );
+try {
+    // Health Condition Spinner
+    requestType = (MultiAutoCompleteTextView) v.findViewById( R.id.edtRequestType );
+    ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
+    requestType.setAdapter( adapterHC );
+} catch (Exception e){
+    e.printStackTrace();
+}
 
-        requestType = v.findViewById(R.id.edtRequestType);
         requestDate = v.findViewById(R.id.edtRequestDate);
         comments = v.findViewById(R.id.edtComments);
         monitoringType = v.findViewById(R.id.edtMonitoringType);

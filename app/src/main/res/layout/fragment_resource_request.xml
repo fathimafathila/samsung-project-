@@ -138,11 +138,36 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtAgreeConsent"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/txtMonitoringType"
+                android:background="@color/lightgrey"
+                android:hint="Agree to give consent"
+                android:text=""
+                android:textColorHint="@color/primary_color"
+                android:textSize="16sp"
+                app:hintTextColor="@color/primary_color">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtagreeconsent"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@color/lightgrey"
+                    android:textColor="@color/primary_color"
+                    android:padding="5dp"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <CheckBox
                 android:id="@+id/checkBoxUrgent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtMonitoringType"
+                android:layout_below="@+id/txtAgreeConsent"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
