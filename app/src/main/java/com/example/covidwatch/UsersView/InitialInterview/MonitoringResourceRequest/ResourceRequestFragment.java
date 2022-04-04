@@ -34,7 +34,7 @@ public class ResourceRequestFragment extends Fragment {
 
     FirebaseAuth fAuth;
     FirebaseFirestore db;
-    ImageButton calDeceasedDate;
+    ImageButton calRequestDate;
 
     EditText requestType, requestDate, comments, monitoringType ;
     CheckBox urgent ;
@@ -131,14 +131,14 @@ public class ResourceRequestFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
+        calRequestDate = view.findViewById(R.id.calRequestDate);
 
-        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
+        calRequestDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(requestDate);
                 newFragment.show(getFragmentManager(), "DatePicker");
 
             }

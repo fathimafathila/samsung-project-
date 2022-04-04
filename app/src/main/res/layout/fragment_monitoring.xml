@@ -74,7 +74,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:id="@+id/calDeceasedDate"
+                android:id="@+id/calEndDate"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="30dp"
