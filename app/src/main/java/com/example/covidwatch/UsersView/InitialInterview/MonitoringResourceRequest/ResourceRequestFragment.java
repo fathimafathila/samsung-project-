@@ -147,7 +147,7 @@ try {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(edt);
                 newFragment.show(getFragmentManager(), "DatePicker");
 
             }
