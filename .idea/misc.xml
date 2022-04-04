@@ -15,17 +15,25 @@
         <entry key="app/src/main/res/drawable/circle_yellow.xml" value="0.21145833333333333" />
         <entry key="app/src/main/res/layout/activity_add_isolation_locationactivity.xml" value="0.11246200607902736" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layout/activity_case_information_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_close_contact_details.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_initial_interview.xml" value="0.11246200607902736" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_security_question.xml" value="0.1403985507246377" />
+        <entry key="app/src/main/res/layout/activity_view_record.xml" value="0.11246200607902736" />
+        <entry key="app/src/main/res/layout/fragment_add_location.xml" value="0.11458333333333333" />
+        <entry key="app/src/main/res/layout/fragment_additional_info.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_case_information.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/fragment_close_contact.xml" value="0.11246200607902736" />
+        <entry key="app/src/main/res/layout/fragment_demographic.xml" value="0.11458333333333333" />
         <entry key="app/src/main/res/layout/fragment_epilinkage_congregate.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_initial_health_assessment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_location_close_contact.xml" value="0.11246200607902736" />
         <entry key="app/src/main/res/layout/fragment_monitoring.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_resource_request.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_testing.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_treatment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_vaccine.xml" value="0.11246200607902736" />
       </map>
     </option>
   </component>
