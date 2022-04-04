@@ -32,7 +32,7 @@
                 app:hintTextColor="@color/primary_color"
                 android:textColorHint="@color/primary_color"
                 android:text=""
-                android:textSize="12sp"
+                android:textSize="16sp"
                 >
 
                 <AutoCompleteTextView
@@ -42,7 +42,7 @@
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +59,7 @@
                 android:layout_below="@id/txtStartDate"
                 android:text=""
                 android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
@@ -69,12 +69,12 @@
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:id="@+id/calDeceasedDate"
+                android:id="@+id/calEndDate"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="30dp"
@@ -96,7 +96,7 @@
                 android:hint="No of days left to be monitored?"
                 android:text=""
                 android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
@@ -106,7 +106,7 @@
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,7 +150,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/txtMonitoringType"
                 android:background="@color/lightgrey"
-                android:hint="Phone Number for Monitoring"
+                android:hint="Phone number for monitoring"
                 android:text=""
                 android:textColorHint="@color/primary_color"
                 android:textSize="16sp"
@@ -179,7 +179,7 @@
                 android:hint="Email for monitoring"
                 android:text=""
                 android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
@@ -189,7 +189,7 @@
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

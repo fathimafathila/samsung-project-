@@ -138,7 +138,7 @@ public class TreatmentFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(admissionDate);
                 newFragment.show(getFragmentManager(), "AdmissionDate");
 
             }
@@ -149,7 +149,7 @@ public class TreatmentFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(dischargeDate);
                 newFragment.show(getFragmentManager(), "DischargeDate");
 
             }

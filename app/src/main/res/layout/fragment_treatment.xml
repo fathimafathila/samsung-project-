@@ -23,7 +23,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Did you sought Covid-19 medical care?"
+            android:textSize="16dp"
+            android:hint="Did you sought COVID-19 medical care?"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color"
             android:theme="@style/Theme.CovidWatch">
@@ -31,7 +32,6 @@
             <AutoCompleteTextView
                 android:id="@+id/edtSoughtMedicalCare"
                 android:layout_width="match_parent"
-
                 android:layout_height="55dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="4dp"
@@ -41,20 +41,21 @@
                 android:clickable="true"
                 android:completionThreshold="5"
                 android:ems="10"
-                android:textSize="18dp"
-
+                android:textSize="16dp"
                 android:theme="@style/Theme.CovidWatch"
                 tools:ignore="KeyboardInaccessibleWidget" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtReceivedMedicalCare"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Covid Treatment received"
+            android:hint=" Covid Treatment Received"
             android:layout_below = "@id/txtSoughtMedicalCare"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color"
+            android:textSize="16dp"
             android:theme="@style/Theme.CovidWatch">
 
             <MultiAutoCompleteTextView
@@ -71,7 +72,7 @@
                 android:gravity="top"
                 android:completionThreshold="5"
                 android:ems="10"
-                android:textSize="18dp"
+                android:textSize="16dp"
 
                 android:theme="@style/Theme.CovidWatch"
                 tools:ignore="KeyboardInaccessibleWidget" />
@@ -84,13 +85,13 @@
             android:layout_below = "@id/txtReceivedMedicalCare"
             android:hint="Did you ever or still hospitalized??"
             android:textColor="@color/primary_color"
+            android:textSize="16dp"
             android:textColorHint="@color/primary_color"
             android:theme="@style/Theme.CovidWatch">
 
             <AutoCompleteTextView
                 android:id="@+id/edtHospitalization"
                 android:layout_width="match_parent"
-
                 android:layout_height="55dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="4dp"
@@ -101,7 +102,7 @@
                 android:clickable="true"
                 android:completionThreshold="5"
                 android:ems="10"
-                android:textSize="18dp"
+                android:textSize="16dp"
 
                 android:theme="@style/Theme.CovidWatch"
                 tools:ignore="KeyboardInaccessibleWidget" />
@@ -115,6 +116,7 @@
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Admission date"
+            android:textSize="16dp"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color">
 
@@ -124,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:textSize="16dp"
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,6 +140,7 @@
             android:layout_marginRight="10dp"
             android:background="@color/lightgrey"
             android:scaleType="fitCenter"
+            android:textSize="16dp"
             android:src="@drawable/cal1" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -147,6 +151,7 @@
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Discharge Date"
+            android:textSize="16dp"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color">
 
@@ -156,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:textSize="16dp"
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -179,6 +185,7 @@
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:hint=" Hospital Name"
+            android:textSize="16dp"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color">
 
@@ -188,6 +195,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
+                android:textSize="16dp"
                 android:textColor="@color/primary_color" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -198,7 +206,7 @@
             android:layout_margin="4dp"
             android:background="@color/lightgrey"
             android:gravity="top"
-
+            android:textSize="16dp"
             android:hint=" Describe Treatment Received"
             android:textColor="@color/primary_color"
             android:textColorHint="@color/primary_color">
@@ -207,7 +215,7 @@
                 android:id="@+id/edtDescTreatmentReceived"
                 android:layout_width="fill_parent"
                 android:gravity="top"
-
+                android:textSize="16dp"
                 android:layout_height="100dp"
                 android:inputType="text"
                 android:maxLines="10"

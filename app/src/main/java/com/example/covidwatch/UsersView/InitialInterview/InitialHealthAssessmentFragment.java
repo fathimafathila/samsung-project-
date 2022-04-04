@@ -192,7 +192,7 @@ public class InitialHealthAssessmentFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(firstFeelSick);
                 newFragment.show(getFragmentManager(), "SickDate");
 
             }

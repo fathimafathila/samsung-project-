@@ -40,7 +40,7 @@ public class CaseInformationFragment extends Fragment {
     FirebaseAuth fAuth ;
     FirebaseFirestore db ;
     TextView name,id ,  address ,  number , dob , age, gender, email, openDate,  status , priority ;
-    EditText consent, reInfected, gaurdianName, deseaed, race, deseaedDutTo,primaryLanguage, deseaedDate, primaryOccupation ;
+    EditText consent, reInfected, gaurdianName, deseaed, race, deseaedDutTo ,primaryLanguage, deseaedDate, primaryOccupation ;
     Button update ;
     ImageButton calDeceasedDate;
 
@@ -87,7 +87,7 @@ public class CaseInformationFragment extends Fragment {
         deseaed = view.findViewById(R.id.edtDeceased);
         race = view.findViewById(R.id.edtRace);
         deseaedDutTo = view.findViewById(R.id.edtDeceasedDueTo);
-        deseaedDate = view.findViewById(R.id.edtDeceasedDueTo);
+        deseaedDate = view.findViewById(R.id.edtDeceasedDate);
         primaryLanguage = view.findViewById(R.id.edtPrimaryLanguage);
         primaryOccupation = view.findViewById(R.id.edtPrimaryOccupation);
 
@@ -219,7 +219,7 @@ public class CaseInformationFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(deseaedDate);
                 newFragment.show(getFragmentManager(), "DeceasedDate");
 
             }

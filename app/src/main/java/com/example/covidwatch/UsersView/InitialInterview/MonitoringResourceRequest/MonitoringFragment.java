@@ -43,7 +43,7 @@ public class MonitoringFragment extends Fragment {
     FirebaseFirestore db;
     EditText startDate, endDate, monitoringDay, monitoringType, contactNumber, email;
     Button save;
-    ImageButton calDeceasedDate;
+    ImageButton calEndDate;
 
     AutoCompleteTextView monitorType;
     final static String[] item_RR = new String[]{
@@ -161,14 +161,14 @@ public class MonitoringFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
+        calEndDate = view.findViewById(R.id.calEndDate);
 
-        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
+        calEndDate.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(endDate);
                 newFragment.show(getFragmentManager(), "DatePicker");
 
             }

@@ -6,134 +6,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/mainbackground"
+    android:background="@color/background_color"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="COVID WATCH"
+        android:textAlignment="center"
+        android:textColor="@color/primary_color"
+        android:textSize="34sp"
+        android:textStyle="bold" />
 
     <ScrollView
-        android:id="@+id/scrollView"
+        android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:layout_height="1500dp"
 
-        android:layout_marginTop="220dp">
-
+        android:id="@+id/scrollView">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_height="700dp"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
+            android:layout_below="@+id/title"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
 
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/vaccine" />
+
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtUsername"
                 android:layout_width="match_parent"
+                android:id="@+id/txtUsername"
+                android:layout_below="@+id/image"
+                android:textColorHint="@color/primary_color"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:textColorHint="@color/white">
+                android:layout_margin="4dp" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/image"
-                    android:layout_margin="4dp"
-                    android:hint="Username"
+                    android:id="@+id/edtUsername"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:hint="Username"
+                    android:textColorHint="@color/primary_color"
+                    android:textColor="@color/primary_color"
+
+                    android:layout_below="@+id/image"
+                    android:layout_margin="4dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/txtUsername"
-                android:layout_margin="4dp"
-                android:textColorHint="@color/white">
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/primary_color"
+                android:layout_margin="4dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtUsername"
-                    android:layout_margin="4dp"
-                    android:hint="Password"
                     android:inputType="textPassword"
+                    android:hint="Password"
+                    android:textColorHint="@color/primary_color"
+                    android:textColor="@color/primary_color"
 
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:layout_below="@+id/txtUsername"
+                    android:layout_margin="4dp"/>
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/remMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPassword"
-                android:layout_marginStart="180dp"
-                android:layout_marginTop="3dp"
-                android:text="Remember Credential"
-                android:textColor="@color/white"
-                android:textSize="14dp" />
 
             <Switch
                 android:id="@+id/switch1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtPassword"
-                android:layout_marginStart="320dp"
-                android:background="#454444"
-
-                android:theme="@style/switchColor" />
-
+                android:layout_marginStart="330dp"
+                android:background="@color/background_color" />
             <TextView
                 android:id="@+id/errormsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtPassword"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginStart="7dp"
                 android:text="@string/errorAccount"
                 android:textColor="@color/red2"
                 android:textSize="14dp"
                 android:visibility="invisible" />
+<RelativeLayout
+    android:id="@+id/relButtons"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/txtPassword"
+    android:layout_marginTop="5dp">
 
-            <RelativeLayout
-                android:id="@+id/relButtons"
+            <Button
+                android:id="@+id/btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPassword"
-                android:layout_marginTop="50dp"
-                android:gravity="center">
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/primary_color"
+                android:padding="10dp"
+                android:text="LOGIN" />
 
-                <Button
-                    android:id="@+id/btnLogin"
-                    android:layout_width="360dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:backgroundTint="#BD473F"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:padding="10dp"
-                    android:text="Sign In" />
+</RelativeLayout>
 
-            </RelativeLayout>
-
-            <TextView
+            <Button
                 android:id="@+id/btnForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relButtons"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/background_color"
-                android:onClick="resetPsw"
                 android:outlineSpotShadowColor="@color/background_color"
-                android:text="FORGOT PASSWORD"
-                android:textColor="@color/white"
+                android:text="Forgot Password"
+                android:onClick="resetPsw"
+                android:textColor="@color/primary_color"
                 android:textStyle="bold" />
 
             <TextView
@@ -141,10 +145,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btnForgot"
                 android:layout_centerHorizontal="true"
-                android:text="Your initial password will be your date of birth (MMDDYY format)"
+                android:textColor="@color/primary_color"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:text="Your initial password will be your date of birth (MMDDYY format)"
+                />
         </RelativeLayout>
     </ScrollView>
 

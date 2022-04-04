@@ -76,7 +76,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:id="@+id/calDeceasedDate"
+                android:id="@+id/calRequestDate"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="30dp"
@@ -124,7 +124,7 @@
                 android:hint="Monitoring Type"
                 android:text=""
                 android:textColorHint="@color/primary_color"
-                android:textSize="12sp"
+                android:textSize="16sp"
                 app:hintTextColor="@color/primary_color">
 
                 <AutoCompleteTextView
@@ -134,7 +134,7 @@
                     android:background="@color/lightgrey"
                     android:textColor="@color/primary_color"
                     android:padding="5dp"
-                    android:textSize="15sp" />
+                    android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
