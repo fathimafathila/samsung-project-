@@ -150,7 +150,7 @@ public class ResourceRequestFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                DialogFragment newFragment = new SelectDateFragment();
+                DialogFragment newFragment = new SelectDateFragment(requestDate);
                 newFragment.show(getFragmentManager(), "DatePicker");
 
             }
