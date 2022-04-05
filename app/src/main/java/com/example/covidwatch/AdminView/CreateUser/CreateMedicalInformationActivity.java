@@ -217,7 +217,6 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
             fAuth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    Toast.makeText(CreateMedicalInformationActivity.this, "Email Has been Created", Toast.LENGTH_SHORT).show();
                     String ID =  fAuth.getUid();
                     String medicalId = edtMedicalID.getText().toString();
                     String priority = edtPriority.getText().toString();
@@ -252,7 +251,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                     user.put("Open Date",openDate);
                     user.put("Medical ID",medicalId);
                     user.put("Password",password);
-
+                    user.put("uuid",ID);
 
                     db.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override

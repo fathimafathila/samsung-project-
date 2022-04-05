@@ -104,14 +104,15 @@ public class MonitoringFragment extends Fragment {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-                String firstDate = documentSnapshot.getString("Open Date");
+                String firstDate = documentSnapshot.getString("Specimen Date");
                 DateCalculation dateCalculation = new DateCalculation();
                 endDate.setText(dateCalculation.findEndDate(firstDate));
                 int remainingDay = dateCalculation.findDifference(dateCalculation.findEndDate(firstDate));
-                monitoringDay.setText(String.valueOf(remainingDay));
+
                 startDate.setText(firstDate);
 
                 if(remainingDay >= 0) {
+                    monitoringDay.setText(String.valueOf(remainingDay));
 //                    if(Calendar.getInstance().getTime().getHours() == 8 && Calendar.getInstance().getTime().getMinutes() == 0 )  {
                         Notification.Builder builder = new Notification.Builder(getContext(), "My Notification");
                         builder.setContentTitle("Covid Watch");
@@ -121,6 +122,8 @@ public class MonitoringFragment extends Fragment {
                         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getContext());
                         managerCompat.notify(1, builder.build());
                    // }
+                }else{
+                    monitoringDay.setText("Days Completed");
                 }
 
 

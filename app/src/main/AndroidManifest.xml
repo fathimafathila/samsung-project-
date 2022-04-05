@@ -56,7 +56,8 @@
         <activity
             android:name=".AdminView.ViewRecord.ViewRecordActivity"
             android:exported="true"
-            android:label="View Record" />
+            android:label="View Record"
+            android:windowSoftInputMode="stateVisible|adjustPan"/>
         <activity
             android:name=".AdminView.EscalatedCaseActivity"
             android:exported="true" />

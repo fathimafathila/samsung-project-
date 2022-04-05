@@ -138,11 +138,31 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtAgreement"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMonitoringType"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/lightgrey"
+                android:hint="Agree To request">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/edtAgreement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+            </com.google.android.material.textfield.TextInputLayout>
             <CheckBox
                 android:id="@+id/checkBoxUrgent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtMonitoringType"
+                android:layout_below="@+id/txtMinor"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -155,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/checkBoxUrgent"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/txtMonitoringType"
+                android:layout_below="@+id/txtMinor"
                 android:text="Urgent"
                 android:textColor="@color/textColor"
                 android:textSize="16sp"

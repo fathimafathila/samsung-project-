@@ -42,13 +42,18 @@ public class DateCalculation {
 
 
     public String findEndDate(String start_date){
+
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
         try {
-            cal.setTime(sdf.parse(start_date));
+            Date date = sdf1.parse(start_date);
+            String date1 = sdf.format(date) ;
+            cal.setTime(sdf.parse(date1));
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         cal.add(Calendar.DAY_OF_MONTH,5);
 
         SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");

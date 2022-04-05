@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/adminbackground"
     tools:context=".AdminView.ViewRecord.ViewRecordActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="View Record"
+        android:layout_below="@+id/logo"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:id="@+id/txtUsername"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp">
+        android:layout_below="@+id/title"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -20,20 +45,19 @@
             android:inputType="text"
             android:maxLines="1"
             android:hint="Case Id"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:layout_below="@+id/image"
             android:layout_margin="4dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rcv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
-        android:id="@+id/rcv"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+        android:layout_below="@+id/txtUsername"
+        android:layout_marginTop="45dp"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

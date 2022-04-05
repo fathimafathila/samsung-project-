@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.example.covidwatch.AdminView.CreateUser.CreatePersonalInfomationActivity;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -36,7 +39,7 @@ public class ResourceRequestFragment extends Fragment {
     FirebaseFirestore db;
     ImageButton calDeceasedDate;
 
-    EditText requestType, requestDate, comments, monitoringType ;
+    EditText edtAgreement,requestType, requestDate, comments, monitoringType ;
     CheckBox urgent ;
     Button save;
 
@@ -70,6 +73,15 @@ public class ResourceRequestFragment extends Fragment {
         resourceReq = v.findViewById( R.id.edtRequestType);
         ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
         resourceReq.setAdapter( adapterHC );
+
+        edtAgreement = v.findViewById(R.id.edtAgreement);
+        final AutoCompleteTextView customerAutoTV3 = v.findViewById(R.id.edtAgreement);
+        ArrayList<String> minor = new ArrayList<>();
+        minor.add("Yes");
+        minor.add("No");
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, minor);
+        customerAutoTV3.setAdapter(adapter3);
+
 
         requestType = v.findViewById(R.id.edtRequestType);
         requestDate = v.findViewById(R.id.edtRequestDate);

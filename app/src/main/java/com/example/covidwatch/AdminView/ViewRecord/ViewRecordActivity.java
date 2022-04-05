@@ -37,7 +37,6 @@ public class ViewRecordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_record);
 
         getSupportActionBar().hide();
-
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 

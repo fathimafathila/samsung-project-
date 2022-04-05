@@ -10,13 +10,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:background="@drawable/security_border"
-        android:backgroundTint="#C4C4C4">
+        android:padding="2dp">
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/security_border"
+            android:backgroundTint="#C4C4C4"
+            android:padding="5dp"
+            >
             <TableRow>
 
                 <TextView
