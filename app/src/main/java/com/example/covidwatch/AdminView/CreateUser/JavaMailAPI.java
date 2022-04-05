@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 
 import androidx.constraintlayout.core.motion.utils.Utils;
 
+import com.example.covidwatch.DateCalculation;
+
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -20,11 +22,13 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
     private Context context;
 
     private Session session;
-    private String email, subject, message;
+    private String email, subject, message, startDate, name;
 
-    public JavaMailAPI(Context context, String email) {
+    public JavaMailAPI(Context context, String email, String startDate, String name) {
         this.context = context;
         this.email = email;
+        this.startDate = startDate;
+        this.name = name;
     }
 
     @Override
@@ -42,12 +46,23 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
             }
         });
 
+        DateCalculation dateCalculation = new DateCalculation();
+        String endDate =  dateCalculation.findEndDate(startDate);
         MimeMessage mimeMessage = new MimeMessage(session);
         try {
             mimeMessage.setFrom(new InternetAddress("covidwatch3@gmail.com"));
             mimeMessage.addRecipients(Message.RecipientType.TO, String.valueOf(new InternetAddress(email)));
             mimeMessage.setSubject("Covid Watch");
-            mimeMessage.setText("Covid Watch Account Has been Crerated");
+            mimeMessage.setText("Greetings, "+ name +"! \n" +
+                    "\n" +
+                    "Please note that your monitoring end date is "+ endDate +  "\n" +
+                    "\n" +
+                    "Click the Link to begin a new Health Assessment. All information provided is confidential. \n" +
+                    "\n" +
+                    "If you require further assistance, please contact your local health department at 3231417777(Monday-Friday from 8:30-5:00) or 3231417777 (during evening, weekend and holiday hours). \n" +
+                    "\n" +
+                    "\n" +
+                    "Survey Link : https://forms.gle/uCBgZBnDdpxZUEqq6 ");
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();

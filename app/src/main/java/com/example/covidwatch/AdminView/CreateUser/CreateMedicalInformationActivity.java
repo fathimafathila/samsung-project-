@@ -277,12 +277,11 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    JavaMailAPI javaMailAPI = new JavaMailAPI(getApplicationContext(), email);
+                                                    JavaMailAPI javaMailAPI = new JavaMailAPI(getApplicationContext(), email, specimenDate, fName);
 
                                                     javaMailAPI.execute();
                                                     Intent intent = new Intent(CreateMedicalInformationActivity.this , AdminDashboard.class);
                                                     startActivity(intent);
-                                                    Toast.makeText(CreateMedicalInformationActivity.this, "Account Has been Created", Toast.LENGTH_SHORT).show();
                                                 }
                                             })
                                             .addOnFailureListener(new OnFailureListener() {

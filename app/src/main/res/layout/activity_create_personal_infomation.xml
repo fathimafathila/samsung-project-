@@ -5,7 +5,7 @@
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:background="@drawable/adminbackground"
     tools:context=".AdminView.CreateUser.CreatePersonalInfomationActivity">
 
 
@@ -17,7 +17,7 @@
             android:id="@+id/topNavigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:gravity="center">
 
             <TextView
@@ -81,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="Personal Information"
-                android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/title"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="70dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtFirstname"
