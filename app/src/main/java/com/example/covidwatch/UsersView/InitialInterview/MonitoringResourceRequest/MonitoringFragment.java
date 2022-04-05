@@ -21,19 +21,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.covidwatch.DateCalculation;
 import com.example.covidwatch.R;
-import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Calendar;
 import java.util.HashMap;
 
 
@@ -43,7 +39,7 @@ public class MonitoringFragment extends Fragment {
     FirebaseFirestore db;
     EditText startDate, endDate, monitoringDay, monitoringType, contactNumber, email;
     Button save;
-    ImageButton calDeceasedDate;
+    ImageButton calEndDate;
 
     AutoCompleteTextView monitorType;
     final static String[] item_RR = new String[]{
@@ -162,20 +158,6 @@ public class MonitoringFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-        calDeceasedDate = view.findViewById(R.id.calDeceasedDate);
-
-        calDeceasedDate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
-
-            }
-        });
     }
 
 }

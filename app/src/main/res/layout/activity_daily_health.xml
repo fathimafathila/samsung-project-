@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UsersView.DailyHealth.DailyHealthActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<RelativeLayout-->
+    <!--    android:layout_width="wrap_content"-->
+    <!--    android:layout_height="wrap_content">-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/title"-->
+    <!--        android:layout_width="fill_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="20dp"-->
+    <!--        android:fontFamily="@font/belleza"-->
+    <!--        android:text="Greetings, User!"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textColor="@color/primary_color"-->
+    <!--        android:textSize="30sp"-->
+    <!--        android:textStyle="bold" />-->
+
+
+    <!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/edtName"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_below="@+id/title"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:hint="Name"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:inputType="textPersonName" />&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:id="@+id/edtPhone"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:layout_below="@+id/edtName"&ndash;&gt;-->
+
+    <!--&lt;!&ndash;    android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:ems="10"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:hint="Phone Number"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:inputType="phone"&ndash;&gt;-->
+    <!--&lt;!&ndash;    android:maxLength="10" />&ndash;&gt;-->
+
+    <WebView
+        android:id="@+id/link_webview"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+<!--    <WebView-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="visible" />-->
+
+</RelativeLayout>

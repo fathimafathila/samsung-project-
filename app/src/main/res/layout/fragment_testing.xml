@@ -19,7 +19,6 @@
 
         <LinearLayout
             android:id="@+id/heathinfo"
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
@@ -38,18 +37,14 @@
                 <AutoCompleteTextView
                     android:id="@+id/siteInfo"
                     android:layout_width="match_parent"
-
                     android:layout_height="55dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_margin="4dp"
                     android:layout_weight="5"
                     android:background="@color/lightgrey"
                     android:clickable="true"
                     android:completionThreshold="5"
                     android:ems="10"
-                    android:textSize="18dp"
-
+                    android:textSize="16dp"
                     android:theme="@style/Theme.CovidWatch"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -62,6 +57,7 @@
                 android:layout_margin="4dp"
                 android:background="@color/lightgrey"
                 android:hint=" Site Name (others)"
+                android:textSize="16dp"
                 android:textColor="@color/primary_color"
                 android:textColorHint="@color/primary_color">
 
@@ -71,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="16dp"
                     android:textColor="@color/primary_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,6 +78,7 @@
                 android:layout_below="@+id/testingSite"
                 android:layout_margin="4dp"
                 android:background="@color/lightgrey"
+                android:textSize="16dp"
                 android:hint=" Specimen Collection Date"
                 android:textColor="@color/primary_color"
                 android:textColorHint="@color/primary_color">
@@ -91,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="16dp"
                     android:textColor="@color/primary_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,6 +101,7 @@
                 android:layout_margin="4dp"
                 android:background="@color/lightgrey"
                 android:hint=" Lab Report Date"
+                android:textSize="16dp"
                 android:textColor="@color/primary_color"
                 android:textColorHint="@color/primary_color">
 
@@ -111,6 +111,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="16dp"
                     android:textColor="@color/primary_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +120,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_below="@+id/Reportdate"
-
                 android:layout_marginTop="250dp">
 
                 <Button
