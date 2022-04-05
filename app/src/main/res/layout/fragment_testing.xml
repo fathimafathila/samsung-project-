@@ -126,9 +126,9 @@
                     android:id="@+id/saveBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:text="Save" />
 
 
@@ -136,10 +136,10 @@
                     android:id="@+id/nextbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="100dp"
                     android:layout_marginTop="20dp"
                     android:layout_toRightOf="@+id/saveBtn"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:onClick="btn_next"
                     android:text="cancel" />
 

@@ -81,6 +81,8 @@
             android:id="@+id/calDob"
             android:layout_width="20dp"
             android:layout_height="20dp"
+            android:tint="@color/red_color"
+            tools:ignore="UseAppTint"
             android:layout_alignParentRight="true"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
@@ -184,14 +186,13 @@
 
         <Button
             android:id="@+id/btnUpdate"
-            android:backgroundTint="@color/primary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_below="@+id/txtAddressCity"
             android:layout_centerHorizontal="true"
-            android:text="Update"
-            />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/red_color"
+            android:text="Update" />
 
     </RelativeLayout>
 

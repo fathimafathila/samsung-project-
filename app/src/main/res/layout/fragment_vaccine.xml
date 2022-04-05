@@ -55,7 +55,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:text="Vaccine Details"
-                android:textColor="@color/primary_color"
+                android:textColor="@color/red_color"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -74,9 +74,8 @@
                 android:layout_below="@id/recVaccine"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/primary_color"
-                android:text="Upload Vaccination Certificate"
-                />
+                android:backgroundTint="@color/red_color"
+                android:text="Upload Vaccination Certificate" />
 
             <TextView
                 android:id="@+id/txtFileName"

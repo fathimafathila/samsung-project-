@@ -182,14 +182,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="490dp"
                 android:layout_marginLeft="60dp"
-                android:backgroundTint="@color/gray"
+                android:layout_marginTop="490dp"
+                android:backgroundTint="@color/red_color"
                 android:text="Cancel" />
 
             <Button
@@ -199,7 +198,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="490dp"
                 android:layout_marginRight="60dp"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="@color/red_color"
                 android:text="Save" />
 
         </RelativeLayout>

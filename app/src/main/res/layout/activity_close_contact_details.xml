@@ -93,6 +93,8 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
 
         <ImageButton
             android:id="@+id/calDob"
+            android:tint="@color/red_color"
+            tools:ignore="UseAppTint"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
@@ -210,17 +212,16 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btnAddContact"
-                android:backgroundTint="@color/primary_color"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtAdditionalInfo"
-                android:layout_marginTop="20dp"
-                android:layout_alignParentRight="true"
-                android:text="Add Contact"
-                android:layout_marginRight="20dp"
-                />
+        <Button
+            android:id="@+id/btnAddContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtAdditionalInfo"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/red_color"
+            android:text="Add Contact" />
 
     </RelativeLayout>
 

@@ -282,17 +282,17 @@
 
                     android:layout_width="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/btnAddLocation"
-                android:backgroundTint="@color/primary_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtAdditionalInfo"
-                android:layout_marginTop="20dp"
                 android:layout_alignParentRight="true"
-                android:text="Add Location"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                />
+                android:backgroundTint="@color/red_color"
+                android:text="Add Location" />
 
         </RelativeLayout>
 

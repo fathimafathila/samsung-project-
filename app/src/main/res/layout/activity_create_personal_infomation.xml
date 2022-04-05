@@ -161,6 +161,8 @@
             <ImageButton
                 android:layout_width="14dp"
                 android:layout_height="16dp"
+                android:tint="@color/red_color"
+                tools:ignore="UseAppTint"
                 android:layout_below="@id/txtEmail"
                 android:layout_marginStart="335dp"
                 android:layout_marginLeft="100dp"
@@ -254,7 +256,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="@color/red_color"
                 android:padding="10dp"
                 android:text="Save" />
 
@@ -268,7 +270,7 @@
                 android:layout_marginTop="20dp"
                 android:onClick="btn_next"
                 android:layout_toRightOf="@+id/savebutton"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="@color/red_color"
                 android:padding="10dp"
                 android:text="Next" />
 

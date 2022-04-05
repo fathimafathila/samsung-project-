@@ -26,11 +26,14 @@
                     android:id="@+id/caseInfo_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/belleza"
                     android:text="Initial Health Assessment"
                     android:textAlignment="center"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/red_color"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -92,11 +95,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtOtherHealthCondition"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/belleza"
                     android:text="Initial Health Symptoms"
                     android:textAlignment="center"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/red_color"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -146,6 +152,8 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
+                    android:tint="@color/red_color"
+                    tools:ignore="UseAppTint"
                     android:id="@+id/calDateFirstFellSick"
                     android:layout_below="@id/txtSymptoms"
                     android:layout_width="20dp"
@@ -247,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:text="Save" />
 
 
@@ -258,7 +266,7 @@
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="20dp"
                     android:layout_toRightOf="@+id/saveButton"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:onClick="btn_next"
                     android:text="cancel" />
 

@@ -138,10 +138,13 @@
             android:layout_alignRight="@+id/txtAdmissionDate"
             android:layout_marginTop="25dp"
             android:layout_marginRight="10dp"
+            android:tint="@color/red_color"
+            tools:ignore="UseAppTint"
             android:background="@color/lightgrey"
             android:scaleType="fitCenter"
             android:textSize="16dp"
-            android:src="@drawable/cal1" />
+            android:src="@drawable/cal1"
+             />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtDischargeDate"
@@ -175,6 +178,8 @@
             android:layout_marginRight="10dp"
             android:background="@color/lightgrey"
             android:scaleType="fitCenter"
+            android:tint="@color/red_color"
+            tools:ignore="UseAppTint"
             android:src="@drawable/cal1" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -226,17 +231,16 @@
 
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:gravity="center"
             android:layout_below="@+id/txtDescTreatmentReceived"
-
             android:layout_marginTop="5dp">
 
             <Button
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="@color/red_color"
                 android:text="Save" />
 
 
@@ -247,7 +251,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/saveButton"
-                android:backgroundTint="@color/primary_color"
+                android:backgroundTint="@color/red_color"
                 android:onClick="btn_next"
                 android:text="cancel" />
 

@@ -69,6 +69,8 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
+                android:tint="@color/red_color"
+                tools:ignore="UseAppTint"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="335dp"
@@ -96,6 +98,8 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
+                android:tint="@color/red_color"
+                tools:ignore="UseAppTint"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="335dp"
@@ -259,7 +263,7 @@
 
                 <Button
                     android:id="@+id/Backbutton"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -274,7 +278,7 @@
                     android:layout_marginLeft="100dp"
                     android:layout_marginTop="20dp"
                     android:layout_toRightOf="@+id/Backbutton"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:text="Save" />
             </RelativeLayout>
         </RelativeLayout>

@@ -25,7 +25,7 @@ tools:context=".UsersView.InitialInterview.HomeFragment">
             android:layout_height="wrap_content"
             android:text="COVID-19 Guidelines - Ontario"
             android:textAlignment="center"
-            android:textColor="@color/primary_color"
+            android:textColor="@color/red_color"
             android:textSize="28sp"
             android:textStyle="bold" />
 

@@ -493,6 +493,8 @@
 
                 <ImageButton
                     android:id="@+id/calDeceasedDate"
+                    android:tint="@color/red_color"
+                    tools:ignore="UseAppTint"
                     android:layout_below="@id/txtRace"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
@@ -536,7 +538,7 @@
                     android:layout_below="@id/txtPrimaryOccupation"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/primary_color"
+                    android:backgroundTint="@color/red_color"
                     android:text="Add" />
 
             </RelativeLayout>
