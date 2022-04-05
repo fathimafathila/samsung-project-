@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,4 +88,24 @@ public class UserDashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DailyHealthActivity.class);
         startActivity(intent);
     }
+    public void btn_vaccine(View v){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+    }
+
+    public static class MapActivity extends AppCompatActivity {
+        private WebView webView;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate( savedInstanceState );
+            setContentView( R.layout.activity_map );
+
+
+
+                webView = (WebView) findViewById(R.id.webView1);
+                webView.getSettings().setJavaScriptEnabled(true);
+                webView.setWebViewClient(new WebViewClient());
+                webView.loadUrl("http://maps.google.com/maps?~~");
+            }
+        }
 }

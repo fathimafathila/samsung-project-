@@ -43,7 +43,7 @@ public class ResourceRequestFragment extends Fragment {
     CheckBox urgent ;
     Button save;
 
-
+    final static String[] item_YN = new String[]{"Yes", "No"};
     MultiAutoCompleteTextView resourceReq;
     final static String[] item_RR = new String[]{
             "-- None --",

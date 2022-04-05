@@ -4,11 +4,15 @@
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidWatch">
+        <activity
+            android:name=".UsersView.UserDashboardActivity$MapActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -57,7 +61,7 @@
             android:name=".AdminView.ViewRecord.ViewRecordActivity"
             android:exported="true"
             android:label="View Record"
-            android:windowSoftInputMode="stateVisible|adjustPan"/>
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".AdminView.EscalatedCaseActivity"
             android:exported="true" />
@@ -73,7 +77,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="stateVisible|adjustPan"></activity>
+            android:windowSoftInputMode="stateVisible|adjustPan" />
 
         <meta-data
             android:name="preloaded_fonts"

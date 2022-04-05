@@ -76,8 +76,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:tint="@color/red_color"
-                tools:ignore="UseAppTint"
                 android:id="@+id/calDeceasedDate"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
@@ -117,7 +115,6 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtMonitoringType"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="10dp"
@@ -144,32 +141,31 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtAgreement"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="190dp"
-                android:layout_height="55dp"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/txtMonitoringType"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
                 android:background="@color/lightgrey"
-                android:textSize="16dp"
-                android:textColorHint="@color/primary_color"
                 android:hint="Agree To request">
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:id="@+id/edtAgreement"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:textSize="16dp"
-                    android:textColor="@color/primary_color"
                     tools:ignore="KeyboardInaccessibleWidget" />
             </com.google.android.material.textfield.TextInputLayout>
             <CheckBox
                 android:id="@+id/checkBoxUrgent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtAgreement"
+                android:layout_below="@+id/txtMinor"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@color/white" />
 
@@ -177,21 +173,21 @@
                 android:id="@+id/txturgent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtAgreement"
-                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/checkBoxUrgent"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/txtMinor"
                 android:text="Urgent"
                 android:textColor="@color/textColor"
                 android:textSize="16sp"
-                app:hintTextColor="@color/primary_color" />
+                app:hintTextColor="@color/primary_color"/>
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="360dp"
                 android:layout_marginLeft="60dp"
-                android:layout_marginTop="420dp"
-                android:backgroundTint="@color/red_color"
+                android:backgroundTint="@color/gray"
                 android:text="Cancel" />
 
             <Button
@@ -200,8 +196,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="60dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="420dp"
-                android:backgroundTint="@color/red_color"
+                android:layout_marginTop="360dp"
+                android:backgroundTint="@color/primary_color"
                 android:text="Save" />
 
         </RelativeLayout>
@@ -211,3 +207,6 @@
 
 
 </FrameLayout>
+
+
+
