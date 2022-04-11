@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
@@ -133,7 +134,10 @@ public class MonitoringFragment extends Fragment {
 //                    if(Calendar.getInstance().getTime().getHours() == 8 && Calendar.getInstance().getTime().getMinutes() == 0 )  {
                         Notification.Builder builder = new Notification.Builder(getContext(), "My Notification");
                         builder.setContentTitle("Covid Watch");
-                        builder.setContentText("Welcome to my channel");
+
+
+                        builder.setContentText("Greetings, Ridham! Click the Link to begin a new Health Assessment.Survey Link : https://forms.gle/uCBgZBnDdpxZUEqq6");
+
                         builder.setSmallIcon(R.drawable.appicon);
                         builder.setAutoCancel(true);
                         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getContext());

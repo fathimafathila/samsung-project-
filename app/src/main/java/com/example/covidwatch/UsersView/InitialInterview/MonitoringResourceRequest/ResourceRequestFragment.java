@@ -40,13 +40,25 @@ public class ResourceRequestFragment extends Fragment {
     FirebaseFirestore db;
     ImageButton calDeceasedDate;
 
-    EditText edtAgreement,requestType, requestDate, comments, monitoringType ;
-    CheckBox urgent ;
-    Button save;
+    AutoCompleteTextView edtAgreement;
+    AutoCompleteTextView edtMonitoringType;
+    EditText requestType, requestDate, comments, monitoringType;
 
 
     final static String[] item_YN = new String[]{"Yes", "No"};
     MultiAutoCompleteTextView resourceReq;
+    final static String[] item_Mt = new String[]{
+            "-- None --",
+            "Text Message",
+            "Email",
+            "App"
+
+    };
+
+
+    CheckBox urgent ;
+    Button save;
+
     final static String[] item_RR = new String[]{
             "-- None --",
             "Activities of daily living",
@@ -71,14 +83,19 @@ public class ResourceRequestFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-//        // Health Condition Spinner
-//        resourceReq = v.findViewById( R.id.edtRequestType);
-//        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
-//        resourceReq.setAdapter( adapterHC );
+        // Health Condition Spinner
+        resourceReq = v.findViewById( R.id.edtRequestType );
+        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
+        resourceReq.setTokenizer( new MultiAutoCompleteTextView.CommaTokenizer() );
+        resourceReq.setAdapter( adapterHC );
 
-//        final AutoCompleteTextView customerAutoTV1 = v.findViewById(R.id.edtMonitoringType);
-//        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getContext(), R.layout.list_item, item_YN);
-//        customerAutoTV1.setAdapter(adapter1);
+        edtAgreement = v.findViewById( R.id.edtAgreement );
+        ArrayAdapter<String> adapterYN = new ArrayAdapter( requireContext(), R.layout.list_item, item_YN );
+        edtAgreement.setAdapter( adapterYN );
+
+        edtMonitoringType = v.findViewById( R.id.edtMonitoringType );
+        ArrayAdapter<String> adapterMt = new ArrayAdapter( requireContext(), R.layout.list_item, item_Mt );
+        edtMonitoringType.setAdapter( adapterMt );
 
 
 //        edtAgreement = v.findViewById(R.id.edtAgreement);
