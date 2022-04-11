@@ -1,9 +1,11 @@
 package com.example.covidwatch.UsersView ;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,6 +13,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.covidwatch.DateCalculation;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.DailyHealth.DailyHealthActivity;
 import com.example.covidwatch.UsersView.InitialInterview.InitialInterviewActivity;
@@ -23,7 +26,7 @@ import java.util.Calendar;
 
 public class UserDashboardActivity extends AppCompatActivity {
 
-    TextView title ;
+    TextView title,title2, day, mon ;
     FirebaseFirestore db ;
     FirebaseAuth fAuth;
     @Override
@@ -36,8 +39,9 @@ public class UserDashboardActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         title = findViewById(R.id.title);
-
-
+        title2 = findViewById(R.id.titl2);
+        day = findViewById(R.id.txtDays);
+        mon = findViewById(R.id.txtMon);
         String id;
        if(getIntent().getStringExtra("uuid").isEmpty()){
            id = fAuth.getCurrentUser().getUid();
@@ -51,10 +55,22 @@ public class UserDashboardActivity extends AppCompatActivity {
         myEdit.commit();
 
         db.collection("users").document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String fName = documentSnapshot.getString("First Name");
                 String lname = documentSnapshot.getString("Last Name");
+
+                String firstDate = documentSnapshot.getString("Specimen Date");
+                DateCalculation dateCalculation = new DateCalculation();
+                int remainingDay = dateCalculation.findDifference(dateCalculation.findEndDate(firstDate));
+
+                if(remainingDay <= 0){
+                    day.setText("Congratulations");
+                    mon.setText("Monitoring Period Completed");
+                }else{
+                    day.setText(String.valueOf(remainingDay) + " DAYS"  );
+                }
 
                 // Greeting Message
                 Calendar calendar = Calendar.getInstance();
@@ -71,7 +87,8 @@ public class UserDashboardActivity extends AppCompatActivity {
                 } else if (hour >= 21 && hour < 24) {
                     greetingMsg = "Good Night";
                 }
-                title.setText(greetingMsg + " " + fName + " " + lname + "!");
+                title.setText(greetingMsg + " ");
+                title2.setText(fName + " " + lname );
             }
         });
 

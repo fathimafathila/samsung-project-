@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="5dp"
     android:background="@color/white"
     tools:context=".UsersView.UserDashboardActivity"
     >
@@ -15,17 +14,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/belleza"
-        android:text="Good Morning User!"
-        android:textAlignment="center"
-        android:textColor="@color/red_color"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/userbackgroundd"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+           android:layout_marginTop="10dp"
+           >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/belleza"
+                android:text="Good Morning,"
+                android:textAlignment="center"
+                android:textColor="@color/red_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/titl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_toRightOf="@+id/title"
+                android:text="Ridham"
+                android:textStyle="bold"
+                android:textColor="@color/red_color"
+                android:textSize="25dp" />
+        </RelativeLayout>
 
 
     <LinearLayout
@@ -33,7 +58,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_margin="5dp">
+        android:layout_marginTop="15dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="130dp"
@@ -47,6 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
+
                 android:gravity="center">
 
                 <ImageView
@@ -170,7 +196,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
@@ -189,32 +216,34 @@
             android:background="@drawable/hands">
 
             <TextView
-                android:id="@+id/txtFullName"
+                android:id="@+id/txtDays"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/belleza"
-                android:text="   2 DAYS"
+                android:layout_marginStart="40dp"
+                android:text="2 DAYS"
                 android:textColor="@color/primary_color"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtUserId"
+            android:id="@+id/txtMon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtFullName"
+            android:layout_below="@+id/txtDays"
             android:layout_marginLeft="20dp"
             android:textColor="@color/primary_color"
-            android:text="             left to complete monitoring"
+            android:layout_marginStart="100dp"
+            android:text="left to complete monitoring"
             android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/txt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtUserId"
+                android:layout_below="@+id/txtMon"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="145dp"
                 android:textColor="@color/primary_color"

@@ -23,12 +23,15 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
     private Session session;
     private String email, subject, message, startDate, name;
+    private int id;
 
-    public JavaMailAPI(Context context, String email, String startDate, String name) {
+    public JavaMailAPI(Context context, String email, String startDate, String name, int id) {
         this.context = context;
         this.email = email;
         this.startDate = startDate;
         this.name = name;
+        this.id = id;
+
     }
 
     @Override
@@ -53,16 +56,31 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
             mimeMessage.setFrom(new InternetAddress("covidwatch3@gmail.com"));
             mimeMessage.addRecipients(Message.RecipientType.TO, String.valueOf(new InternetAddress(email)));
             mimeMessage.setSubject("Covid Watch");
-            mimeMessage.setText("Greetings, "+ name +"! \n" +
-                    "\n" +
-                    "Please note that your monitoring end date is "+ endDate +  "\n" +
-                    "\n" +
-                    "Click the Link to begin a new Health Assessment. All information provided is confidential. \n" +
-                    "\n" +
-                    "If you require further assistance, please contact your local health department at 3231417777(Monday-Friday from 8:30-5:00) or 3231417777 (during evening, weekend and holiday hours). \n" +
-                    "\n" +
-                    "\n" +
-                    "Survey Link : https://forms.gle/uCBgZBnDdpxZUEqq6 ");
+
+
+            if( id == 1 ){
+                mimeMessage.setText("Greetings, "+ name +"! \n" +
+                        "\n" +
+                        "Congratulations! You have successfully completed the monitoring period \n" +
+                        "If you require further assistance, please contact your local health department at 3231417777(Monday-Friday from 8:30-5:00) or 3231417777 (during evening, weekend and holiday hours). \n" +
+                        "\n" +
+                        "\n" +
+                        "Stay Safe And Healthy");
+            }else{
+                mimeMessage.setText("Greetings, "+ name +"! \n" +
+                        "\n" +
+                        "Please note that your monitoring end date is "+ endDate +  "\n" +
+                        "\n" +
+                        "Click the Link to begin a new Health Assessment. All information provided is confidential. \n" +
+                        "\n" +
+                        "If you require further assistance, please contact your local health department at 3231417777(Monday-Friday from 8:30-5:00) or 3231417777 (during evening, weekend and holiday hours). \n" +
+                        "\n" +
+                        "\n" +
+                        "Survey Link : https://forms.gle/uCBgZBnDdpxZUEqq6 ");
+            }
+
+
+
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();

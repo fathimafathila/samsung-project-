@@ -23,6 +23,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.covidwatch.AdminView.CreateUser.JavaMailAPI;
 import com.example.covidwatch.DateCalculation;
 import com.example.covidwatch.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +41,9 @@ public class MonitoringFragment extends Fragment {
     EditText startDate, endDate, monitoringDay, monitoringType, contactNumber, email;
     Button save;
     ImageButton calEndDate;
+    String fName;
+    String mail;
+    String specimenDate;
 
     AutoCompleteTextView monitorType;
     final static String[] item_RR = new String[]{
@@ -96,6 +100,16 @@ public class MonitoringFragment extends Fragment {
         String uuid = sh.getString("uuid","");
 
         db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                specimenDate = documentSnapshot.getString("Specimen Date");
+                fName = documentSnapshot.getString("First Name");
+                mail = documentSnapshot.getString("Email");
+            }
+        });
+
+
+        db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -107,7 +121,14 @@ public class MonitoringFragment extends Fragment {
 
                 startDate.setText(firstDate);
 
-                if(remainingDay >= 0) {
+
+
+                if(remainingDay == 0 ){
+                    JavaMailAPI javaMailAPI = new JavaMailAPI(getContext(), mail, specimenDate, fName, 1);
+                    javaMailAPI.execute();
+                    monitoringDay.setText(String.valueOf(remainingDay));
+                }
+                if(remainingDay > 0) {
                     monitoringDay.setText(String.valueOf(remainingDay));
 //                    if(Calendar.getInstance().getTime().getHours() == 8 && Calendar.getInstance().getTime().getMinutes() == 0 )  {
                         Notification.Builder builder = new Notification.Builder(getContext(), "My Notification");

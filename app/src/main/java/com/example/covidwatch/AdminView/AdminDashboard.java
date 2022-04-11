@@ -3,6 +3,7 @@ package com.example.covidwatch.AdminView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,14 +50,15 @@ public class AdminDashboard extends AppCompatActivity {
             }
         });
 
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String adminId = sh.getString("AdminId","");
         // Greeting Message
         TextView greetings =findViewById(R.id.title);
         TextView fullName = findViewById(R.id.titl2);
-        db.collection("users").document(fAuth.getCurrentUser().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        db.collection("users").document(adminId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String fName = documentSnapshot.getString("First Name");
-                String lname = documentSnapshot.getString("Last Name");
 
                 // Greeting Message
                 Calendar calendar = Calendar.getInstance();

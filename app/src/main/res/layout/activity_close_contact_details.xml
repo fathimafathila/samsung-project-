@@ -17,19 +17,18 @@ tools:context=".UsersView.InitialInterview.Location.CloseContactDetailsActivity"
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            />
+            android:onClick="smAddress"
+            android:background="@color/white" />
 
         <TextView
             android:id="@+id/txtCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Same Address"
-            android:textSize="24sp"
-            android:textColor="@color/textColor"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/checkbox"
-            />
+            android:text="Same Address"
+            android:textColor="@color/textColor"
+            android:textSize="24sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

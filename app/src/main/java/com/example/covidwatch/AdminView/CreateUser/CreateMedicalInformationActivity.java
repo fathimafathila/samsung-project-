@@ -252,7 +252,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                     user.put("Medical ID",medicalId);
                     user.put("Password",password);
                     user.put("uuid",ID);
-
+                    user.put("Urgent","False");
                     db.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -277,7 +277,7 @@ public class CreateMedicalInformationActivity extends AppCompatActivity {
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    JavaMailAPI javaMailAPI = new JavaMailAPI(getApplicationContext(), email, specimenDate, fName);
+                                                    JavaMailAPI javaMailAPI = new JavaMailAPI(getApplicationContext(), email, specimenDate, fName, 0);
 
                                                     javaMailAPI.execute();
                                                     Intent intent = new Intent(CreateMedicalInformationActivity.this , AdminDashboard.class);

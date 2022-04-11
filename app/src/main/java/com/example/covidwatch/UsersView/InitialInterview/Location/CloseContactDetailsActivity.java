@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,7 +37,7 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
 
     Button addContact;
     EditText firstName, lastName, emailID,dob,gender,  contactNumber, addressType, street, apartment, city, addInfo ;
-
+    CheckBox sameAddress;
     FirebaseAuth fAuth;
     FirebaseFirestore db;
     @Override
@@ -59,7 +60,7 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
         dob = findViewById(R.id.edtDob);
         city = findViewById(R.id.edtCity);
         addInfo = findViewById(R.id.edtAdditionalInfo);
-
+        sameAddress = findViewById(R.id.checkbox);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
@@ -71,7 +72,10 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
         SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         String id = sh.getString("uuid","");
 
+
         if(!getIntent().getStringExtra("uuid").equals("")) {
+
+
             addContact.setText("Update Contact");
             db.collection("users").document(id).collection("Contact").document(getIntent().getStringExtra("uuid"))
                     .addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -129,6 +133,43 @@ public class CloseContactDetailsActivity extends AppCompatActivity {
         });
     }
 
+
+    public  void smAddress(View v){
+
+        SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String id = sh.getString("uuid","");
+
+        String uuid;
+        if(!getIntent().getStringExtra("uuid").equals("")){
+            uuid = getIntent().getStringExtra("uuid");
+        }else{
+            uuid = id;
+        }
+        sameAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    if (sameAddress.isChecked()) {
+                        db.collection("users").document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                addressType.setText(documentSnapshot.getString("Address Type"));
+                                apartment.setText(documentSnapshot.getString("Apartment"));
+                                street.setText(documentSnapshot.getString("Street"));
+                                city.setText(documentSnapshot.getString("City"));
+                            }
+                        });
+                    }else{
+                        addressType.setText("");
+                        apartment.setText("");
+                        street.setText("");
+                        city.setText("");
+                    }
+                }
+
+        });
+
+    }
     // Setting date of birth
     @SuppressWarnings("deprecation")
     public void setDate(View view) {

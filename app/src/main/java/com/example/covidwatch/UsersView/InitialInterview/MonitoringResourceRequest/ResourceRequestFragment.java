@@ -20,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.example.covidwatch.AdminView.CreateUser.CreateMedicalInformationActivity;
 import com.example.covidwatch.AdminView.CreateUser.CreatePersonalInfomationActivity;
 import com.example.covidwatch.R;
 import com.example.covidwatch.UsersView.InitialInterview.Demographic.SelectDateFragment;
@@ -42,6 +43,7 @@ public class ResourceRequestFragment extends Fragment {
     EditText edtAgreement,requestType, requestDate, comments, monitoringType ;
     CheckBox urgent ;
     Button save;
+
 
     final static String[] item_YN = new String[]{"Yes", "No"};
     MultiAutoCompleteTextView resourceReq;
@@ -69,24 +71,29 @@ public class ResourceRequestFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Health Condition Spinner
-        resourceReq = v.findViewById( R.id.edtRequestType);
-        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
-        resourceReq.setAdapter( adapterHC );
+//        // Health Condition Spinner
+//        resourceReq = v.findViewById( R.id.edtRequestType);
+//        ArrayAdapter<String> adapterHC = new ArrayAdapter( requireContext(), R.layout.list_item, item_RR );
+//        resourceReq.setAdapter( adapterHC );
 
-        edtAgreement = v.findViewById(R.id.edtAgreement);
-        final AutoCompleteTextView customerAutoTV3 = v.findViewById(R.id.edtAgreement);
-        ArrayList<String> minor = new ArrayList<>();
-        minor.add("Yes");
-        minor.add("No");
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, minor);
-        customerAutoTV3.setAdapter(adapter3);
+//        final AutoCompleteTextView customerAutoTV1 = v.findViewById(R.id.edtMonitoringType);
+//        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(getContext(), R.layout.list_item, item_YN);
+//        customerAutoTV1.setAdapter(adapter1);
+
+
+//        edtAgreement = v.findViewById(R.id.edtAgreement);
+//        final AutoCompleteTextView customerAutoTV3 = v.findViewById(R.id.edtAgreement);
+//        ArrayList<String> minor = new ArrayList<>();
+//        minor.add("Yes");
+//        minor.add("No");
+//        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, minor);
+//        customerAutoTV3.setAdapter(adapter3);
 
 
         requestType = v.findViewById(R.id.edtRequestType);
         requestDate = v.findViewById(R.id.edtRequestDate);
         comments = v.findViewById(R.id.edtComments);
-        monitoringType = v.findViewById(R.id.edtMonitoringType);
+        // monitoringType = v.findViewById(R.id.edtMonitoringType);
         urgent = v.findViewById(R.id.checkBoxUrgent);
         save = v.findViewById(R.id.saveButton);
 
@@ -100,11 +107,14 @@ public class ResourceRequestFragment extends Fragment {
                 requestType.setText(documentSnapshot.getString("Resource Type"));
                 requestDate.setText(documentSnapshot.getString("Request Date"));
                 comments.setText(documentSnapshot.getString("Comments"));
-                monitoringType.setText(documentSnapshot.getString("Monitoring Type"));
-                if(documentSnapshot.getString("Urgent").equals("True")){
-                    urgent.setChecked(true);
-                }else{
-                    urgent.setChecked(false);
+              //  monitoringType.setText(documentSnapshot.getString("Monitoring Type"));
+                String bo = documentSnapshot.getString("Urgent");
+                if(bo != null) {
+                    if (bo.equals("True")) {
+                        urgent.setChecked(true);
+                    } else {
+                        urgent.setChecked(false);
+                    }
                 }
             }
         });
@@ -115,13 +125,16 @@ public class ResourceRequestFragment extends Fragment {
                 resource.put("Resource Type",requestType.getText().toString());
                 resource.put("Request Date",requestDate.getText().toString());
                 resource.put("Comments",comments.getText().toString());
-                resource.put("Monitoring Type",monitoringType.getText().toString());
+             //   resource.put("Monitoring Type",monitoringType.getText().toString());
 
                 if(urgent.isChecked()){
                     resource.put("Urgent","True");
+                    db.collection("users").document(uuid).update("Urgent","True");
                 }else{
                     resource.put("Urgent","False");
+                    db.collection("users").document(uuid).update("Urgent","False");
                 }
+
 
                 db.collection("users").document(uuid).collection("Resource Request").document(uuid)
                         .set(resource).addOnSuccessListener(new OnSuccessListener<Void>() {
