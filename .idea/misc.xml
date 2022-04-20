@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_create_personal_infomation.xml" value="0.14739583333333334" />
+        <entry key="app/src/main/res/layout/activity_gmap.xml" value="0.14375" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/activity_information.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/activity_map2.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/activity_maps_activitypcrtest.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/activity_user_dashboard.xml" value="0.12512664640324214" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

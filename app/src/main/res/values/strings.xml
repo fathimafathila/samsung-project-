@@ -4,7 +4,7 @@
 
     ------------------Main Screen ----------------
     <string name="errorAccount">Invalid Information </string>
-
+    <string name="google_map_key">AIzaSyCkfF5lii-tIKvcHMXGgRFGBcDtV_yUph8</string>
     ------------------Forget password--------------
     <string name="title">Forgot your password?</string>
     <string name="msg">We will send you a code to reset your password</string>
@@ -154,5 +154,15 @@ both in our professional and personal lives."</string>
         <item>Other</item>
         <item>Contact Only - No Relationship</item>
     </string-array>
+    <string name="title_activity_maps_activitypcrtest">MapsActivitypcrtest</string>
+    <string name="title_activity_map">MapActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>
